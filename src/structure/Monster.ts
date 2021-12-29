@@ -16,7 +16,7 @@ export class Monster extends Fighter {
     this.hp = player.hp + this.randomAttrib();
     this.armor = player.armor + (this.randomAttrib() / 100);
     this.critChance = player.critChance + (this.randomAttrib() / 100);
-    this.critDamage = player.critDamage + random.integer(0.01, 0.5);
+    this.critDamage = player.critDamage + random.real(-0.2, 0.5);
 
     if (player.skill) {
       const skill = random.pick(Skill.all);
@@ -33,8 +33,8 @@ export class Monster extends Fighter {
     return random.integer(-3, this.difficulty);
   }
 
-  show() {
-    const profile = super.show();
+  show(player?: Player) {
+    const profile = super.show(player);
 
     profile.addField(`${currency} Drop`, code(this.drop), true);
     profile.addField("xp Drop", code(this.xpDrop), true);
