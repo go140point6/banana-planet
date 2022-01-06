@@ -16,8 +16,6 @@ export const RIGHTMOST_ARROW_BUTTON = "⏭️";
 export const REPEAT = "🔁";
 export const DIAMOND = "🔹";
 export const CROSSED_SWORD = "⚔️";
-export const UP_TRIANGLE = "🔺";
-export const DOWN_TRIANGLE = "🔻";
 
 export function bold(str: string | number) {
   return `**${str}**`;
