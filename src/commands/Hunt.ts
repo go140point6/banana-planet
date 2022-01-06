@@ -30,7 +30,7 @@ class SearchMonster extends ButtonHandler {
 }
 
 export default class extends Command {
-  name = "hunt";
+  name = "oogi";
   description = "start hunting";
   block = true;
 
