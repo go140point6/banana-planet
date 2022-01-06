@@ -30,7 +30,7 @@ export class Monster extends Fighter {
   }
 
   private randomAttrib() {
-    return random.integer(-3, this.difficulty);
+    return random.integer(-6, this.difficulty);
   }
 
   show(player?: Player) {
