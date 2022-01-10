@@ -41,7 +41,7 @@ export abstract class Skill extends BaseSkill {
 }
 
 export class Rage extends Skill {
-  name = "Rage";
+  name = "Ape Rage";
   id = "rage";
   description = "Does double damage when activated temporarily";
   price = 45_000;
@@ -70,7 +70,7 @@ export class Rage extends Skill {
 }
 
 export class Heal extends Skill {
-  name = "Heal";
+  name = "Ape Heal";
   id = "heal";
   description = "Heals 20% of hp when activated";
   price = 55_000;
@@ -100,7 +100,7 @@ export class Heal extends Skill {
 
 
 export class Defense extends Skill {
-  name = "Defense";
+  name = "Ape Defense";
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 50_000;
