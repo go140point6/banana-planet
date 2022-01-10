@@ -12,10 +12,13 @@ import {
 } from "../utils";
 import { ButtonHandler } from "@jiman24/discord.js-button";
 import { Battle } from "discordjs-rpg";
+import { oneLine } from "common-tags";
 
 export default class extends Command {
   name = "boss";
   description = "fight boss";
+  max = 2;
+  waitTime = 1000 * 60 * 60;
 
   async exec(msg: Message, args: string[]) {
 
@@ -32,28 +35,65 @@ export default class extends Command {
 
       const selectedBoss = boss[index];
       const menu = new ButtonHandler(msg, selectedBoss.show());
+      const players: Player[] = [];
 
       menu.addButton("battle", async () => {
 
-        const battle = new Battle(msg, random.shuffle([player, selectedBoss]));
+        const bossEmbed = selectedBoss.show();
+        bossEmbed.setDescription(
+          oneLine`${player.name} wants to battle ${selectedBoss.name}. Click
+          join to participate max ${this.max} players`
+        );
+
+        const joinMenu = new ButtonHandler(msg, bossEmbed)
+          .setTimeout(this.waitTime)
+          .setMultiUser(this.max);
+
+        joinMenu.addButton("join", (user) => {
+
+          try {
+
+            const player = Player.fromUser(user);
+
+            players.push(player);
+
+            msg.channel.send(
+              `${user.username} joined! (${players.length}/${this.max} players)`
+            );
+
+          } catch (err) {
+            const errMsg = (err as Error).message;
+            msg.channel.send(`${user} ${errMsg}`);
+          }
+
+        })
+
+        await joinMenu.run();
+
+        const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
+        battle.setBoss(selectedBoss);
 
         const winner = await battle.run();
 
-        if (winner.id === player.id) {
+        if (winner.id !== selectedBoss.id) {
 
           const { drop, xpDrop } = selectedBoss;
 
-          const currLevel = player.level;
-          player.addXP(xpDrop);
-          player.coins += drop;
-          player.win++;
+          for (const player of players) {
 
-          msg.channel.send(`${player.name} has earned ${bold(drop)} ${currency}!`);
-          msg.channel.send(`${player.name} has earned ${bold(xpDrop)} xp!`);
+            const currLevel = player.level;
+            player.addXP(xpDrop);
+            player.coins += drop;
+            player.win++;
 
-          if (currLevel !== player.level) {
-            msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
+            msg.channel.send(`${player.name} has earned ${bold(drop)} ${currency}!`);
+            msg.channel.send(`${player.name} has earned ${bold(xpDrop)} xp!`);
+
+            if (currLevel !== player.level) {
+              msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
+            }
           }
+
         }
       })
 
