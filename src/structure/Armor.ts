@@ -42,28 +42,28 @@ export abstract class Armor extends BaseArmor {
 
 export class Helmet extends Armor {
   id = "helmet";
-  name = "Helmet";
-  price = 8500;
+  name = "Phoenix Egg Shield";
+  price = 4000;
   armor = 0.005
 }
 
 export class ChestPlate extends Armor {
   id = "chest_plate";
-  name = "Chest Plate";
+  name = "Ironman Suit";
   price = 5000;
   armor = 0.006
 }
 
 export class Leggings extends Armor {
   id = "leggings";
-  name = "Leggings";
-  price = 4500;
+  name = "Brad's Knight Armor";
+  price = 6000;
   armor = 0.008
 }
 
 export class Boots extends Armor {
   id = "boots";
-  name = "Boots";
-  price = 5500;
+  name = "Diamond Gloves";
+  price = 10000;
   armor = 0.011
 }
