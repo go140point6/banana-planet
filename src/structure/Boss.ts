@@ -9,9 +9,9 @@ export abstract class Boss extends Fighter {
 
   static get all(): Boss[] {
     return [
-      new Cavernmonster("Manzana Banana"),
-      new Vortexscreamer("Burro Banana"),
-      new Rottingseeker("Barangan Banana"),
+      new Cavernmonster("Commander Hinman"),
+      new Vortexscreamer("Clayton King"),
+      new Rottingseeker("Gensler Overlord"),
     ];
   }
 
