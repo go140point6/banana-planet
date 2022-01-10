@@ -46,7 +46,7 @@ export default class extends Command {
       switch (arg1) {
         case "armor": items = Armor.all; break;
         case "weapon": items = Weapon.all; break;
-        case "pet": items = SideKick.all; break;
+        case "sidekick": items = SideKick.all; break;
         case "skill": items = Skill.all; break;
         default: items = null;
       }
@@ -84,9 +84,13 @@ export default class extends Command {
         itemList += "\n----\n";
         itemList += `To select an item on index 1, use \`${prefix}${this.name} ${category} 1\``;
 
+        const cap = (str: string) => {
+          return str[0].toUpperCase() + str.slice(1);
+        }
+
         const embed = new MessageEmbed()
           .setColor("RANDOM")
-          .setTitle(`${category} Shop`)
+          .setTitle(`${cap(category)} Shop`)
           .setDescription(itemList)
 
         msg.channel.send({ embeds: [embed] });
@@ -99,7 +103,7 @@ export default class extends Command {
       **Categories**
       armor
       weapon
-      pet
+      sidekick
       skill
       ------
       To open armor shop use command \`${prefix}${this.name} armor\`
