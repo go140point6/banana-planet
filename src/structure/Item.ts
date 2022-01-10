@@ -1,7 +1,7 @@
 import { Message, MessageEmbed } from "discord.js";
 import { Armor } from "./Armor";
 import { Weapon } from "./Weapon";
-import { Pet } from "./Pet";
+import { SideKick } from "./Pet";
 import { Skill } from "./Skill";
 
 export abstract class Item {
@@ -14,7 +14,7 @@ export abstract class Item {
     return [
       ...Armor.all,
       ...Weapon.all,
-      ...Pet.all,
+      ...SideKick.all,
       ...Skill.all,
     ];
   }

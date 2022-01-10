@@ -5,7 +5,7 @@ import { code, currency } from "../utils";
 import { Item } from "./Item";
 import { Armor } from "./Armor";
 import { Weapon } from "./Weapon";
-import { Pet } from "./Pet";
+import { SideKick } from "./Pet";
 import { Skill } from "./Skill";
 
 export const AVATARS = [
@@ -55,7 +55,7 @@ export class Player extends PlayerRPG {
 
     const pet = player.pet;
     if (pet) {
-      const validPet = Pet.all.find(x => x.id === pet.id);
+      const validPet = SideKick.all.find(x => x.id === pet.id);
       validPet?.setOwner(player);
     }
 

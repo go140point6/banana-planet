@@ -2,7 +2,7 @@ import { Command } from "@jiman24/commandment";
 import { Message, MessageEmbed } from "discord.js";
 import { Armor } from "../structure/Armor";
 import { Weapon } from "../structure/Weapon";
-import { Pet } from "../structure/Pet";
+import { SideKick } from "../structure/Pet";
 import { ButtonHandler } from "@jiman24/discord.js-button";
 import { Player } from "../structure/Player";
 import { BLUE_BUTTON, DIAMOND, remove, toNList, validateNumber } from "../utils";
@@ -93,7 +93,7 @@ export default class extends Command {
             })
           }
 
-        } else if (item instanceof Pet) {
+        } else if (item instanceof SideKick) {
 
           if (player.pet?.id === item.id) {
 

@@ -2,10 +2,10 @@ import { Message } from "discord.js";
 import { Pet as BasePet } from "discordjs-rpg";
 import { Player } from "./Player";
 
-export abstract class Pet extends BasePet {
+export abstract class SideKick extends BasePet {
   abstract price: number;
 
-  static get all(): Pet[] {
+  static get all(): SideKick[] {
     return [
       new Blob(),
       new Slime(),
@@ -36,38 +36,38 @@ export abstract class Pet extends BasePet {
   }
 }
 
-export class Blob extends Pet {
-  name = "Blob";
+export class Blob extends SideKick {
+  name = "Goku";
   id = "blob";
   attack = 20;
   price = 13000;
 }
 
-export class Slime extends Pet {
-  name = "Slime";
+export class Slime extends SideKick {
+  name = "King Kong";
   id = "slime";
   attack = 15;
   interceptRate = 0.2;
   price = 15000;
 }
 
-export class Phoenix extends Pet {
-  name = "Phoenix";
+export class Phoenix extends SideKick {
+  name = "John Wick";
   id = "phoenix";
   attack = 15;
   interceptRate = 0.2;
   price = 15000;
 }
 
-export class Titanoboa extends Pet {
-  name = "Titan-o-boa";
+export class Titanoboa extends SideKick {
+  name = "The Phoenix";
   id = "titan-o-boa";
   attack = 5;
   interceptRate = 0.4;
   price = 30000;
 }
 
-export class BeardedDragon extends Pet {
+export class BeardedDragon extends SideKick {
   name = "Bearded Dragon";
   id = "bearded-dragon";
   attack = 60;
@@ -75,7 +75,7 @@ export class BeardedDragon extends Pet {
   price = 70000;
 }
 
-export class BabyDragon extends Pet {
+export class BabyDragon extends SideKick {
   name = "Baby Dragon";
   id = "baby-dragon";
   attack = 20;
@@ -83,7 +83,7 @@ export class BabyDragon extends Pet {
   price = 55000;
 }
 
-export class Dog extends Pet {
+export class Dog extends SideKick {
   name = "Dog";
   id = "dog";
   attack = 10;
