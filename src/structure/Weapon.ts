@@ -42,28 +42,28 @@ export abstract class Weapon extends BaseWeapon {
 
 class Axe extends Weapon {
   id = "axe";
-  name = "Axe";
+  name = "Lightsaber";
   attack = 20;
   price = 1000;
 }
 
 class Sword extends Weapon {
   id = "sword";
-  name = "Sword";
+  name = "Ape's AR";
   attack = 30;
   price = 2000;
 }
 
 class Dagger extends Weapon {
   id = "dagger";
-  name = "Dagger";
+  name = "Banana Bomb";
   attack = 40;
   price = 3000;
 }
 
 class Mace extends Weapon {
   id = "mace";
-  name = "Mace";
+  name = "Infinity Gauntlet";
   attack = 45;
   price = 3500;
 }
