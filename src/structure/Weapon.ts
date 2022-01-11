@@ -1,9 +1,12 @@
+import { oneLine } from "common-tags";
 import { Message } from "discord.js";
 import { Weapon as BaseWeapon } from "discordjs-rpg";
 import { Player } from "../structure/Player";
 
 export abstract class Weapon extends BaseWeapon {
   abstract price: number;
+  description = oneLine`Weapon is used to increase player’s attack stat. Max 2
+  weapons can be equipped.`;
 
   static get all(): Weapon[] {
     return [

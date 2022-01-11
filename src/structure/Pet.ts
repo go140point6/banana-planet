@@ -1,9 +1,12 @@
+import { oneLine } from "common-tags";
 import { Message } from "discord.js";
 import { Pet as BasePet } from "discordjs-rpg";
 import { Player } from "./Player";
 
 export abstract class SideKick extends BasePet {
   abstract price: number;
+  description = oneLine`Pet will be your companion during battle. It will attack
+  the opponent based on its intercept rate.`;
 
   static get all(): SideKick[] {
     return [

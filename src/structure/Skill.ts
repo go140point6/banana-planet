@@ -6,6 +6,8 @@ import { Player } from "./Player";
 
 export abstract class Skill extends BaseSkill {
   abstract price: number;
+  description = oneLine`Skill will enhance your stat (temporarily) during
+  battle. The enhancements will lose its effects once the battle is finished.`;
 
   static get all(): Skill[] {
     return [

@@ -91,7 +91,7 @@ export default class extends Command {
         const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setTitle(`${cap(category)} Shop`)
-          .setDescription(itemList)
+          .setDescription(items[0].description + "\n\n" + itemList)
 
         msg.channel.send({ embeds: [embed] });
 

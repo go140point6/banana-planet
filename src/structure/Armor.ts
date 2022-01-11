@@ -1,9 +1,12 @@
+import { oneLine } from "common-tags";
 import { Message } from "discord.js";
 import { Armor as BaseArmor } from "discordjs-rpg";
 import { Player } from "../structure/Player";
 
 export abstract class Armor extends BaseArmor {
   abstract price: number;
+  description = oneLine`Armors is used to increase player’s armor stat. Max
+  armor can be equipped by a player is 4.`;
 
   static get all(): Armor[] {
     return [

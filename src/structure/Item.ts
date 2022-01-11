@@ -10,6 +10,7 @@ export abstract class Item {
   abstract price: number;
   abstract show(): MessageEmbed;
   abstract buy(msg: Message): void;
+  abstract description: string;
   static get all() {
     return [
       ...Armor.all,
