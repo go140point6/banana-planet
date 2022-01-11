@@ -17,7 +17,7 @@ import { oneLine } from "common-tags";
 export default class extends Command {
   name = "boss";
   description = "fight boss";
-  max = 2;
+  max = 5;
   waitTime = 1000 * 60 * 60;
 
   async exec(msg: Message, args: string[]) {
