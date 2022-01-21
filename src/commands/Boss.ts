@@ -92,6 +92,8 @@ export default class extends Command {
             if (currLevel !== player.level) {
               msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
             }
+
+            player.save();
           }
 
         }
