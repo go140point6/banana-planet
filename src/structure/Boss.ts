@@ -26,7 +26,7 @@ export abstract class Boss extends Fighter {
 }
 
 export class Cavernmonster extends Boss {
-  drop = 2400;
+  drop = 600;
   xpDrop = 500;
   attack = 500;
   hp = 550;
@@ -47,7 +47,7 @@ export class Cavernmonster extends Boss {
 }
 
 export class Vortexscreamer extends Boss {
-  drop = 4800;
+  drop = 1200;
   xpDrop = 800;
   attack = 1200;
   hp = 1420;
@@ -68,7 +68,7 @@ export class Vortexscreamer extends Boss {
 }
 
 export class Rottingseeker extends Boss {
-  drop = 7000;
+  drop = 1750;
   xpDrop = 1000;
   attack = 2350;
   hp = 2570;
