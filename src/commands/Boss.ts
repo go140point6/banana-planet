@@ -13,6 +13,8 @@ import {
 import { ButtonHandler } from "@jiman24/discord.js-button";
 import { Battle } from "discordjs-rpg";
 import { oneLine } from "common-tags";
+import { client } from "..";
+import { DateTime } from "luxon";
 
 export default class extends Command {
   name = "boss";
@@ -38,6 +40,18 @@ export default class extends Command {
       const players: Player[] = [];
 
       menu.addButton("battle", async () => {
+
+        const duration = client.lastBossKilled.diffNow(["minutes"]);
+        const minutes = Math.abs(duration.minutes);
+        const timeLeft = client.lastBossKilled.plus({ minutes: 10 }).toRelative();
+
+        // if less than 10 mins
+        if (minutes < 10) {
+          msg.channel.send(`You can run the boss command again ${timeLeft}`);
+          return;
+        } else {
+          client.lastBossKilled = DateTime.now();
+        }
 
         const bossEmbed = selectedBoss.show();
         bossEmbed.setDescription(
