@@ -21,7 +21,7 @@ export const AVATARS = [
 
 export class Player extends PlayerRPG {
   name: string;
-  coins = 0;
+  _coins = 0;
   level = 1;
   xp = 0;
   win = 0;
@@ -32,6 +32,23 @@ export class Player extends PlayerRPG {
     super(user);
     this.name = user.username;
     this.imageUrl = imageUrl;
+  }
+
+  get coins() {
+    return this._coins;
+  }
+
+  set coins(amount: number) {
+    const amountGot = amount - this._coins;
+
+    if (client.leaderboard.has(this.id)) {
+      const leaderboardData = client.leaderboard.get(this.id);
+      client.leaderboard.set(this.id, { name: this.name, coins: leaderboardData.coins + amountGot });
+    } else {
+      client.leaderboard.set(this.id, { name: this.name, coins: amountGot });
+    }
+
+    this._coins = amount;
   }
 
   static fromUser(user: User) {

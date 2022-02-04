@@ -10,7 +10,7 @@ export default class extends Command {
 
   exec(msg: Message) {
 
-    const player = client.players.array()
+    const player = client.leaderboard.array()
       .sort((a, b) => b.coins - a.coins)
       .map((x, i) => `${i + 1}. ${x.name} \`${x.coins}\``)
       .slice(0, 10)

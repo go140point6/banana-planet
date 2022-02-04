@@ -7,4 +7,5 @@ export class Client extends DiscordClient {
   players = new Enmap("Player");
   commandManager = new CommandManager(process.env.PREFIX || "!");
   lastBossKilled = DateTime.fromJSDate(new Date(2000, 1, 1));
+  leaderboard = new Enmap("Leaderboard");
 }
