@@ -49,7 +49,7 @@ export class Blob extends SideKick {
 export class Slime extends SideKick {
   name = "King Kong";
   id = "slime";
-  attack = 15;
+  attack = 30;
   interceptRate = 0.2;
   price = 15000;
 }
@@ -57,7 +57,7 @@ export class Slime extends SideKick {
 export class Phoenix extends SideKick {
   name = "John Wick";
   id = "phoenix";
-  attack = 15;
+  attack = 40;
   interceptRate = 0.2;
   price = 15000;
 }
@@ -65,7 +65,7 @@ export class Phoenix extends SideKick {
 export class Titanoboa extends SideKick {
   name = "The Phoenix";
   id = "titan-o-boa";
-  attack = 5;
+  attack = 50;
   interceptRate = 0.4;
   price = 30000;
 }
