@@ -16,7 +16,7 @@ export class Monster extends Fighter {
     this.hp = player.hp + this.randomAttrib();
     this.armor = player.armor + (this.randomAttrib() / 100);
     this.critChance = player.critChance + (this.randomAttrib() / 100);
-    this.critDamage = player.critDamage + random.real(-0.2, 0.5);
+    this.critDamage = player.critDamage + random.real(0.01, 0.5);
 
     if (player.skill && random.bool()) {
       const skill = random.pick(Skill.all);
@@ -30,7 +30,7 @@ export class Monster extends Fighter {
   }
 
   private randomAttrib() {
-    return random.integer(-20, this.difficulty);
+    return random.integer(5, this.difficulty);
   }
 
   show(player?: Player) {
