@@ -12,16 +12,11 @@ export class Monster extends Fighter {
   constructor(player: Player) {
     super(random.pick(names));
     this.difficulty = player.level;
-    //this.attack = player.attack + this.randomAttrib();
-    this.attack = player.attack;
-    //this.hp = player.hp + this.randomAttrib();
-    this.hp = player.hp;
-    //this.armor = player.armor + (this.randomAttrib() / 100);
-    this.armor = player.armor;
-    //this.critChance = player.critChance + (this.randomAttrib() / 100);
-    this.critChance = player.critChance;
-    //this.critDamage = player.critDamage + random.real(0.01, 0.5);
-    this.critDamage = player.critDamage;
+    this.attack = player.attack + this.randomAttrib();
+    this.hp = player.hp + this.randomAttrib();
+    this.armor = player.armor + (this.randomAttrib() / 100);
+    this.critChance = player.critChance + (this.randomAttrib() / 100);
+    this.critDamage = player.critDamage + random.real(0.01, 0.5);
 
     if (player.skill && random.bool()) {
       const skill = random.pick(Skill.all);
