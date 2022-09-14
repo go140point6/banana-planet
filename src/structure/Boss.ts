@@ -9,9 +9,11 @@ export abstract class Boss extends Fighter {
 
   static get all(): Boss[] {
     return [
-      new Cavernmonster("Commander Hinman"),
-      new Vortexscreamer("Clayton King"),
-      new Rottingseeker("Gensler Overlord"),
+      new DarkPhoenix("Dark Phoenix"),
+      new Thanos("Thanos"),
+      new Apocalypse("Apocalypse"),
+      new JJonahJameson("J. Jonah Jamerson"),
+      new Galactus("Galactus"),
     ];
   }
 
@@ -25,7 +27,7 @@ export abstract class Boss extends Fighter {
   }
 }
 
-export class Cavernmonster extends Boss {
+export class Apocalypse extends Boss {
   drop = 600;
   xpDrop = 500;
   attack = 500;
@@ -33,7 +35,7 @@ export class Cavernmonster extends Boss {
   armor = 0.3;
   critChance = 0.1;
   critDamage = 3;
-  imageUrl = "https://www.runehq.com/image/monsterdb/v/vanstromklause.png";
+  imageUrl = "https://www.listchallenges.com/f/items/aa29bbdf-ddd9-4544-b895-1aa5f77b2cd4.jpg";
   
   constructor(name: string) {
     super(name);
@@ -46,7 +48,7 @@ export class Cavernmonster extends Boss {
   }
 }
 
-export class Vortexscreamer extends Boss {
+export class Thanos extends Boss {
   drop = 1200;
   xpDrop = 800;
   attack = 1200;
@@ -54,7 +56,7 @@ export class Vortexscreamer extends Boss {
   armor = 0.35;
   critChance = 0.2;
   critDamage = 3.4;
-  imageUrl = "https://www.runehq.com/image/monsterdb/k/kriltsutsaroth.png"
+  imageUrl = "https://www.listchallenges.com/f/items/ce8cf83b-8bfe-448e-a4a7-b54153ea2aa2.jpg"
 
   constructor(name: string) {
     super(name);
@@ -67,16 +69,17 @@ export class Vortexscreamer extends Boss {
   }
 }
 
-export class Rottingseeker extends Boss {
+export class Galactus extends Boss {
   drop = 1750;
   xpDrop = 1000;
   attack = 2350;
   hp = 2570;
   armor = 0.39;
-  critChance = 0.2;
+  critChance = 0.3;
   critDamage = 3.8;
-  imageUrl = "https://www.runehq.com/image/monsterdb/k/kreearra.png";
+  imageUrl = "https://www.listchallenges.com/f/items/676ad1ae-3ad3-4225-9526-f5e8c2fd9515.jpg";
 
+  
   constructor(name: string) {
     super(name);
 
@@ -88,3 +91,46 @@ export class Rottingseeker extends Boss {
   }
 }
 
+export class DarkPhoenix extends Boss {
+  drop = 2250;
+  xpDrop = 1250;
+  attack = 2750;
+  hp = 3000;
+  armor = 0.49;
+  critChance = 0.4;
+  critDamage = 4.5;
+  imageUrl = "https://www.listchallenges.com/f/items/27bc26e6-fca9-4252-bfd1-6abf33c8f3e5.jpg";
+
+  
+  constructor(name: string) {
+    super(name);
+
+    const skill = new Defense(); 
+    skill.setOwner(this);
+
+    const pet = new Titanoboa()
+    pet.setOwner(this);
+  }
+}
+
+export class JJonahJameson extends Boss {
+  drop = 3000;
+  xpDrop = 2000;
+  attack = 3500;
+  hp = 5000;
+  armor = 0.59;
+  critChance = 0.5;
+  critDamage = 5.5;
+  imageUrl = "https://www.listchallenges.com/f/items/9bf800b2-de67-4560-b8dd-8bf33ce71968.jpg";
+
+  
+  constructor(name: string) {
+    super(name);
+
+    const skill = new Defense(); 
+    skill.setOwner(this);
+
+    const pet = new Titanoboa()
+    pet.setOwner(this);
+  }
+}
