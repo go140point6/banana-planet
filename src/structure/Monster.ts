@@ -13,14 +13,14 @@ export class Monster extends Fighter {
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
     this.critDamage = player.critDamage + random.real(0.01, 0.5);
-    if this.difficulty < 6 {
+    if (this.difficulty < 6) {
       this.attack = player.attack + this.randomAttribNoob();
       this.hp = player.hp + this.randomAttribNoob();
       this.armor = player.armor + (this.randomAttribNoob() / 100);
       this.critChance = player.critChance + (this.randomAttribNoob() / 100);
     } 
     
-    if this.difficulty > 5 {
+    if (this.difficulty > 5) {
       this.attack = player.attack + this.randomAttack();
       this.hp = player.hp + this.randomHP();
       this.armor = player.armor + (this.randomArmor() / 100);
