@@ -27,10 +27,10 @@ export class Monster extends Fighter {
       this.critChance = player.critChance + (this.randomCritChance() / 100);
     }
     
-    if (player.skill && random.bool()) {
-      const skill = random.pick(Skill.all);
-      skill.setOwner(this);
-    }
+//    if (player.skill && random.bool()) {  //debug
+//      const skill = random.pick(Skill.all);  //debug
+//      skill.setOwner(this);  //debug
+//    }  //debug
 
     if (player.pet && random.bool()) {
       const pet = random.pick(SideKick.all);
