@@ -189,7 +189,7 @@ export class Damage extends Skill {
     return embed;
   }
 
-  close(_p1: Fighter, _p2: Fighter) {
-    p1.attack -= 2;
+  close(p1: Fighter, _p2: Fighter) {
+    p1.critDamage -= 2;
     }
   }
