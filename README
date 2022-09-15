@@ -24,7 +24,6 @@ Cosmetic:
 - Expanded weapons and armor.
 
 New Features:
-- Gamble bananas in a slot machine.  Didn't create this just turned it on (was already there).
 
 Bugs:
 - On compliation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
@@ -34,4 +33,6 @@ To Do:
 - Improved and more descriptive help subsystem.
 - Expand pets and skills.
 - Adjustment of banana currency?  Not sure what this request is referring to.
-- create .env.sample in repo so there is an example of what to make the .env look like.
+- Create .env.sample in repo so there is an example of what to make the .env look like.
+- More shortcut keys.
+- Enable the gambling module.
