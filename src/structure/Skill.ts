@@ -178,7 +178,7 @@ export class Damage extends Skill {
       .setColor("GREEN")
       .setDescription(
         oneLine`${p1.name} uses **${this.name} Skill** and increases the damage
-        done by a crtical hit to ${code(p1.critDamageAmount)}!`
+        done by a crtical hit to ${code(p1.critDamage)}!`
       )
 
     if (this.imageUrl)
