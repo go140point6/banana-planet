@@ -14,6 +14,8 @@ export abstract class Skill extends BaseSkill {
       new Rage(),
       new Heal(),
       new Defense(),
+      new Luck(),
+      new Damage(),
     ];
   }
 
@@ -119,6 +121,64 @@ export class Defense extends Skill {
       .setDescription(
         oneLine`${p1.name} uses **${this.name} Skill** and increases
         ${code(formatPercent(armorAmount))}armor !`
+      )
+
+    if (this.imageUrl)
+      embed.setThumbnail(this.imageUrl);
+
+    return embed;
+  }
+
+  close(_p1: Fighter, _p2: Fighter) { }
+}
+
+export class Luck extends Skill {
+  name = "Ape Luck";
+  id = "luck";
+  description = "Increase critical chance by 25% when activated";
+  price = 50_000;
+  interceptRate = 0.35;
+
+  use(p1: Fighter, _p2: Fighter) {
+
+    const critChanceAmount = p1.critChance * 0.25;
+    p1.critChance += critChanceAmount;
+
+    const embed = new MessageEmbed()
+      .setTitle("Skill interception")
+      .setColor("GREEN")
+      .setDescription(
+        oneLine`${p1.name} uses **${this.name} Skill** and increases their
+        chance of a critcal hit by ${code(formatPercent(critChanceAmount))} !`
+      )
+
+    if (this.imageUrl)
+      embed.setThumbnail(this.imageUrl);
+
+    return embed;
+  }
+
+  close(_p1: Fighter, _p2: Fighter) { }
+}
+
+export class Damage extends Skill {
+  name = "Ape Crtical Damage";
+  id = "damage";
+  description = "Increase critical damage by 25% when activated";
+  price = 50_000;
+  interceptRate = 0.15;
+
+  use(p1: Fighter, _p2: Fighter) {
+
+    const critDamageAmount = p1.critDamage + 1.0;
+    p1.critDamage += critDamageAmount;
+
+    const embed = new MessageEmbed()
+      .setTitle("Skill interception")
+      .setColor("GREEN")
+      .setDescription(
+        oneLine`${p1.name} uses **${this.name} Skill** and increases the damage
+        done by a crtical hit to ${code(p1.critDamageAmount)}!`
       )
 
     if (this.imageUrl)

@@ -130,7 +130,7 @@ export class JJonahJameson extends Boss {
     const skill = new Defense(); 
     skill.setOwner(this);
 
-    const pet = new Titanoboa()
+    const pet = new Media()
     pet.setOwner(this);
   }
 }

@@ -15,6 +15,11 @@ npx tsc
 create a .env file with the token:  BOT_TOKEN=whateveryourdicordBOTtokenis
 npm run dev
 
+Create Discord Bot:
+- Intents: Presence(?), Server Memmbers and Message Content (not sure if all needed, check later)
+- Read Messages/View Channels
+- Send Messages
+
 Fixes:
 - Easier abililty to win fight level 5 and under.
 - At level 6 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.

@@ -10,10 +10,18 @@ export abstract class SideKick extends BasePet {
 
   static get all(): SideKick[] {
     return [
-      new Blob(),
-      new Slime(),
-      new Phoenix(),
-      new Titanoboa(),
+      new BabyApe(),
+      new BearableGuy(),
+      new RichDuck(),
+      new Bae(),
+      new PunkWorldsArt(),
+      new PhoenixEgg(),
+      new BearableBull(),
+      new Fanatics(),
+      new Eros(),
+      new SilverSurfer(),
+      new Darkseid(),
+      new Media(),
     ];
   }
 
@@ -39,58 +47,97 @@ export abstract class SideKick extends BasePet {
   }
 }
 
-export class Blob extends SideKick {
-  name = "Goku";
-  id = "blob";
+export class BabyApe extends SideKick {
+  name = "Baby Ape";
+  id = "bape";
   attack = 20;
   price = 13000;
 }
 
-export class Slime extends SideKick {
-  name = "King Kong";
-  id = "slime";
+export class BearableGuy extends SideKick {
+  name = "Bearable Guy";
+  id = "guy";
   attack = 30;
   interceptRate = 0.2;
   price = 15000;
 }
 
-export class Phoenix extends SideKick {
-  name = "John Wick";
-  id = "phoenix";
+export class RichDuck extends SideKick {
+  name = "Rich Duck";
+  id = "duck";
   attack = 40;
-  interceptRate = 0.2;
-  price = 15000;
+  interceptRate = 0.25;
+  price = 20000;
 }
 
-export class Titanoboa extends SideKick {
-  name = "The Phoenix";
-  id = "titan-o-boa";
+export class Bae extends SideKick {
+  name = "Baa";
+  id = "bae";
   attack = 50;
-  interceptRate = 0.4;
+  interceptRate = 0.3;
   price = 30000;
 }
 
-export class BeardedDragon extends SideKick {
-  name = "Bearded Dragon";
-  id = "bearded-dragon";
+export class PunkWorldsArt extends SideKick {
+  name = "Sentient Punk Worlds Art";
+  id = "punkworld";
   attack = 60;
-  interceptRate = 0.1;
+  interceptRate = 0.35;
   price = 70000;
 }
 
-export class BabyDragon extends SideKick {
-  name = "Baby Dragon";
-  id = "baby-dragon";
-  attack = 20;
-  interceptRate = 0.2;
-  price = 55000;
+export class PhoenixEgg extends SideKick {
+  name = "Phoenix Egg";
+  id = "egg";
+  attack = 70;
+  interceptRate = 0.4;
+  price = 100000;
 }
 
-export class Dog extends SideKick {
-  name = "Dog";
-  id = "dog";
-  attack = 10;
+export class BearableBull extends SideKick {
+  name = "Bearable Bull";
+  id = "bull";
+  attack = 80;
+  interceptRate = 0.45;
+  price = 160000;
+}
+
+export class Fanatics extends SideKick {
+  name = "Religious Fanatics";
+  id = "fanatics";
+  attack = 100;
+  interceptRate = 0.15;
+  price = 1000000000;
+}
+
+export class Eros extends SideKick {
+  name = "Eros of Titan";
+  id = "brother";
+  attack = 200;
+  interceptRate = 0.25;
+  price = 1000000000;
+}
+
+export class SilverSurfer extends SideKick {
+  name = "Silver Surfer";
+  id = "herald";
+  attack = 300;
   interceptRate = 0.35;
-  price = 60000;
+  price = 1000000000;
 }
 
+export class Darkseid extends SideKick {
+  name = "Darkseid";
+  id = "darkseid";
+  attack = 400;
+  interceptRate = 0.45;
+  price = 1000000000;
+}
+
+export class Media extends SideKick {
+  name = "The Media - A lie repeated...";
+  id = "media";
+  attack = "500";
+  interceptRate = 0.99;
+  price = 1000000000;
+}
