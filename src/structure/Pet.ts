@@ -137,7 +137,7 @@ export class Darkseid extends SideKick {
 export class Media extends SideKick {
   name = "The Media - A lie repeated...";
   id = "media";
-  attack = "500";
+  attack = 500;
   interceptRate = 0.99;
   price = 1000000000;
 }

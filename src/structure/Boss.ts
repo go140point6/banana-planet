@@ -105,7 +105,7 @@ export class DarkPhoenix extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new critDamage(); 
+    const skill = new Damage(); 
     skill.setOwner(this);
 
     const pet = new Darkseid()
@@ -127,7 +127,7 @@ export class JJonahJameson extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new critChance(); 
+    const skill = new Luck(); 
     skill.setOwner(this);
 
     const pet = new Media()
