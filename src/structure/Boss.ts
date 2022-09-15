@@ -1,7 +1,7 @@
 import { Fighter } from "discordjs-rpg";
 import { currency } from "../utils";
-import { Defense, Heal, Rage } from "../structure/Skill";
-import { Phoenix, Slime, Titanoboa } from "./Pet";
+import { Defense, Heal, Rage, Luck, Damage } from "../structure/Skill";
+import { BabyApe, BearableGuy, RichDuck, Bae, PunkWorldsArt, PhoenixEgg, BearableBull, Fanatics, Eros, SilverSurfer, Darkseid, Media } from "./Pet";
 
 export abstract class Boss extends Fighter {
   abstract drop: number;
@@ -40,10 +40,10 @@ export class Apocalypse extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new Heal(); 
+    const skill = new Rage(); 
     skill.setOwner(this);
 
-    const pet = new Slime()
+    const pet = new Fanatics()
     pet.setOwner(this);
   }
 }
@@ -61,10 +61,10 @@ export class Thanos extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new Rage(); 
+    const skill = new Defense(); 
     skill.setOwner(this);
 
-    const pet = new Phoenix()
+    const pet = new Eros()
     pet.setOwner(this);
   }
 }
@@ -83,10 +83,10 @@ export class Galactus extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new Defense(); 
+    const skill = new Heal(); 
     skill.setOwner(this);
 
-    const pet = new Titanoboa()
+    const pet = new SilverSurfer()
     pet.setOwner(this);
   }
 }
@@ -105,10 +105,10 @@ export class DarkPhoenix extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new Defense(); 
+    const skill = new critDamage(); 
     skill.setOwner(this);
 
-    const pet = new Titanoboa()
+    const pet = new Darkseid()
     pet.setOwner(this);
   }
 }
@@ -127,7 +127,7 @@ export class JJonahJameson extends Boss {
   constructor(name: string) {
     super(name);
 
-    const skill = new Defense(); 
+    const skill = new critChance(); 
     skill.setOwner(this);
 
     const pet = new Media()
