@@ -27,7 +27,7 @@ New Features:
 - Gamble bananas in a slot machine.  Didn't create this just turned it on (was already there).
 
 Bugs:
-- On compliation, the TypeScript object is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
+- On compliation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
 
 To Do:
 - Structure boss rewards and potentially difficulty based on the number of participants in the fight.  More participants, less bananas and XP and strong bosses.
