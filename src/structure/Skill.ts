@@ -51,8 +51,9 @@ export class Rage extends Skill {
   price = 45_000;
 
   use(p1: Fighter, _p2: Fighter) {
-
+    console.log("Before: " + p1.attack)
     p1.attack *= 2;
+    console.log("After: " + p1.attack)
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -70,6 +71,7 @@ export class Rage extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.attack /= 2;
+    console.log("Done: " + p1.attack)
   }
 }
 
@@ -187,5 +189,7 @@ export class Damage extends Skill {
     return embed;
   }
 
-  close(_p1: Fighter, _p2: Fighter) { }
-}
+  close(_p1: Fighter, _p2: Fighter) {
+    p1.attack -= 2;
+    }
+  }
