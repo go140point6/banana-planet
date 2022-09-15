@@ -51,9 +51,9 @@ export class Rage extends Skill {
   price = 45_000;
 
   use(p1: Fighter, _p2: Fighter) {
-    console.log("Before: " + p1.attack)
+    console.log("Before: " + p1.attack);
     p1.attack *= 2;
-    console.log("After: " + p1.attack)
+    console.log("After: " + p1.attack);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -71,7 +71,7 @@ export class Rage extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.attack /= 2;
-    console.log("Done: " + p1.attack)
+    console.log("Done: " + p1.attack);
   }
 }
 
@@ -83,9 +83,11 @@ export class Heal extends Skill {
   interceptRate = 0.1;
 
   use(p1: Fighter, _p2: Fighter) {
-
+    
+    console.log("Before: " + p1.hp);
     const healAmount = Math.ceil(p1.hp * 0.2);
     p1.hp += healAmount;
+    console.log("Afer: " + p1.hp);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -101,7 +103,8 @@ export class Heal extends Skill {
     return embed;
   }
 
-  close(_p1: Fighter, _p2: Fighter) {}
+  close(_p1: Fighter, _p2: Fighter) {
+  }
 }
 
 
@@ -114,8 +117,10 @@ export class Defense extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
+    console.log("Before " + p1.armor);
     const armorAmount = p1.armor * 0.1;
     p1.armor += armorAmount;
+    console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -143,8 +148,10 @@ export class Luck extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
+    console.log("Before " + p1.critChance);
     const critChanceAmount = p1.critChance * 0.25;
     p1.critChance += critChanceAmount;
+    console.log("After " + p1.critChance);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -172,8 +179,10 @@ export class Damage extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
+    console.log("Before " + p1.critDamage);
     const critDamageAmount = p1.critDamage + 1.0;
     p1.critDamage += critDamageAmount;
+    console.log("After " + p1.critDamage);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -191,5 +200,6 @@ export class Damage extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.critDamage -= 1.0;
+    console.log("Done: " + p1.critDamage);
     }
   }
