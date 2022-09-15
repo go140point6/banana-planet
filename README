@@ -1,1 +1,37 @@
 Banana Planet
+
+INSTALL and SETUP:
+Install latest nvm -
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+Get latest node LTS -
+nvm install --lts
+
+git clone https://github.com/go140point6/banana-planet.git
+git checkout dev #only if needed
+cd banana-planet
+npm install tsc-init typescript nodemon
+npm audit fix
+npx tsc
+create a .env file with the token:  BOT_TOKEN=whateveryourdicordBOTtokenis
+npm run dev
+
+Fixes:
+- Easier abililty to win fight level 5 and under.
+- At level 6 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
+
+Cosmetic:
+- Changed the monsters and bosses to Marvel Super Villians and included matching profile pictures.
+- Expanded weapons and armor.
+
+New Features:
+- Gamble bananas in a slot machine.  Didn't create this just turned it on (was already there).
+
+Bugs:
+- On compliation, the TypeScript object is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
+
+To Do:
+- Structure boss rewards and potentially difficulty based on the number of participants in the fight.  More participants, less bananas and XP and strong bosses.
+- Improved and more descriptive help subsystem.
+- Expand pets and skills.
+- Adjustment of banana currency?  Not sure what this request is referring to.
+- create .env.sample in repo so there is an example of what to make the .env look like.
