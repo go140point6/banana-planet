@@ -49,6 +49,7 @@ export class Rage extends Skill {
   id = "rage";
   description = "Does double damage when activated temporarily";
   price = 45_000;
+  interceptRate = 0.99; //debug 0.2 missing 
 
   use(p1: Fighter, _p2: Fighter) {
     console.log("Before: " + p1.attack);  //debug
