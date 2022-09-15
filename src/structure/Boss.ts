@@ -9,11 +9,11 @@ export abstract class Boss extends Fighter {
 
   static get all(): Boss[] {
     return [
-      new DarkPhoenix("Dark Phoenix"),
-      new Thanos("Thanos"),
       new Apocalypse("Apocalypse"),
-      new JJonahJameson("J. Jonah Jamerson"),
+      new Thanos("Thanos"),
       new Galactus("Galactus"),
+      new DarkPhoenix("Dark Phoenix"),
+      new JJonahJameson("J. Jonah Jameson"),
     ];
   }
 
