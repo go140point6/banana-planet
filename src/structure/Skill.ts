@@ -80,7 +80,7 @@ export class Heal extends Skill {
   id = "heal";
   description = "Heals 20% of hp when activated";
   price = 55_000;
-  interceptRate = 0.1;
+  interceptRate = 0.99;  //debug 0.1
 
   use(p1: Fighter, _p2: Fighter) {
     
@@ -113,7 +113,7 @@ export class Defense extends Skill {
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 50_000;
-  interceptRate = 0.25;
+  interceptRate = 0.99;  //debug 0.25
 
   use(p1: Fighter, _p2: Fighter) {
 
@@ -144,7 +144,7 @@ export class Luck extends Skill {
   id = "luck";
   description = "Increase critical chance by 25% when activated";
   price = 50_000;
-  interceptRate = 0.35;
+  interceptRate = 0.99;  //debug 0.35
 
   use(p1: Fighter, _p2: Fighter) {
 
@@ -173,14 +173,14 @@ export class Luck extends Skill {
 export class Damage extends Skill {
   name = "Ape Crtical Damage";
   id = "damage";
-  description = "Increase critical damage by 25% when activated";
+  description = "Increase critical damage by 1 when activated";
   price = 50_000;
-  interceptRate = 0.15;
+  interceptRate = 0.99;  //debug 0.15
 
   use(p1: Fighter, _p2: Fighter) {
 
     console.log("Before " + p1.critDamage);  //debug
-    const critDamageAmount = p1.critDamage + 1.0;
+    const critDamageAmount = p1.critDamage + 1;
     p1.critDamage += critDamageAmount;
     console.log("After " + p1.critDamage);  //debug
 
@@ -199,7 +199,7 @@ export class Damage extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    p1.critDamage -= 1.0;
+    p1.critDamage -= 1;
     console.log("Done: " + p1.critDamage);  //debug
     }
   }
