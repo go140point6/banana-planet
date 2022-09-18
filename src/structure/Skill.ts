@@ -190,7 +190,7 @@ export class Damage extends Skill {
       .setColor("GREEN")
       .setDescription(
         oneLine`${p1.name} uses **${this.name} Skill** and increases the damage
-        done by a crtical hit to ${code(p1.critDamage.toFixed(1))}!`
+        done by a crtical hit to ${code(p1.critDamage.toFixed(2))}!`
       )
 
     if (this.imageUrl)
@@ -200,7 +200,7 @@ export class Damage extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    //p1.critDamage -= 1;
-    //console.log("Done: " + p1.critDamage);  //debug
+    p1.critDamage /= 1.02;
+    console.log("Done: " + p1.critDamage);  //debug
     }
   }
