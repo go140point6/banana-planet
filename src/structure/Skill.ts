@@ -174,7 +174,7 @@ export class Luck extends Skill {
 export class Damage extends Skill {
   name = "Ape Crtical Damage";
   id = "damage";
-  description = "Increase critical damage by 2% when activated";
+  description = "Doubles critDamage when activated";
   price = 50_000;
   interceptRate = 0.99;  //debug 0.15
 
@@ -182,7 +182,7 @@ export class Damage extends Skill {
 
     console.log("Before " + p1.critDamage);  //debug
     //const critDamageAmount = p1.critDamage * 1.02;
-    p1.critDamage *= 1.02;
+    p1.critDamage *= 2;
     console.log("After " + p1.critDamage);  //debug
 
     const embed = new MessageEmbed()
@@ -200,7 +200,7 @@ export class Damage extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    p1.critDamage /= 1.02;
+    p1.critDamage /= 2;
     console.log("Done: " + p1.critDamage);  //debug
     }
   }
