@@ -86,7 +86,8 @@ export class Heal extends Skill {
   use(p1: Fighter, _p2: Fighter) {
     
     const maxHP = p1.hp; {
-    console.log("MaxHP: " + maxHP) //debug
+    console.log("MaxHP: " + maxHP); //debug
+    console.log("Round"); //debug
     console.log("Before: " + p1.hp);  //debug
     const healAmount = Math.ceil(p1.hp * 0.2); //orig
     //if (p1.hp + healAmount);
@@ -96,7 +97,7 @@ export class Heal extends Skill {
     //const healAmount = Math.ceil(p1.hp * 0.2);
 
     p1.hp += Math.min(healAmount, p1.hp);
-    console.log("Afer: " + p1.hp);  //debug
+    console.log("After: " + p1.hp);  //debug
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
