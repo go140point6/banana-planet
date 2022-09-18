@@ -182,7 +182,7 @@ export class Damage extends Skill {
 
     console.log("Before " + p1.critDamage);  //debug
     //const critDamageAmount = p1.critDamage + 0.01;
-    p1.critDamage *= 2;
+    p1.critDamage *= 1.1;
     console.log("After " + p1.critDamage);  //debug
 
     const embed = new MessageEmbed()
