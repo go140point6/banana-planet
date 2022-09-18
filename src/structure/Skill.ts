@@ -86,7 +86,7 @@ export class Heal extends Skill {
   use(p1: Fighter, _p2: Fighter) {
     
     const maxHP = p1.hp; {
-    console.log(maxHP) //debug
+    console.log("MaxHP: " + maxHP) //debug
     console.log("Before: " + p1.hp);  //debug
     const healAmount = Math.ceil(p1.hp * 0.2); //orig
     //if (p1.hp + healAmount);
