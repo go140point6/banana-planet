@@ -79,15 +79,23 @@ export class Rage extends Skill {
 export class Heal extends Skill {
   name = "Ape Heal";
   id = "heal";
-  description = "Heals 20% of hp when activated";
+  description = "Heals 20% of hp when activated, to maxium hp";
   price = 55_000;
   interceptRate = 0.99;  //debug 0.1
+  const maxHP = p1.hp; //debug remove when done
 
   use(p1: Fighter, _p2: Fighter) {
     
+    console.log(maxHP) //debug
     console.log("Before: " + p1.hp);  //debug
-    const healAmount = Math.ceil(p1.hp * 0.2);
-    p1.hp += healAmount;
+    const healAmount = Math.ceil(p1.hp * 0.2); //orig
+    //if (p1.hp + healAmount);
+
+    //p1.hp += healAmount; //orig
+    
+    //const healAmount = Math.ceil(p1.hp * 0.2);
+
+    p1.hp += Math.min(healAmount, p1.hp);
     console.log("Afer: " + p1.hp);  //debug
 
     const embed = new MessageEmbed()
