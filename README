@@ -41,3 +41,6 @@ To Do:
 - Create .env.sample in repo so there is an example of what to make the .env look like.
 - More shortcut keys.
 - Enable the gambling module.
+- Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
+- Randomize banana and xp from boss.
+- Hide banana and hp from monsters so player doesn't know.
