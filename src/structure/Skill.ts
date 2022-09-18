@@ -181,7 +181,7 @@ export class Damage extends Skill {
   use(p1: Fighter, _p2: Fighter) {
 
     console.log("Before " + p1.critDamage);  //debug
-    const critDamageAmount = p1.critDamage + 1;
+    const critDamageAmount = p1.critDamage + 0.1;
     p1.critDamage += critDamageAmount;
     console.log("After " + p1.critDamage);  //debug
 
