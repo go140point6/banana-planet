@@ -30,8 +30,8 @@ export abstract class Boss extends Fighter {
 export class Apocalypse extends Boss {
   drop = 600;
   xpDrop = 500;
-  attack = 1; //debug 500
-  hp = 1; //debug 550
+  attack = 50; //debug 500
+  hp = 300; //debug 550
   armor = 0.3;
   critChance = 0.1;
   critDamage = 3;
