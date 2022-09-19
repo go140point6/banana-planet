@@ -30,8 +30,8 @@ export abstract class Boss extends Fighter {
 export class Apocalypse extends Boss {
   drop = random.integer(300, 900);
   xpDrop = random.integer(300, 700);
-  attack = Math.ceil((300 * players.length)/1.5); //debug 500
-  hp = Math.ceil((500 * players.length)/1.5); //debug 550
+  attack = 300; //debug 500
+  hp = 500;
   armor = 0.3;
   critChance = 0.1;
   critDamage = 3;

@@ -88,6 +88,10 @@ export default class extends Command {
         //console.log("Number of players: " + players.length); //debug
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
+        boss.hp = Math.ceil((boss.hp * players.length)/1.5);
+        console.log("New HP is " + boss.hp);
+        boss.attack = Math.ceil((boss.hp * players.length)/1.5);
+        console.log("New Attack is " + boss.attack);
         battle.setBoss(selectedBoss);
 
         const winner = await battle.run();
