@@ -152,7 +152,7 @@ export class Luck extends Skill {
   use(p1: Fighter, _p2: Fighter) {
 
     console.log("Before " + p1.critChance);  //debug
-    const critChanceAmount = p1.critChance * 0.25;
+    const critChanceAmount = p1.critChance + 0.05;
     p1.critChance += critChanceAmount;
     console.log("After " + p1.critChance);  //debug
 
