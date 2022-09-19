@@ -125,7 +125,7 @@ export default class extends Command {
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
               msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
               msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(Math.round(selectedBoss.critChance * 100))}%!`);
-              msg.channel.send(`${selectedBoss.name}'s Critical Hit Damage increased to x${bold(selectedBoss.critDamage).toFixed(1)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Critical Hit Damage increased to x${bold(selectedBoss.critDamage.toFixed(1))}!`);
             }
 
           } catch (err) {
