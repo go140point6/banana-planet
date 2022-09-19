@@ -49,6 +49,23 @@ export abstract class SideKick extends BasePet {
   }
 }
 
+export abstract class MonsterSideKick extends BasePet {
+  abstract price: number;
+  description = oneLine`Pets tht can only be used by Monsters.`;
+
+  static get all(): MonsterSideKick[] {
+    return [
+      new EvilBabyApe(),
+      new EvilBearableGuy(),
+      new EvilRichDuck(),
+      new EvilBae(),
+      new EvilPunkWorldsArt(),
+      new EvilPhoenixEgg(),
+      new EvilBearableBull(),
+    ];
+  }
+}
+
 export abstract class BossSideKick extends BasePet {
   abstract price: number;
   description = oneLine`Pets that can only be used by Bosses.`;
@@ -119,14 +136,14 @@ export class BearableBull extends SideKick {
   price = 160000;
 }
 
-export class EvilBabyApe extends SideKick {
+export class EvilBabyApe extends MonsterSideKick {
   name = "Evil Baby Ape";
   id = "ebape";
   attack = 20;
   price = 13000;
 }
 
-export class EvilBearableGuy extends SideKick {
+export class EvilBearableGuy extends MonsterSideKick {
   name = "Evil Bearable Guy";
   id = "eguy";
   attack = 30;
@@ -134,7 +151,7 @@ export class EvilBearableGuy extends SideKick {
   price = 15000;
 }
 
-export class EvilRichDuck extends SideKick {
+export class EvilRichDuck extends MonsterSideKick {
   name = "Evil Rich Duck";
   id = "educk";
   attack = 40;
@@ -142,7 +159,7 @@ export class EvilRichDuck extends SideKick {
   price = 20000;
 }
 
-export class EvilBae extends SideKick {
+export class EvilBae extends MonsterSideKick {
   name = "Evil Bae";
   id = "ebae";
   attack = 50;
@@ -150,7 +167,7 @@ export class EvilBae extends SideKick {
   price = 30000;
 }
 
-export class EvilPunkWorldsArt extends SideKick {
+export class EvilPunkWorldsArt extends MonsterSideKick {
   name = "Evil Sentient Punk Worlds Art";
   id = "epunkworld";
   attack = 60;
@@ -158,7 +175,7 @@ export class EvilPunkWorldsArt extends SideKick {
   price = 70000;
 }
 
-export class EvilPhoenixEgg extends SideKick {
+export class EvilPhoenixEgg extends MonsterSideKick {
   name = "Evil Phoenix Egg";
   id = "eegg";
   attack = 70;
@@ -166,7 +183,7 @@ export class EvilPhoenixEgg extends SideKick {
   price = 100000;
 }
 
-export class EvilBearableBull extends SideKick {
+export class EvilBearableBull extends MonsterSideKick {
   name = "Evil Bearable Bull";
   id = "ebull";
   attack = 80;

@@ -2,7 +2,7 @@ import { Fighter } from "discordjs-rpg";
 import { code, currency, random } from "../utils";
 import { Player } from "./Player";
 import { Skill } from "./Skill";
-import { SideKick } from "./Pet";
+import { MonsterSideKick } from "./Pet";
 
 export class Monster extends Fighter {
   drop = random.integer(10, 100);
@@ -33,8 +33,7 @@ export class Monster extends Fighter {
 //    }  //debug
 
     if (player.pet && random.bool()) {
-      const pet = random.pick(SideKick.all);
-      console.log(pet);
+      const pet = random.pick(MonsterSideKick.all);
       pet.setOwner(this);
     }  
   }
