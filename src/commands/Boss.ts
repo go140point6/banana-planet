@@ -85,8 +85,7 @@ export default class extends Command {
 
         await joinMenu.run();
 
-        const party = players.length;
-        console.log("Number of players: " + players.length); //debug
+        //console.log("Number of players: " + players.length); //debug
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
         battle.setBoss(selectedBoss);
