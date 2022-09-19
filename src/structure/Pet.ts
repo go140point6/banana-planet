@@ -24,11 +24,6 @@ export abstract class SideKick extends BasePet {
       new EvilPunkWorldsArt(),
       new EvilPhoenixEgg(),
       new EvilBearableBull(),
-      new Fanatics(),
-      new Eros(),
-      new SilverSurfer(),
-      new Darkseid(),
-      new Media(),
     ];
   }
 
@@ -51,6 +46,21 @@ export abstract class SideKick extends BasePet {
 
     player.save();
     msg.channel.send(`Successfully bought **${this.name}**!`);
+  }
+}
+
+export abstract class BossSideKick extends BasePet {
+  abstract price: number;
+  description = oneLine`Pets that can only be used by Bosses.`;
+  
+  static get all(): BossSideKick[] {
+    return [
+      new Fanatics(),
+      new Eros(),
+      new SilverSurfer(),
+      new Darkseid(),
+      new Media(),
+    ];
   }
 }
 
@@ -164,7 +174,7 @@ export class EvilBearableBull extends SideKick {
   price = 160000;
 }
 
-export class Fanatics extends SideKick {
+export class Fanatics extends BossSideKick {
   name = "Religious Fanatics";
   id = "fanatics";
   attack = 100;
@@ -172,7 +182,7 @@ export class Fanatics extends SideKick {
   price = 1000000000;
 }
 
-export class Eros extends SideKick {
+export class Eros extends BossSideKick {
   name = "Eros of Titan";
   id = "brother";
   attack = 200;
@@ -180,7 +190,7 @@ export class Eros extends SideKick {
   price = 1000000000;
 }
 
-export class SilverSurfer extends SideKick {
+export class SilverSurfer extends BossSideKick {
   name = "Silver Surfer";
   id = "herald";
   attack = 300;
@@ -188,7 +198,7 @@ export class SilverSurfer extends SideKick {
   price = 1000000000;
 }
 
-export class Darkseid extends SideKick {
+export class Darkseid extends BossSideKick {
   name = "Darkseid";
   id = "darkseid";
   attack = 400;
@@ -196,7 +206,7 @@ export class Darkseid extends SideKick {
   price = 1000000000;
 }
 
-export class Media extends SideKick {
+export class Media extends BossSideKick {
   name = "The Media - A lie repeated...";
   id = "media";
   attack = 500;
