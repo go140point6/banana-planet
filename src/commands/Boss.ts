@@ -21,7 +21,7 @@ export default class extends Command {
   description = "fight boss";
   max = 5;
   //waitTime = 1000 * 60 * 60; //debug
-  waitTime = 30 * 60 * 60;
+  waitTime = 15 * 60 * 60;
 
   async exec(msg: Message, args: string[]) {
 
@@ -84,6 +84,8 @@ export default class extends Command {
         })
 
         await joinMenu.run();
+
+        console.log("Number of players: " + players.length);
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
         battle.setBoss(selectedBoss);
