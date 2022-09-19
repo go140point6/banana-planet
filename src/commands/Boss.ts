@@ -76,7 +76,7 @@ export default class extends Command {
               `${user.username} joined! (${players.length}/${this.max} players)`
             );
 
-            if (players.length == 2) {
+            if (players.length == 1) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
 
