@@ -59,8 +59,8 @@ export class Monster extends Fighter {
   show(player?: Player) {
     const profile = super.show(player);
 
-    profile.addField(`${currency} Drop ?`);
-    profile.addField("xp Drop ?");
+    profile.addField(`${currency} Drop `, "?", true);
+    profile.addField("xp Drop ", "?", true);
 
     return profile;
   }
