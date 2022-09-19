@@ -106,8 +106,9 @@ export default class extends Command {
             player.coins += sharedDrop;
             player.win++;
 
-            msg.channel.send(`${player.name} has earned ${bold(sharedDrop)} ${currency}!`);
-            msg.channel.send(`${player.name} has earned ${bold(sharedXpDrop)} xp!`);
+            msg.channel.send(`${selectedBoss.name} dropped ${bold(drop)} ${currency} and provided ${bold(xpDrop)} xp total.`);
+            msg.channel.send(`${player.name}'s share is ${bold(sharedDrop)} ${currency}!`);
+            msg.channel.send(`${player.name}'s share is ${bold(sharedXpDrop)} xp!`);
 
             if (currLevel !== player.level) {
               msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
