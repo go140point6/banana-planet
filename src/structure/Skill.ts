@@ -106,7 +106,7 @@ export class Heal extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    p1.hp /= 0.2;
+    p1.hp *= 0.8;
     console.log("Done: " + p1.hp);  //debug
   }
 }
