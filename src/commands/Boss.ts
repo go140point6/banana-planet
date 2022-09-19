@@ -90,14 +90,14 @@ export default class extends Command {
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
               console.log("Initial: " + (selectedBoss.armor));
               selectedBoss.armor = ((selectedBoss.armor * players.length)/1.5);
-              console.log("Boosted: " + (selectedBoss.armor));
+              console.log("Boosted: " + Math.round(selectedBoss.armor * 100));
               //selectedBoss.armor = (selectedBoss.armor / 1.5);
               //console.log("Reduced: " + (selectedBoss.armor));
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
-              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor).toFixed(2)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor)*100}!`);
             }
 
             if (players.length == 4) {
