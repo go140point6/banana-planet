@@ -52,6 +52,7 @@ export class BabyApe extends SideKick {
   id = "bape";
   attack = 20;
   price = 13000;
+  boss = false;
 }
 
 export class BearableGuy extends SideKick {
@@ -60,6 +61,7 @@ export class BearableGuy extends SideKick {
   attack = 30;
   interceptRate = 0.2;
   price = 15000;
+  boss = false;
 }
 
 export class RichDuck extends SideKick {
@@ -68,14 +70,16 @@ export class RichDuck extends SideKick {
   attack = 40;
   interceptRate = 0.25;
   price = 20000;
+  boss = false;
 }
 
 export class Bae extends SideKick {
-  name = "Baa";
+  name = "Bae";
   id = "bae";
   attack = 50;
   interceptRate = 0.3;
   price = 30000;
+  boss = false;
 }
 
 export class PunkWorldsArt extends SideKick {
@@ -84,6 +88,7 @@ export class PunkWorldsArt extends SideKick {
   attack = 60;
   interceptRate = 0.35;
   price = 70000;
+  boss = false;
 }
 
 export class PhoenixEgg extends SideKick {
@@ -92,6 +97,7 @@ export class PhoenixEgg extends SideKick {
   attack = 70;
   interceptRate = 0.4;
   price = 100000;
+  boss = false;
 }
 
 export class BearableBull extends SideKick {
@@ -100,6 +106,7 @@ export class BearableBull extends SideKick {
   attack = 80;
   interceptRate = 0.45;
   price = 160000;
+  boss = false;
 }
 
 export class Fanatics extends SideKick {
@@ -108,6 +115,7 @@ export class Fanatics extends SideKick {
   attack = 100;
   interceptRate = 0.15;
   price = 1000000000;
+  boss = true;
 }
 
 export class Eros extends SideKick {
@@ -116,6 +124,7 @@ export class Eros extends SideKick {
   attack = 200;
   interceptRate = 0.25;
   price = 1000000000;
+  boss = true;
 }
 
 export class SilverSurfer extends SideKick {
@@ -124,6 +133,7 @@ export class SilverSurfer extends SideKick {
   attack = 300;
   interceptRate = 0.35;
   price = 1000000000;
+  boss = true;
 }
 
 export class Darkseid extends SideKick {
@@ -132,6 +142,7 @@ export class Darkseid extends SideKick {
   attack = 400;
   interceptRate = 0.45;
   price = 1000000000;
+  boss = true;
 }
 
 export class Media extends SideKick {
@@ -140,4 +151,5 @@ export class Media extends SideKick {
   attack = 500;
   interceptRate = 0.99;
   price = 1000000000;
+  boss = true;
 }
