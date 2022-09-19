@@ -24,7 +24,6 @@ Fixes:
 - Easier abililty to win fight level 5 and under.
 - At level 6 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
 
-
 Cosmetic:
 - Changed the monsters and bosses to Marvel Super Villians and included matching profile pictures.
 - Expanded weapons and armor.
@@ -32,7 +31,7 @@ Cosmetic:
 New Features:
 - When choosing a monster to fight, XP and Banana amounts are hidden.
 - New skills: Ape Luck (critChance), Ape Critial Damage (critDamage).
-- Sidekicks expanded, player gets Club X NFTs and Bosses get canon correct Marvel characters.
+- Sidekicks expanded and separated into specific sidekicks for player, monster and boss.
 
 Bugs:
 - On compliation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
@@ -46,4 +45,3 @@ To Do:
 - Enable the gambling module.
 - Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
 - Randomize banana and xp from boss.
-- Hide Boss sidekicks?  Currently price is beyond what player can afford.
