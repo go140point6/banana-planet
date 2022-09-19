@@ -5,8 +5,8 @@ import { Skill } from "./Skill";
 import { MonsterSideKick } from "./Pet";
 
 export class Monster extends Fighter {
-  drop = (player.level * random.integer(10, 100))/2;
-  xpDrop = (player.level * random.integer(10, 35))/2;
+  drop = random.integer(10, 100);
+  xpDrop = random.integer(10, 35);
   difficulty: number;
   constructor(player: Player) {
     super(random.pick(names));
