@@ -30,6 +30,7 @@ Cosmetic:
 
 New Features:
 - When choosing a monster to fight, XP and Banana amounts are hidden.
+- Banana and XP earned are now tied to level, this number will need to be tweaks for play balance.
 - New skills: Ape Luck (critChance), Ape Critial Damage (critDamage).
 - Sidekicks expanded and separated into specific sidekicks for player, monster and boss.
 
@@ -39,7 +40,6 @@ Bugs:
 To Do:
 - Structure boss rewards and potentially difficulty based on the number of participants in the fight.  More participants, less bananas and XP and strong bosses.
 - Improved and more descriptive help subsystem.
-- Expand pets and skills.
 - Create .env.sample in repo so there is an example of what to make the .env look like.
 - More shortcut keys.
 - Enable the gambling module.

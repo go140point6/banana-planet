@@ -20,7 +20,8 @@ export default class extends Command {
   name = "boss";
   description = "fight boss";
   max = 5;
-  waitTime = 1000 * 60 * 60;
+  //waitTime = 1000 * 60 * 60; //debug
+  waitTime = 1000;
 
   async exec(msg: Message, args: string[]) {
 
