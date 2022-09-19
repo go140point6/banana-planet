@@ -12,8 +12,8 @@ export class Monster extends Fighter {
     super(random.pick(names));
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
-    console.log(this.drop);
-    console.log(this.xpDrop);
+    console.log("Unmodified banana: " + this.drop); //debug
+    console.log("Unmodified xp: " + this.xpDrop); //debug
     this.critDamage = player.critDamage + random.real(0.01, 0.5);
     if (this.difficulty < 6) {
       this.attack = player.attack + this.randomAttribNoob();
