@@ -77,6 +77,7 @@ export default class extends Command {
             );
 
             if (players.length = 1) {
+              console.log("1 :" + players.length);
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
 
@@ -93,6 +94,7 @@ export default class extends Command {
             }
 
             if (players.length = 2) {
+              console.log("2: " + players.length);
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
             
