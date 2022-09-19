@@ -17,13 +17,6 @@ export abstract class SideKick extends BasePet {
       new PunkWorldsArt(),
       new PhoenixEgg(),
       new BearableBull(),
-      new EvilBabyApe(),
-      new EvilBearableGuy(),
-      new EvilRichDuck(),
-      new EvilBae(),
-      new EvilPunkWorldsArt(),
-      new EvilPhoenixEgg(),
-      new EvilBearableBull(),
     ];
   }
 
