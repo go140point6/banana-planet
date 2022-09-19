@@ -72,8 +72,14 @@ export default class extends Command {
 
             players.push(player);
 
+            newHP = Math.ceil((selectedBoss.hp * players.length)/1.5);
+            newAttack = Math.ceil((selectedBoss.attack * players.length)/1.5);
+
             msg.channel.send(
               `${user.username} joined! (${players.length}/${this.max} players)`
+              `Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`
+              `${selectedBoss.name}'s HP increased to ${bold(newHP)}!`
+              `${selectedBoss.name}'s Attack increased to ${bold(newAttack)}!`
             );
 
           } catch (err) {
