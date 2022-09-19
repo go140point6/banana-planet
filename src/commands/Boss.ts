@@ -76,13 +76,13 @@ export default class extends Command {
               `${user.username} joined! (${players.length}/${this.max} players)`
             );
 
-            if (players.length > 1) {
+            if (players.length = 1) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
 
             
               msg.channel.send(
-                `Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`
+                `Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!` 
               );
               msg.channel.send(
                 `${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`
@@ -90,7 +90,22 @@ export default class extends Command {
               msg.channel.send(
                 `${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`
               );
-              }
+            }
+
+            if (players.length = 2) {
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
+            
+              msg.channel.send(
+                `Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!` 
+              );
+              msg.channel.send(
+                `${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`
+              );
+              msg.channel.send(
+                `${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`
+              );
+            }
 
           } catch (err) {
             const errMsg = (err as Error).message;
