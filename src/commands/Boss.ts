@@ -88,39 +88,39 @@ export default class extends Command {
             if (players.length == 2) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
-              console.log("Initial: " + selectedBoss.defense);
-              selectedBoss.defense = (Math.ceil((selectedBoss.defense * players.length)/1.5) * 0.1);
+              console.log("Initial: " + selectedBoss.armor);
+              selectedBoss.armor = (Math.ceil((selectedBoss.armor * players.length)/1.5) * 0.1);
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
-              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(selectedBoss.defense)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor)}!`);
             }
 
             if (players.length == 4) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.25);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.25);
-              selectedBoss.defense = Math.ceil((selectedBoss.defense * player.length)/1.25);
+              selectedBoss.armor = Math.ceil((selectedBoss.armor * player.length)/1.25);
               selectedBoss.critChance = Math.ceil((selectedBoss.critChance * players.length)/1.25);
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
-              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(selectedBoss.defense)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor)}!`);
               msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(selectedBoss.critChance)}!`);
             }
 
             if (players.length == 5) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1);
-              selectedBoss.defense = Math.ceil((selectedBoss.defense * players.length)/1);
+              selectedBoss.armor = Math.ceil((selectedBoss.armor * players.length)/1);
               selectedBoss.critChance = Math.ceil((selectedBoss.critChance * players.length)/1);
               selectedBoss.critDamage = Math.ceil((selectedBoss.critDamage * players.length)/1);
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
-              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(selectedBoss.defense)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor)}!`);
               msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(selectedBoss.critChance)}!`);
               msg.channel.send(`${selectedBoss.name}'s Critical Hit Damage increased to ${bold(selectedBoss.critDamage)}!`);
             }
