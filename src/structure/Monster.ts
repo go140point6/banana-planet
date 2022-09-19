@@ -33,7 +33,7 @@ export class Monster extends Fighter {
 //    }  //debug
 
     if (player.pet && random.bool()) {
-      const pet = random.pick(SideKick.any);
+      const pet = random.pick(SideKick.all);
       console.log(pet);
       pet.setOwner(this);
     }  
