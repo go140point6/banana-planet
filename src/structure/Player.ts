@@ -5,7 +5,7 @@ import { code, currency } from "../utils";
 import { Item } from "./Item";
 import { Armor } from "./Armor";
 import { Weapon } from "./Weapon";
-import { SideKick } from "./Pet";
+import { BabyApe, BearableGuy, RichDuck, Bae, PunkWorldsArt, PhoenixEgg, BearableBull } from "./Pet";
 import { Skill } from "./Skill";
 
 export const AVATARS = [

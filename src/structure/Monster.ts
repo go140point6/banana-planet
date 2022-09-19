@@ -2,7 +2,7 @@ import { Fighter } from "discordjs-rpg";
 import { code, currency, random } from "../utils";
 import { Player } from "./Player";
 import { Skill } from "./Skill";
-import { SideKick } from "./Pet";
+import { EvilBabyApe, EvilBearableGuy, EvilRichDuck, EvilBae, EvilPunkWorldsArt, EvilPhoenixEgg, EvilBearableBull } from "./Pet";
 
 export class Monster extends Fighter {
   drop = random.integer(10, 100);

@@ -8,7 +8,7 @@ export abstract class SideKick extends BasePet {
   description = oneLine`Pet will be your companion during battle. It will attack
   the opponent based on its intercept rate.`;
 
-  static get all(): SideKick[] {
+  static get all(): PlayerSideKick[] {
     return [
       new BabyApe(),
       new BearableGuy(),
@@ -17,6 +17,23 @@ export abstract class SideKick extends BasePet {
       new PunkWorldsArt(),
       new PhoenixEgg(),
       new BearableBull(),
+    ];
+  }
+
+  static get all(): MonsterSideKick[] {
+    return [
+      new EvilBabyApe(),
+      new EvilBearableGuy(),
+      new EvilRichDuck(),
+      new EvilBae(),
+      new EvilPunkWorldsArt(),
+      new EvilPhoenixEgg(),
+      new EvilBearableBull(),
+    ];
+  }
+
+  static get all(): BossSideKick[] {
+    return [
       new Fanatics(),
       new Eros(),
       new SilverSurfer(),
@@ -47,7 +64,7 @@ export abstract class SideKick extends BasePet {
   }
 }
 
-export class BabyApe extends SideKick {
+export class BabyApe extends PlayerSideKick {
   name = "Baby Ape";
   id = "bape";
   attack = 20;
@@ -55,7 +72,7 @@ export class BabyApe extends SideKick {
   boss = false;
 }
 
-export class BearableGuy extends SideKick {
+export class BearableGuy extends PlayerSideKick {
   name = "Bearable Guy";
   id = "guy";
   attack = 30;
@@ -64,7 +81,7 @@ export class BearableGuy extends SideKick {
   boss = false;
 }
 
-export class RichDuck extends SideKick {
+export class RichDuck extends PlayerSideKick {
   name = "Rich Duck";
   id = "duck";
   attack = 40;
@@ -73,7 +90,7 @@ export class RichDuck extends SideKick {
   boss = false;
 }
 
-export class Bae extends SideKick {
+export class Bae extends PlayerSideKick {
   name = "Bae";
   id = "bae";
   attack = 50;
@@ -82,7 +99,7 @@ export class Bae extends SideKick {
   boss = false;
 }
 
-export class PunkWorldsArt extends SideKick {
+export class PunkWorldsArt extends PlayerSideKick {
   name = "Sentient Punk Worlds Art";
   id = "punkworld";
   attack = 60;
@@ -91,7 +108,7 @@ export class PunkWorldsArt extends SideKick {
   boss = false;
 }
 
-export class PhoenixEgg extends SideKick {
+export class PhoenixEgg extends PlayerSideKick {
   name = "Phoenix Egg";
   id = "egg";
   attack = 70;
@@ -100,7 +117,7 @@ export class PhoenixEgg extends SideKick {
   boss = false;
 }
 
-export class BearableBull extends SideKick {
+export class BearableBull extends PlayerSideKick {
   name = "Bearable Bull";
   id = "bull";
   attack = 80;
@@ -109,7 +126,69 @@ export class BearableBull extends SideKick {
   boss = false;
 }
 
-export class Fanatics extends SideKick {
+export class EvilBabyApe extends MonsterSideKick {
+  name = "Evil Baby Ape";
+  id = "ebape";
+  attack = 20;
+  price = 13000;
+  boss = false;
+}
+
+export class EvilBearableGuy extends MonsterSideKick {
+  name = "Evil Bearable Guy";
+  id = "eguy";
+  attack = 30;
+  interceptRate = 0.2;
+  price = 15000;
+  boss = false;
+}
+
+export class EvilRichDuck extends MonsterSideKick {
+  name = "Evil Rich Duck";
+  id = "educk";
+  attack = 40;
+  interceptRate = 0.25;
+  price = 20000;
+  boss = false;
+}
+
+export class EvilBae extends MonsterSideKick {
+  name = "Evil Bae";
+  id = "ebae";
+  attack = 50;
+  interceptRate = 0.3;
+  price = 30000;
+  boss = false;
+}
+
+export class EvilPunkWorldsArt extends MonsterSideKick {
+  name = "Evil Sentient Punk Worlds Art";
+  id = "epunkworld";
+  attack = 60;
+  interceptRate = 0.35;
+  price = 70000;
+  boss = false;
+}
+
+export class EvilPhoenixEgg extends MonsterSideKick {
+  name = "Evil Phoenix Egg";
+  id = "eegg";
+  attack = 70;
+  interceptRate = 0.4;
+  price = 100000;
+  boss = false;
+}
+
+export class EvilBearableBull extends MonsterSideKick {
+  name = "Evil Bearable Bull";
+  id = "ebull";
+  attack = 80;
+  interceptRate = 0.45;
+  price = 160000;
+  boss = false;
+}
+
+export class Fanatics extends BossSideKick {
   name = "Religious Fanatics";
   id = "fanatics";
   attack = 100;
@@ -118,7 +197,7 @@ export class Fanatics extends SideKick {
   boss = true;
 }
 
-export class Eros extends SideKick {
+export class Eros extends BossSideKick {
   name = "Eros of Titan";
   id = "brother";
   attack = 200;
@@ -127,7 +206,7 @@ export class Eros extends SideKick {
   boss = true;
 }
 
-export class SilverSurfer extends SideKick {
+export class SilverSurfer extends BossSideKick {
   name = "Silver Surfer";
   id = "herald";
   attack = 300;
@@ -136,7 +215,7 @@ export class SilverSurfer extends SideKick {
   boss = true;
 }
 
-export class Darkseid extends SideKick {
+export class Darkseid extends BossSideKick {
   name = "Darkseid";
   id = "darkseid";
   attack = 400;
@@ -145,7 +224,7 @@ export class Darkseid extends SideKick {
   boss = true;
 }
 
-export class Media extends SideKick {
+export class Media extends BossSideKick {
   name = "The Media - A lie repeated...";
   id = "media";
   attack = 500;

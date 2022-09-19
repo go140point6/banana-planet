@@ -1,7 +1,7 @@
 import { Fighter } from "discordjs-rpg";
 import { currency } from "../utils";
 import { Defense, Heal, Rage, Luck, Damage } from "../structure/Skill";
-import { BabyApe, BearableGuy, RichDuck, Bae, PunkWorldsArt, PhoenixEgg, BearableBull, Fanatics, Eros, SilverSurfer, Darkseid, Media } from "./Pet";
+import { Fanatics, Eros, SilverSurfer, Darkseid, Media } from "./Pet";
 
 export abstract class Boss extends Fighter {
   abstract drop: number;
