@@ -53,7 +53,7 @@ export class Rage extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     console.log("Before: " + p1.attack);  //debug
-    p1.attack *= 2;
+    p1.attack *= 100; //debug 2
     console.log("After: " + p1.attack);  //debug
 
     const embed = new MessageEmbed()

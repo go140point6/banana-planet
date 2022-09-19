@@ -50,13 +50,15 @@ export default class extends Command {
 
         const currLevel = player.level;
         const levelDrop = ((currLevel * monster.drop)/2);
-        player.addXP(monster.xpDrop);
+        const levelXpDrop = ((currLevel * monster.xpDrop)/2);
+        player.addXP(levelXpDrop);
         player.coins += (levelDrop);
-        console.log(levelDrop); //debug
+        console.log("Banana: " + levelDrop); //debug
+        console.log("XP " + levelXpDrop); //debug
         player.win++;
 
-        msg.channel.send(`${player.name} has earned ${bold(monster.drop)} ${currency}!`);
-        msg.channel.send(`${player.name} has earned ${bold(monster.xpDrop)} xp!`);
+        msg.channel.send(`${player.name} has earned ${bold(levelDrop)} ${currency}!`);
+        msg.channel.send(`${player.name} has earned ${bold(levelXpDrop)} xp!`);
 
         if (currLevel !== player.level) {
           msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
