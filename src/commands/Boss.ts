@@ -100,7 +100,7 @@ export default class extends Command {
             if (players.length == 4) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.25);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.25);
-              selectedBoss.armor = Math.ceil((selectedBoss.armor * player.length)/1.25);
+              selectedBoss.armor = Math.ceil((selectedBoss.armor * players.length)/1.25);
               selectedBoss.critChance = Math.ceil((selectedBoss.critChance * players.length)/1.25);
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
