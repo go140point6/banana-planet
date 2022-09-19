@@ -145,14 +145,14 @@ export class Defense extends Skill {
 export class Luck extends Skill {
   name = "Ape Luck";
   id = "luck";
-  description = "Increase critical chance by 25% when activated";
+  description = "Increase critical chance by 5% when activated";
   price = 50_000;
   interceptRate = 0.99;  //debug 0.35
 
   use(p1: Fighter, _p2: Fighter) {
 
     console.log("Before " + p1.critChance);  //debug
-    const critChanceAmount = p1.critChance + 0.05;
+    const critChanceAmount = p1.critChance * 0.05;
     p1.critChance += critChanceAmount;
     console.log("After " + p1.critChance);  //debug
 
