@@ -1,5 +1,5 @@
 import { Fighter } from "discordjs-rpg";
-import { currency } from "../utils";
+import { currency, random } from "../utils";
 import { Defense, Heal, Rage, Luck, Damage } from "../structure/Skill";
 import { Fanatics, Eros, SilverSurfer, Darkseid, Media } from "./Pet";
 
