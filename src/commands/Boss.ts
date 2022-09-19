@@ -97,7 +97,7 @@ export default class extends Command {
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
-              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
             }
 
             if (players.length == 4) {
