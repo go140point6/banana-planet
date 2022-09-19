@@ -91,6 +91,8 @@ export default class extends Command {
               console.log("Initial: " + (selectedBoss.armor));
               selectedBoss.armor = (selectedBoss.armor * players.length);
               console.log("Boosted: " + (selectedBoss.armor));
+              selectedBoss.armor = (selectedBoss.armor / 1.5);
+              console.log("Reduced: " + (selectedBoss.armor));
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
