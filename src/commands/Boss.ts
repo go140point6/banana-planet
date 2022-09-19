@@ -98,7 +98,7 @@ export default class extends Command {
               msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
             }
 
-            if (players.length == 2) {
+            if (players.length == 4) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.25);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.25);
               selectedBoss.armor = ((selectedBoss.armor * players.length)/1.25);
@@ -111,18 +111,20 @@ export default class extends Command {
               msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(Math.round(selectedBoss.critChance * 100))}%!`);
             }
 
-            if (players.length == 5) {
+            if (players.length == 2) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1);
-              selectedBoss.armor = Math.ceil((selectedBoss.armor * players.length)/1);
-              selectedBoss.critChance = Math.ceil((selectedBoss.critChance * players.length)/1);
-              selectedBoss.critDamage = Math.ceil((selectedBoss.critDamage * players.length)/1);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1);
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1);
+              console.log(selectedBoss.critDamage); //debug
+              selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/1);
+              console.log(selectedBoss.critDamage); //debug
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
-              msg.channel.send(`${selectedBoss.name}'s Armor increased to ${bold(selectedBoss.armor)}!`);
-              msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(selectedBoss.critChance)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
+              msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(Math.round(selectedBoss.critChance * 100))}%!`);
               msg.channel.send(`${selectedBoss.name}'s Critical Hit Damage increased to ${bold(selectedBoss.critDamage)}!`);
             }
 
