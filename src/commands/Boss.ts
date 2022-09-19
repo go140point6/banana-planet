@@ -21,7 +21,7 @@ export default class extends Command {
   description = "fight boss";
   max = 5;
   //waitTime = 1000 * 60 * 60; //debug
-  waitTime = 15 * 60 * 60;
+  waitTime = 10 * 60 * 60;
 
   async exec(msg: Message, args: string[]) {
 
@@ -85,7 +85,8 @@ export default class extends Command {
 
         await joinMenu.run();
 
-        console.log("Number of players: " + players.length);
+        const party = players.length;
+        console.log("Number of players: " + players.length); //debug
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
         battle.setBoss(selectedBoss);
@@ -95,16 +96,18 @@ export default class extends Command {
         if (winner.id !== selectedBoss.id) {
 
           const { drop, xpDrop } = selectedBoss;
+          const sharedDrop = Math.ceil(drop / party);
+          const sharedXpDrop = Math.ceil(xpDrop / party);
 
           for (const player of players) {
 
             const currLevel = player.level;
-            player.addXP(xpDrop);
-            player.coins += drop;
+            player.addXP(sharedXpDrop);
+            player.coins += sharedDrop;
             player.win++;
 
-            msg.channel.send(`${player.name} has earned ${bold(drop)} ${currency}!`);
-            msg.channel.send(`${player.name} has earned ${bold(xpDrop)} xp!`);
+            msg.channel.send(`${player.name} has earned ${bold(sharedDrop)} ${currency}!`);
+            msg.channel.send(`${player.name} has earned ${bold(sharedXpDrop)} xp!`);
 
             if (currLevel !== player.level) {
               msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);

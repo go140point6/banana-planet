@@ -28,8 +28,8 @@ export abstract class Boss extends Fighter {
 }
 
 export class Apocalypse extends Boss {
-  drop = 600;
-  xpDrop = 500;
+  drop = random.integer(300, 900);
+  xpDrop = random.integer(300, 700);
   attack = 50; //debug 500
   hp = 300; //debug 550
   armor = 0.3;
@@ -49,8 +49,8 @@ export class Apocalypse extends Boss {
 }
 
 export class Thanos extends Boss {
-  drop = 1200;
-  xpDrop = 800;
+  drop = random.integer(900, 1500);
+  xpDrop = random.integer(600, 1000);
   attack = 1200;
   hp = 1420;
   armor = 0.35;
@@ -70,8 +70,8 @@ export class Thanos extends Boss {
 }
 
 export class Galactus extends Boss {
-  drop = 1750;
-  xpDrop = 1000;
+  drop = random.integer(1500, 2000);
+  xpDrop = random.integer(800, 1200);
   attack = 2350;
   hp = 2570;
   armor = 0.39;
@@ -92,8 +92,8 @@ export class Galactus extends Boss {
 }
 
 export class DarkPhoenix extends Boss {
-  drop = 2250;
-  xpDrop = 1250;
+  drop = random.integer(2000, 2500);
+  xpDrop = random.integer(1000, 1500);
   attack = 2750;
   hp = 3000;
   armor = 0.49;
@@ -114,8 +114,8 @@ export class DarkPhoenix extends Boss {
 }
 
 export class JJonahJameson extends Boss {
-  drop = 3000;
-  xpDrop = 2000;
+  drop = random.integer(2500, 3500);
+  xpDrop = random.integer(1750, 2250);
   attack = 3500;
   hp = 5000;
   armor = 0.59;
