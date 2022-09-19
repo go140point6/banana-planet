@@ -12,8 +12,8 @@ export class Monster extends Fighter {
     super(random.pick(names));
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
-    console.log("Unmodified banana: " + this.drop); //debug
-    console.log("Unmodified xp: " + this.xpDrop); //debug
+    //console.log("Unmodified banana: " + this.drop);
+    //console.log("Unmodified xp: " + this.xpDrop);
     this.critDamage = player.critDamage + random.real(0.01, 0.5);
     if (this.difficulty < 6) {
       this.attack = player.attack + this.randomAttribNoob();
@@ -29,10 +29,10 @@ export class Monster extends Fighter {
       this.critChance = player.critChance + (this.randomCritChance() / 100);
     }
     
-//    if (player.skill && random.bool()) {  //debug
-//      const skill = random.pick(Skill.all);  //debug
-//      skill.setOwner(this);  //debug
-//    }  //debug
+    if (player.skill && random.bool()) {
+      const skill = random.pick(Skill.all);
+      skill.setOwner(this);
+    }
 
     if (player.pet && random.bool()) {
       const pet = random.pick(MonsterSideKick.all);

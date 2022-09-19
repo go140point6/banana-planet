@@ -20,8 +20,8 @@ export default class extends Command {
   name = "boss";
   description = "fight boss";
   max = 5;
-  //waitTime = 1000 * 60 * 60; //debug
-  waitTime = 10 * 60 * 60;
+  //waitTime = 1000 * 60 * 60; //debug 1 hour?
+  waitTime = 250 * 60 * 60; //debug 15 minutes
 
   async exec(msg: Message, args: string[]) {
 
@@ -44,10 +44,10 @@ export default class extends Command {
 
         const duration = client.lastBossKilled.diffNow(["minutes"]);
         const minutes = Math.abs(duration.minutes);
-        const timeLeft = client.lastBossKilled.plus({ minutes: 1 }).toRelative(); //debug minutes: 10
+        const timeLeft = client.lastBossKilled.plus({ minutes: 10 }).toRelative();
 
         // if less than 10 mins
-        if (minutes < 1) { // debug 10
+        if (minutes < 10) {
           msg.channel.send(`You can run the boss command again ${timeLeft}`);
           return;
         } else {
@@ -88,9 +88,9 @@ export default class extends Command {
             if (players.length == 3) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
-              //console.log("Initial: " + (selectedBoss.armor)); //debug
+              //console.log("Initial: " + (selectedBoss.armor));
               selectedBoss.armor = ((selectedBoss.armor * players.length)/1.5);
-              //console.log("Boosted: " + Math.round(selectedBoss.armor * 100)); //debug
+              //console.log("Boosted: " + Math.round(selectedBoss.armor * 100));
 
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -116,9 +116,7 @@ export default class extends Command {
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1);
               selectedBoss.armor = ((selectedBoss.armor * players.length)/1);
               selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1);
-              console.log(selectedBoss.critDamage); //debug
               selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/1);
-              console.log(selectedBoss.critDamage); //debug
             
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -137,7 +135,7 @@ export default class extends Command {
 
         await joinMenu.run();
 
-        //console.log("Number of players: " + players.length); //debug
+        //console.log("Number of players: " + players.length);
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
         selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);

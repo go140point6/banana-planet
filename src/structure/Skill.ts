@@ -49,12 +49,11 @@ export class Rage extends Skill {
   id = "rage";
   description = "Does double damage when activated temporarily";
   price = 45_000;
-  interceptRate = 0.99; //debug 0.2 missing 
 
   use(p1: Fighter, _p2: Fighter) {
-    console.log("Before: " + p1.attack);  //debug
-    p1.attack *= 100; //debug 2
-    console.log("After: " + p1.attack);  //debug
+    //console.log("Before: " + p1.attack);
+    p1.attack *= 2;
+    //console.log("After: " + p1.attack);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -72,7 +71,7 @@ export class Rage extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.attack /= 2;
-    console.log("Done: " + p1.attack);  //debug
+    //console.log("Done: " + p1.attack);
   }
 }
 
@@ -81,15 +80,15 @@ export class Heal extends Skill {
   id = "heal";
   description = "Heals 20% of hp when activated, to maxium hp";
   price = 55_000;
-  interceptRate = 0.99;  //debug 0.1
+  interceptRate = 0.1;
 
   use(p1: Fighter, _p2: Fighter) {
     
-    console.log("Before: " + p1.hp);  //debug
-    const healAmount = Math.ceil(p1.hp * 0.2); //orig
+    //console.log("Before: " + p1.hp);
+    const healAmount = Math.ceil(p1.hp * 0.2);
   
     p1.hp += Math.min(healAmount, p1.hp);
-    console.log("After: " + p1.hp);  //debug
+    //console.log("After: " + p1.hp);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -107,7 +106,7 @@ export class Heal extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.hp *= 0.8;
-    console.log("Done: " + p1.hp);  //debug
+    //console.log("Done: " + p1.hp);
   }
 }
 
@@ -116,14 +115,14 @@ export class Defense extends Skill {
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 50_000;
-  interceptRate = 0.99;  //debug 0.25
+  interceptRate = 0.25;
 
   use(p1: Fighter, _p2: Fighter) {
 
-    console.log("Before " + p1.armor);  //debug
+    //console.log("Before " + p1.armor);
     const armorAmount = p1.armor * 0.1;
     p1.armor += armorAmount;
-    console.log("After " + p1.armor);  //debug
+    //console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -147,14 +146,14 @@ export class Luck extends Skill {
   id = "luck";
   description = "Increase critical chance by 5% when activated";
   price = 50_000;
-  interceptRate = 0.99;  //debug 0.35
+  interceptRate = 0.35;
 
   use(p1: Fighter, _p2: Fighter) {
 
-    console.log("Before " + p1.critChance);  //debug
+    //console.log("Before " + p1.critChance);
     const critChanceAmount = p1.critChance * 0.5;
     p1.critChance += critChanceAmount;
-    console.log("After " + p1.critChance);  //debug
+    //console.log("After " + p1.critChance);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -178,14 +177,13 @@ export class Damage extends Skill {
   id = "damage";
   description = "Triples critDamage when activated";
   price = 50_000;
-  interceptRate = 0.99;  //debug 0.15
+  interceptRate = 0.15;
 
   use(p1: Fighter, _p2: Fighter) {
 
-    console.log("Before " + p1.critDamage);  //debug
-    //const critDamageAmount = p1.critDamage * 1.02;
+    //console.log("Before " + p1.critDamage);
     p1.critDamage *= 3;
-    console.log("After " + p1.critDamage);  //debug
+    //console.log("After " + p1.critDamage);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -203,6 +201,6 @@ export class Damage extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.critDamage /= 3;
-    console.log("Done: " + p1.critDamage);  //debug
+    //console.log("Done: " + p1.critDamage);
     }
   }

@@ -21,7 +21,7 @@ export const AVATARS = [
 
 export class Player extends PlayerRPG {
   name: string;
-  _coins = 1000000;  //debug
+  _coins = 0;
   level = 1;
   xp = 0;
   win = 0;
