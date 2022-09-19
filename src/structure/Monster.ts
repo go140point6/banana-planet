@@ -5,15 +5,14 @@ import { Skill } from "./Skill";
 import { MonsterSideKick } from "./Pet";
 
 export class Monster extends Fighter {
-  dropGold = random.integer(10, 100);
+  drop = random.integer(10, 100);
   xpDrop = random.integer(10, 35);
   difficulty: number;
   constructor(player: Player) {
     super(random.pick(names));
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
-    console.log(this.dropGold);
-    const drop = ((this.difficulty * this.dropGold)/2);
+    console.log(this.drop);
     console.log(this.xpDrop);
     this.critDamage = player.critDamage + random.real(0.01, 0.5);
     if (this.difficulty < 6) {

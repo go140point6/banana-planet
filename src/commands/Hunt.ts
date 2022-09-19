@@ -49,8 +49,10 @@ export default class extends Command {
       if (winner.id === player.id) {
 
         const currLevel = player.level;
+        const levelDrop = ((currLevel * monster.drop)/2);
         player.addXP(monster.xpDrop);
-        player.coins += monster.drop;
+        player.coins += (levelDrop);
+        console.log(levelDrop); //debug
         player.win++;
 
         msg.channel.send(`${player.name} has earned ${bold(monster.drop)} ${currency}!`);
