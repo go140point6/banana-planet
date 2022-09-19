@@ -20,8 +20,8 @@ export abstract class Boss extends Fighter {
   show() {
     const embed = super.show();
 
-    embed.addField(`${currency} Drop`, `${this.drop}`, true);
-    embed.addField(`XP Drop`, `${this.xpDrop}`, true);
+    embed.addField(`${currency} Drop`, "?", true);
+    embed.addField(`XP Drop`, "?", true);
 
     return embed;
   }
@@ -30,8 +30,8 @@ export abstract class Boss extends Fighter {
 export class Apocalypse extends Boss {
   drop = 600;
   xpDrop = 500;
-  attack = 500;
-  hp = 550;
+  attack = 1; //debug 500
+  hp = 1; //debug 550
   armor = 0.3;
   critChance = 0.1;
   critDamage = 3;
