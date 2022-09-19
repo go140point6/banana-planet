@@ -89,7 +89,7 @@ export default class extends Command {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
               console.log("Initial: " + (selectedBoss.armor));
-              selectedBoss.armor = Math.ceil((selectedBoss.armor * players.length)/1.5);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.5).toFixed(2);
               console.log("Boosted: " + (selectedBoss.armor));
               //selectedBoss.armor = (selectedBoss.armor / 1.5);
               //console.log("Reduced: " + (selectedBoss.armor));
