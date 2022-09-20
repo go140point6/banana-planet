@@ -8,11 +8,18 @@ export class Monster extends Fighter {
   drop = random.integer(10, 100);
   xpDrop = random.integer(10, 35);
   difficulty: number;
+  jitter: number;
 
   constructor(player: Player) {
     super(random.pick(names));
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
+    if (this.difficulty > 21) {
+      this.jitter = 0.05 // 5%
+    } else {
+      this.jitter = 0.1 // 10%
+    }
+
     //console.log("Unmodified banana: " + this.drop);
     //console.log("Unmodified xp: " + this.xpDrop);
     this.critDamage = player.critDamage + random.real(0.01, 0.5);
@@ -48,19 +55,25 @@ export class Monster extends Fighter {
   }
 
   private randomAttack() {
-    const jitterMin = (this.attack - (this.attack * 0.1));
-    console.log("AttackMin: " + jitterMin); //debug
-    const jitterMax = (this.attack + (this.attack * 0.1));
-    console.log("AttackMax: " + jitterMax); //debug
-    return random.integer(jitterMin, jitterMax);
+    console.log("Player Attack: " + this.attack); //debug
+    const jitterMin = (this.attack - (this.attack * this.jitter));
+    console.log("AttackMinOffset: " + jitterMin); //debug
+    const jitterMax = (this.attack + (this.attack * this.jitter));
+    console.log("AttackMaxOffset: " + jitterMax); //debug
+    const finalRandom = random.integer(jitterMin, jitterMax);
+    console.log("RandomNumberAttack: " + finalRandom); //debug 
+    return finalRandom;    
   }
 
   private randomHP() {
-    const jitterMin = (this.hp - (this.hp * 0.1));
-    console.log(jitterMin); //debug
-    const jitterMax = (this.hp + (this.hp * 0.1));
-    console.log(jitterMax); //debug
-    return random.integer(jitterMin, jitterMax);
+    console.log("Player HP: " + this.hp); //debug
+    const jitterMin = (this.hp - (this.hp * this.jitter));
+    console.log("HPMin: " + jitterMin); //debug
+    const jitterMax = (this.hp + (this.hp * this.jitter));
+    console.log("HPMax: " + jitterMax); //debug
+    const finalRandom = random.integer(jitterMin, jitterMax);
+    console.log("RandomNumberHP: " + finalRandom); //debug 
+    return finalRandom;
   }
 
   private randomArmor() {
