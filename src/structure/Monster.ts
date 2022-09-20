@@ -11,6 +11,7 @@ export class Monster extends Fighter {
   jitter: number;
   playerAttack: number;
   playerHP: number;
+  playerArmor: number;
 
   constructor(player: Player) {
     super(random.pick(names));
@@ -42,7 +43,7 @@ export class Monster extends Fighter {
       this.hp = player.hp + this.randomHP();
       console.log("Final HP: " + this.hp); //debug
       this.armor = player.armor + (this.randomArmor() / 100);
-      console.log("Final Armor: " + this.armor);
+      console.log("Final Armor: " + this.armor); //debug
       this.critChance = player.critChance + (this.randomCritChance() / 100);
     }
     
