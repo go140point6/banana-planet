@@ -61,9 +61,9 @@ export class Monster extends Fighter {
 
   private randomAttack() {
     console.log("Player Attack: " + this.playerAttack); //debug
-    const jitterMin = (this.playerAttack * this.jitter);
+    const jitterMin = -Math.abs(this.playerAttack * this.jitter);
     console.log("AttackMinOffset: " + jitterMin); //debug
-    const jitterMax = (this.playerAttack * this.jitter);
+    const jitterMax = Math.abs(this.playerAttack * this.jitter);
     console.log("AttackMaxOffset: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
     console.log("RandomNumberAttack: " + finalRandom); //debug 
