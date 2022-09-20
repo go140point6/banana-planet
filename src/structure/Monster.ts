@@ -26,9 +26,9 @@ export class Monster extends Fighter {
     this.playerCritDamage = player.critDamage * 100;
 
     if (this.difficulty > 21) {
-      this.jitter = 0.05 // 5%
-    } else {
       this.jitter = 0.1 // 10%
+    } else {
+      this.jitter = 0.05 // 5%
     }
 
     //console.log("Unmodified banana: " + this.drop);
@@ -112,11 +112,11 @@ export class Monster extends Fighter {
   }
 
   private randomCritDamage() {
-    console.log("Player CritDamage: " + (this.playerCritDamage / 100)); //debug
+    console.log("Player CritDamage: " + (this.playerCritDamage / 1)); //debug
     const jitterMin = (-Math.abs(this.playerCritDamage * this.jitter));
-    console.log("CritDamageMin: " + (jitterMin / 100)); //debug
+    console.log("CritDamageMin: " + (jitterMin / 1)); //debug
     const jitterMax = (Math.abs(this.playerCritDamage * this.jitter));
-    console.log("CritDamageMax: " + (jitterMax / 100)); //debug
+    console.log("CritDamageMax: " + (jitterMax / 1)); //debug
     const finalRandom = random.real(jitterMin, jitterMax);
     console.log("RandomNumberCritDamage: " + (finalRandom)); //debug 
     return finalRandom;
