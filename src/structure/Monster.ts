@@ -26,9 +26,9 @@ export class Monster extends Fighter {
     
     if (this.difficulty > 9) {
       this.attack = player.attack + this.randomAttack();
-      console.log("Final Attack: " + this.attack);
+      console.log("Final Attack: " + this.attack); //debug
       this.hp = player.hp + this.randomHP();
-      console.log("Final HP: " + this.hp);
+      console.log("Final HP: " + this.hp); //debug
       this.armor = player.armor + (this.randomArmor() / 100);
       this.critChance = player.critChance + (this.randomCritChance() / 100);
     }
@@ -49,19 +49,19 @@ export class Monster extends Fighter {
   }
 
   private randomAttack() {
-    const jitterMin = (player.attack - (player.attack * 0.1));
+    const jitterMin = (this.attack - (this.attack * 0.1));
     console.log("AttackMin: " + jitterMin); //debug
-    const jitterMax = (player.attack + (player.attack * 0.1));
+    const jitterMax = (this.attack + (this.attack * 0.1));
     console.log("AttackMax: " + jitterMax); //debug
     return random.integer(jitterMin, jitterMax);
   }
 
   private randomHP() {
-    const jitterMin = (player.hp - (player.hp * 0.1));
+    const jitterMin = (this.hp - (this.hp * 0.1));
     console.log(jitterMin); //debug
-    const jitterMax = (player.hp + (player.hp * 0.1));
+    const jitterMax = (this.hp + (this.hp * 0.1));
     console.log(jitterMax); //debug
-    return random.integer(-3, this.difficulty);
+    return random.integer(jitterMin, jitterMax);
   }
 
   private randomArmor() {
