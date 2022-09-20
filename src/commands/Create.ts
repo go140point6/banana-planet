@@ -28,5 +28,7 @@ export default class extends Command {
     )
     msg.channel.send(`Use \`${prefix}oogi\` to start hunting monsters!`);
     msg.channel.send(`Use \`${prefix}help\` to check out other commands!`);
+    const channel = message.guild.channels.find(channel => channel.name === 'Banana-Planet-Discussions');
+    msg.channel.send(`WARNING! Banana Planet hasn't been play-balanced yet.  Please use <#${channel.id}> to give feedback and discuss!`);
   }
 }
