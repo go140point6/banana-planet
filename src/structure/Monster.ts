@@ -23,7 +23,7 @@ export class Monster extends Fighter {
     this.playerHP = player.hp;
     this.playerArmor = player.armor * 100;
     this.playerCritChance = player.critChance * 100;
-    this.playerCritDamage = player.critDamage;
+    this.playerCritDamage = player.critDamage * 10;
 
     if (this.difficulty > 21) {
       this.jitter = 0.05 // 5%
@@ -49,7 +49,7 @@ export class Monster extends Fighter {
       this.armor = player.armor + (this.randomArmor() / 100);
       console.log("Final Armor: " + this.armor); //debug
       this.critChance = player.critChance + (this.randomCritChance() / 100);
-      this.critDamage = player.critDamage + (this.randomCritDamage());
+      this.critDamage = player.critDamage + (this.randomCritDamage() / 10);
     }
     
     if (player.skill && random.bool()) {
@@ -112,10 +112,10 @@ export class Monster extends Fighter {
   }
 
   private randomCritDamage() {
-    console.log("Player CritDamage: " + this.playerCritDamage); //debug
-    const jitterMin = -Math.abs(this.playerCritDamage * this.jitter);
+    console.log("Player CritDamage: " + Math.ceil(this.playerCritDamage); //debug
+    const jitterMin = Math.ceil(-Math.abs(this.playerCritDamage * this.jitter));
     console.log("CritDamageMin: " + jitterMin); //debug
-    const jitterMax = Math.abs(this.playerCritDamage * this.jitter);
+    const jitterMax = Math.ceil(Math.abs(this.playerCritDamage * this.jitter));
     console.log("CritDamageMax: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
     console.log("RandomNumberCritDamage: " + finalRandom); //debug 
