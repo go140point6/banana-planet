@@ -8,7 +8,6 @@ export class Monster extends Fighter {
   drop = random.integer(10, 100);
   xpDrop = random.integer(10, 35);
   difficulty: number;
-  jitter: number;
 
   constructor(player: Player) {
     super(random.pick(names));
