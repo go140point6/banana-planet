@@ -72,9 +72,9 @@ export class Monster extends Fighter {
 
   private randomHP() {
     console.log("Player HP: " + this.playerHP); //debug
-    const jitterMin = (this.playerHP * this.jitter);
+    const jitterMin = -Math.abs(this.playerHP * this.jitter);
     console.log("HPMin: " + jitterMin); //debug
-    const jitterMax = (this.playerHP * this.jitter);
+    const jitterMax = Math.abs(this.playerHP * this.jitter);
     console.log("HPMax: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
     console.log("RandomNumberHP: " + finalRandom); //debug 
