@@ -112,7 +112,7 @@ export class Monster extends Fighter {
   }
 
   private randomCritDamage() {
-    console.log("Player CritDamage: " + (this.playerCritDamage / 10)); //debug
+    console.log("Player CritDamage: " + (this.playerCritDamage / 1)); //debug
     const jitterMin = -Math.abs(this.playerCritDamage * this.jitter);
     console.log("CritDamageMin: " + (jitterMin / 1)); //debug
     const jitterMax = Math.abs(this.playerCritDamage * this.jitter);
