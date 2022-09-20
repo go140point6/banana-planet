@@ -49,7 +49,7 @@ export class Monster extends Fighter {
       this.armor = player.armor + (this.randomArmor() / 100);
       console.log("Final Armor: " + this.armor); //debug
       this.critChance = player.critChance + (this.randomCritChance() / 100);
-      this.critDamage = player.critDamage + (this.randomCritDamage() / 10);
+      this.critDamage = player.critDamage + (this.randomCritDamage() / 100);
     }
     
     if (player.skill && random.bool()) {
