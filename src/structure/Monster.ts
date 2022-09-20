@@ -23,7 +23,7 @@ export class Monster extends Fighter {
     this.playerHP = player.hp;
     this.playerArmor = player.armor * 100;
     this.playerCritChance = player.critChance * 100;
-    this.playerCritDamage = player.critDamage * 10;
+    this.playerCritDamage = player.critDamage;
 
     if (this.difficulty > 21) {
       this.jitter = 0.05 // 5%
