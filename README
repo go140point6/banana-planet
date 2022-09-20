@@ -45,5 +45,5 @@ To Do:
 - Enable the gambling module.
 - Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
 - Randomize banana and xp from boss.
-- If you die fighting a boss, no XP ro bananas for you!
+- If you die fighting a boss, no XP or bananas for you!
 - Win/Hunt% should exclude boss fights so not to go over 100%

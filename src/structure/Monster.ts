@@ -8,6 +8,8 @@ export class Monster extends Fighter {
   drop = random.integer(10, 100);
   xpDrop = random.integer(10, 35);
   difficulty: number;
+  jitter: number;
+
   constructor(player: Player) {
     super(random.pick(names));
     this.imageUrl = images[this.id];
@@ -15,16 +17,18 @@ export class Monster extends Fighter {
     //console.log("Unmodified banana: " + this.drop);
     //console.log("Unmodified xp: " + this.xpDrop);
     this.critDamage = player.critDamage + random.real(0.01, 0.5);
-    if (this.difficulty < 6) {
+    if (this.difficulty < 10) {
       this.attack = player.attack + this.randomAttribNoob();
       this.hp = player.hp + this.randomAttribNoob();
       this.armor = player.armor + (this.randomAttribNoob() / 100);
       this.critChance = player.critChance + (this.randomAttribNoob() / 100);
     } 
     
-    if (this.difficulty > 5) {
+    if (this.difficulty > 9) {
       this.attack = player.attack + this.randomAttack();
+      console.log("Final Attack: " + this.attack);
       this.hp = player.hp + this.randomHP();
+      console.log("Final HP: " + this.hp);
       this.armor = player.armor + (this.randomArmor() / 100);
       this.critChance = player.critChance + (this.randomCritChance() / 100);
     }
@@ -45,12 +49,21 @@ export class Monster extends Fighter {
   }
 
   private randomAttack() {
-    return random.integer(-3, this.difficulty);
+    const jitterMin = (player.attack - (player.attack * 0.1));
+    console.log("AttackMin: " + jitterMin); //debug
+    const jitterMax = (player.attack + (player.attack * 0.1));
+    console.log("AttackMax: " + jitterMax); //debug
+    return random.integer(jitterMin, jitterMax);
   }
 
   private randomHP() {
+    const jitterMin = (player.hp - (player.hp * 0.1));
+    console.log(jitterMin); //debug
+    const jitterMax = (player.hp + (player.hp * 0.1));
+    console.log(jitterMax); //debug
     return random.integer(-3, this.difficulty);
   }
+
   private randomArmor() {
     return random.integer(-3, this.difficulty);
   }
