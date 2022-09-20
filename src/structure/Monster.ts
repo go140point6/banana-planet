@@ -49,7 +49,7 @@ export class Monster extends Fighter {
       this.armor = player.armor + (this.randomArmor() / 100);
       console.log("Final Armor: " + this.armor); //debug
       this.critChance = player.critChance + (this.randomCritChance() / 100);
-      this.critDamage = player.critDamage + (this.randomCritDamage() / 100);
+      this.critDamage = player.critDamage + (this.randomCritDamage());
     }
     
     if (player.skill && random.bool()) {
@@ -117,7 +117,7 @@ export class Monster extends Fighter {
     console.log("CritDamageMin: " + (jitterMin / 1)); //debug
     const jitterMax = Math.abs(this.playerCritDamage * this.jitter);
     console.log("CritDamageMax: " + (jitterMax / 1)); //debug
-    const finalRandom = random.integer(jitterMin, jitterMax);
+    const finalRandom = random.real(jitterMin, jitterMax);
     console.log("RandomNumberCritDamage: " + (finalRandom / 1)); //debug 
     return finalRandom;
   }
