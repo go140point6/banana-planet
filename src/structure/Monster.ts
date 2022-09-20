@@ -18,6 +18,7 @@ export class Monster extends Fighter {
     this.difficulty = player.level;
     this.playerAttack = player.attack;
     this.playerHP = player.hp;
+    this.playerArmor = player.armor;
 
     if (this.difficulty > 21) {
       this.jitter = 0.05 // 5%
@@ -41,6 +42,7 @@ export class Monster extends Fighter {
       this.hp = player.hp + this.randomHP();
       console.log("Final HP: " + this.hp); //debug
       this.armor = player.armor + (this.randomArmor() / 100);
+      console.log("Final Armor: " + this.armor);
       this.critChance = player.critChance + (this.randomCritChance() / 100);
     }
     
@@ -82,8 +84,16 @@ export class Monster extends Fighter {
   }
 
   private randomArmor() {
-    return random.integer(-3, this.difficulty);
+    console.log("Player Armor: " + this.playerArmor); //debug
+    const jitterMin = -Math.abs(this.playerArmor * this.jitter);
+    console.log("ArmorMin: " + jitterMin); //debug
+    const jitterMax = Math.abs(this.playerArmor * this.jitter);
+    console.log("ArmorMax: " + jitterMax); //debug
+    const finalRandom = random.integer(jitterMin, jitterMax);
+    console.log("RandomNumberArmor: " + finalRandom); //debug 
+    return finalRandom;
   }
+
   private randomCritChance() {
     return random.integer(-3, this.difficulty);
   }
