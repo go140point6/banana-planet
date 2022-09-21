@@ -41,10 +41,10 @@ export class Apocalypse extends Boss {
     super(name);
 
     const skill = new Rage();
-    //skill.setOwner(this);
+    skill.setOwner(this);
 
     const pet = new Fanatics();
-    //pet.setOwner(this);
+    pet.setOwner(this);
   }
 }
 
