@@ -153,7 +153,7 @@ export default class extends Command {
 
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
-          const sharedXpDrop = Math.ceil(xpDrop / playsers.length);
+          const sharedXpDrop = Math.ceil(xpDrop / players.length);
 
           for (const player of players) {
 
