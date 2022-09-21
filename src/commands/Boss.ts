@@ -154,14 +154,10 @@ export default class extends Command {
           const sharedXpDrop = Math.ceil(xpDrop / players.length);
 
           const party = 0;
-          console.log(party);
 
-          //for (const player of players) {
-          //  let a = (player.level + party);
-          //  let party = a;
-          //}
-
-          console.log(party);
+          for (const player of players) {
+            console.log(party);
+          }
 
           for (const player of players) {
 
