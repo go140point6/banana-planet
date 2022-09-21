@@ -23,7 +23,7 @@ export class Player extends PlayerRPG {
   name: string;
   _coins = 0;
   level = 1;
-  xp = 0;
+  xp = 1000; //debug
   win = 0;
   hunt = 0;
   inventory: Item[] = [];
@@ -63,7 +63,7 @@ export class Player extends PlayerRPG {
     Object.assign(player, data);
 
     const offset = player.level - 1;
-    player.hp += offset * 1000 //debug
+    player.hp += offset * 10
     player.attack += offset * 2
     player.critDamage += offset * 0.01;
 
