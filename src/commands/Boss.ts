@@ -151,9 +151,6 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
           
-          console.log("Final Dead: " + battle.dead.length);
-
-
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
           const sharedXpDrop = Math.ceil(xpDrop / players.length);
