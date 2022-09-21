@@ -41,7 +41,7 @@ export default class extends Command {
       const selectedBoss = boss[index];
       const menu = new ButtonHandler(msg, selectedBoss.show());
       const players: Player[] = [];
-      const alive: Player[] = [];
+      const dead: Player[] = [];
 
       menu.addButton("battle", async () => {
 
@@ -148,13 +148,11 @@ export default class extends Command {
         //console.log("New Attack is " + selectedBoss.attack); //debug
         battle.setBoss(selectedBoss);
 
-        for (const player of players) {
-          console.log(player.name + "has hp = " + player.hp)
-        }
-
         const winner = await battle.run();
 
         if (winner.id !== selectedBoss.id) {
+          
+          console.log(dead.length);
 
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
@@ -163,7 +161,6 @@ export default class extends Command {
           for (const player of players) {
 
             const currLevel = player.level;
-            console.log(player.name + "has hp = " + player.hp)
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
             player.win++;
