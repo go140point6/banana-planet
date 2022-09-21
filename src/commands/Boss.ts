@@ -149,10 +149,6 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
 
-          const { drop, xpDrop } = selectedBoss;
-          const sharedDrop = Math.ceil(drop / players.length);
-          const sharedXpDrop = Math.ceil(xpDrop / players.length);
-
           var party = 0;
 
           for (const player of players) {
@@ -162,20 +158,22 @@ export default class extends Command {
 
           console.log("Final Party Number: " + party);
 
+          const { drop, xpDrop } = selectedBoss;
+          //const sharedDrop = Math.ceil(drop / players.length);
+          //const sharedXpDrop = Math.ceil(xpDrop / players.length);
+
           for (const player of players) {
 
-            console.log(player.level);
-
-
-
             const currLevel = player.level;
+            const sharedDrop = drop * (player.level / party);
+            const sharedXpDrop = xpDrop * (player.level / party)
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
             player.win++;
 
             msg.channel.send(`${selectedBoss.name} dropped ${bold(drop)} ${currency} and provided ${bold(xpDrop)} xp total.`);
-            msg.channel.send(`${player.name}'s share is ${bold(sharedDrop)} ${currency}!`);
-            msg.channel.send(`${player.name}'s share is ${bold(sharedXpDrop)} xp!`);
+            msg.channel.send(`Since ${player.name} is level ${player.level}, their share is ${bold(sharedDrop)} ${currency}!`);
+            msg.channel.send(`... and ${player.name}'s share is ${bold(sharedXpDrop)} xp!`);
 
             if (currLevel !== player.level) {
               msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
