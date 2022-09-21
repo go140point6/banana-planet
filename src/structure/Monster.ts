@@ -31,23 +31,18 @@ export class Monster extends Fighter {
       this.jitter = 0.05 // 5%
     }
 
-    //console.log("Unmodified banana: " + this.drop);
-    //console.log("Unmodified xp: " + this.xpDrop);
     if (this.difficulty < 10) {
       this.attack = player.attack + this.randomAttribNoob();
       this.hp = player.hp + this.randomAttribNoob();
       this.armor = player.armor + (this.randomAttribNoob() / 100);
       this.critChance = player.critChance + (this.randomAttribNoob() / 100);
-      //critDamage
+      this.critDamage = player.critDamage + (this.randomAttribNoob());
     } 
     
     if (this.difficulty > 9) {
       this.attack = player.attack + this.randomAttack();
-      console.log("Final Attack: " + this.attack); //debug
       this.hp = player.hp + this.randomHP();
-      console.log("Final HP: " + this.hp); //debug
       this.armor = player.armor + (this.randomArmor() / 100);
-      console.log("Final Armor: " + this.armor); //debug
       this.critChance = player.critChance + (this.randomCritChance() / 100);
       this.critDamage = player.critDamage + (this.randomCritDamage());
     }
@@ -68,57 +63,37 @@ export class Monster extends Fighter {
   }
 
   private randomAttack() {
-    console.log("Player Attack: " + this.playerAttack); //debug
     const jitterMin = -Math.abs(this.playerAttack * this.jitter);
-    console.log("AttackMinOffset: " + jitterMin); //debug
     const jitterMax = Math.abs(this.playerAttack * this.jitter);
-    console.log("AttackMaxOffset: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
-    console.log("RandomNumberAttack: " + finalRandom); //debug 
     return finalRandom;
   }
 
   private randomHP() {
-    console.log("Player HP: " + this.playerHP); //debug
     const jitterMin = -Math.abs(this.playerHP * this.jitter);
-    console.log("HPMin: " + jitterMin); //debug
     const jitterMax = Math.abs(this.playerHP * this.jitter);
-    console.log("HPMax: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
-    console.log("RandomNumberHP: " + finalRandom); //debug 
     return finalRandom;
   }
 
   private randomArmor() {
-    console.log("Player Armor: " + this.playerArmor); //debug
     const jitterMin = -Math.abs(this.playerArmor * this.jitter);
-    console.log("ArmorMin: " + jitterMin); //debug
     const jitterMax = Math.abs(this.playerArmor * this.jitter);
-    console.log("ArmorMax: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
-    console.log("RandomNumberArmor: " + finalRandom); //debug 
     return finalRandom;
   }
 
   private randomCritChance() {
-    console.log("Player CritChance: " + this.playerCritChance); //debug
     const jitterMin = -Math.abs(this.playerCritChance * this.jitter);
-    console.log("CritChanceMin: " + jitterMin); //debug
     const jitterMax = Math.abs(this.playerCritChance * this.jitter);
-    console.log("CritChanceMax: " + jitterMax); //debug
     const finalRandom = random.integer(jitterMin, jitterMax);
-    console.log("RandomNumberCritChance: " + finalRandom); //debug 
     return finalRandom;
   }
 
   private randomCritDamage() {
-    console.log("Player CritDamage: " + (this.playerCritDamage) / 100); //debug
     const jitterMin = (-Math.abs(this.playerCritDamage * this.jitter));
-    console.log("CritDamageMin: " + (jitterMin) / 10); //debug
     const jitterMax = (Math.abs(this.playerCritDamage * this.jitter));
-    console.log("CritDamageMax: " + (jitterMax) / 10); //debug
     const finalRandom = (random.integer(jitterMin, jitterMax) / 10);
-    console.log("RandomNumberCritDamage: " + (finalRandom)); //debug 
     return finalRandom;
   }
 

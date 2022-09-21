@@ -34,16 +34,16 @@ New Features:
 - New skills: Ape Luck (critChance), Ape Critial Damage (critDamage).
 - Sidekicks expanded and separated into specific sidekicks for player, monster and boss.
 - Bosses are now more dynamic and XP/Bananas are shared based on player's level.  Bosses will get strong with increased stats, the more players, the more attributes get increased.
+- Try your luck at the slot machine!
 
 Bugs:
 - On compilation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
 
 To Do:
+- BattleRoyale is currently disabled.
 - Improved and more descriptive help subsystem.
 - Create .env.sample in repo so there is an example of what to make the .env look like.
 - More shortcut keys.
-- Enable the gambling module.
 - Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
-- Randomize banana and xp from boss(?)
 - Find a way to make dead players not get xp or bananas.
 - Win/Hunt% should exclude boss fights so not to go over 100%
