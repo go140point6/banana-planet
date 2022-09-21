@@ -151,7 +151,7 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
           
-          console.log("Final Dead: " + dead.length);
+          console.log("Final Dead: " + battle.dead.length);
 
 
           const { drop, xpDrop } = selectedBoss;
