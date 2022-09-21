@@ -161,6 +161,8 @@ export default class extends Command {
           //const sharedDrop = Math.ceil(drop / players.length);
           //const sharedXpDrop = Math.ceil(xpDrop / players.length);
 
+          msg.channel.send(`${selectedBoss.name} dropped ${bold(drop)} ${currency} and provided ${bold(xpDrop)} xp total.`);
+
           for (const player of players) {
 
             const currLevel = player.level;
@@ -170,7 +172,6 @@ export default class extends Command {
             player.coins += sharedDrop;
             player.win++;
 
-            msg.channel.send(`${selectedBoss.name} dropped ${bold(drop)} ${currency} and provided ${bold(xpDrop)} xp total.`);
             msg.channel.send(`Since ${player.name} is level ${player.level}, their share is ${bold(sharedDrop)} ${currency}!`);
             msg.channel.send(`... and ${player.name}'s share is ${bold(sharedXpDrop)} xp!`);
 
