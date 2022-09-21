@@ -138,7 +138,9 @@ export default class extends Command {
 
         await joinMenu.run();
 
-        //console.log("Number of players: " + players.length);
+        console.log("Number of players: " + players.length);
+
+        players.forEach(console.log(player));
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
         //selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
@@ -150,6 +152,8 @@ export default class extends Command {
         const winner = await battle.run();
 
         if (winner.id !== selectedBoss.id) {
+
+
           
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
