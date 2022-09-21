@@ -21,8 +21,8 @@ Create Discord Bot:
 - Send Messages
 
 Fixes:
-- Easier abililty to win fight level 5 and under.
-- At level 6 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
+- Easier abililty to win fights on levels under 10.
+- At level 10 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
 
 Cosmetic:
 - Changed the monsters and bosses to Marvel Super Villians and included matching profile pictures.
@@ -36,7 +36,7 @@ New Features:
 - Bosses are now more dynamic and XP/Bananas are shared.  Bosses will get strong with increased stats, the more players, the more attributes get increased.
 
 Bugs:
-- On compliation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
+- On compilation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
 
 To Do:
 - Improved and more descriptive help subsystem.
@@ -44,6 +44,6 @@ To Do:
 - More shortcut keys.
 - Enable the gambling module.
 - Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
-- Randomize banana and xp from boss.
+- Randomize banana and xp from boss(?)
 - If you die fighting a boss, no XP or bananas for you!
 - Win/Hunt% should exclude boss fights so not to go over 100%

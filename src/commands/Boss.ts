@@ -39,6 +39,7 @@ export default class extends Command {
       const selectedBoss = boss[index];
       const menu = new ButtonHandler(msg, selectedBoss.show());
       const players: Player[] = [];
+      const alive: Player[] = [];
 
       menu.addButton("battle", async () => {
 
@@ -139,14 +140,16 @@ export default class extends Command {
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
         selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
-        console.log("New HP is " + selectedBoss.hp);
+        //console.log("New HP is " + selectedBoss.hp); //debug
         selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
-        console.log("New Attack is " + selectedBoss.attack);
+        //console.log("New Attack is " + selectedBoss.attack); //debug
         battle.setBoss(selectedBoss);
 
         const winner = await battle.run();
 
         if (winner.id !== selectedBoss.id) {
+
+          alive.push(player);
 
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
@@ -154,6 +157,13 @@ export default class extends Command {
 
           for (const player of players) {
 
+          }
+
+          for (const player of players) {
+
+            if (player.hp <= 0) {
+              msg.channel.send(`Hey ${player.name}, you dead... no XP or ${currency} for you`);
+            } else {
             const currLevel = player.level;
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
@@ -168,6 +178,7 @@ export default class extends Command {
             }
 
             player.save();
+            }
           }
 
         }
