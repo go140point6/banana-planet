@@ -33,7 +33,7 @@ New Features:
 - Banana and XP earned from monsters are now tied to level, this number will need to be tweaks for play balance.
 - New skills: Ape Luck (critChance), Ape Critial Damage (critDamage).
 - Sidekicks expanded and separated into specific sidekicks for player, monster and boss.
-- Bosses are now more dynamic and XP/Bananas are shared.  Bosses will get strong with increased stats, the more players, the more attributes get increased.
+- Bosses are now more dynamic and XP/Bananas are shared based on player's level.  Bosses will get strong with increased stats, the more players, the more attributes get increased.
 
 Bugs:
 - On compilation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
@@ -45,5 +45,5 @@ To Do:
 - Enable the gambling module.
 - Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
 - Randomize banana and xp from boss(?)
-- If you die fighting a boss, no XP or bananas for you!
+- Find a way to make dead players not get xp or bananas.
 - Win/Hunt% should exclude boss fights so not to go over 100%

@@ -152,11 +152,10 @@ export default class extends Command {
           var party = 0;
 
           for (const player of players) {
-            console.log(party);
             party = (party + player.level);
           }
 
-          console.log("Final Party Number: " + party);
+          //console.log("Final Party Number: " + party); //debug
 
           const { drop, xpDrop } = selectedBoss;
           //const sharedDrop = Math.ceil(drop / players.length);
@@ -165,8 +164,8 @@ export default class extends Command {
           for (const player of players) {
 
             const currLevel = player.level;
-            const sharedDrop = drop * (player.level / party);
-            const sharedXpDrop = xpDrop * (player.level / party)
+            const sharedDrop = Math.ceil(drop * (player.level / party));
+            const sharedXpDrop = Math.ceil(xpDrop * (player.level / party));
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
             player.win++;
