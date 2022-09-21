@@ -40,8 +40,7 @@ export default class extends Command {
 
       const selectedBoss = boss[index];
       const menu = new ButtonHandler(msg, selectedBoss.show());
-      const players: Player[] = [];
-      const dead: Player[] = [];
+      const players: Player[] = [];      
 
       menu.addButton("battle", async () => {
 
@@ -152,7 +151,8 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
           
-          console.log(dead.length);
+          console.log("Final Dead: " + dead.length);
+
 
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
