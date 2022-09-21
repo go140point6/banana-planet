@@ -152,12 +152,9 @@ export default class extends Command {
         if (winner.id !== selectedBoss.id) {
 
           for (const player of players) {
-            console.log(player.name + "has hp = " + player.hp)
-            }
-
-          for (const player of players) {
 
             const currLevel = player.level;
+            console.log(player.name + "has hp = " + player.hp)
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
             player.win++;
