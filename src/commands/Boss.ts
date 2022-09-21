@@ -152,12 +152,12 @@ export default class extends Command {
         if (winner.id !== selectedBoss.id) {
 
           for (const player of players) {
-            if (this.hp > 0) {
-              alive.push(player);
-              console.log("Alive player: " + player);
-            } else {
-              console.log("Dead player: " + player);
+            if (player.hp <= 0) {
+              console.log("Dead player: " + player.name);
               player.save();
+            } else {
+              alive.push(player);
+              console.log("Alive player: " + player.name);
             }
           }
 
