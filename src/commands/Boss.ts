@@ -81,7 +81,7 @@ export default class extends Command {
 
             if (players.length == 3) { //debug 2
               //selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * 2)/1.75);
+              //selectedBoss.hp = Math.ceil((selectedBoss.hp * 2)/1.75);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
 
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!` );
@@ -147,6 +147,10 @@ export default class extends Command {
         //selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
         //console.log("New Attack is " + selectedBoss.attack); //debug
         battle.setBoss(selectedBoss);
+
+        for (const player of players) {
+          console.log(player.name + "has hp = " + player.hp)
+        }
 
         const winner = await battle.run();
 
