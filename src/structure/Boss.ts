@@ -31,7 +31,7 @@ export class Apocalypse extends Boss {
   drop = random.integer(300, 900);
   xpDrop = random.integer(300, 700);
   attack = 15; //debug 500 
-  hp = 100; //debug 500
+  hp = 110; //debug 500
   armor = 0.25;
   critChance = 0.1;
   critDamage = 3;
@@ -44,7 +44,7 @@ export class Apocalypse extends Boss {
     //skill.setOwner(this);
 
     const pet = new Fanatics();
-    pet.setOwner(this);
+    //pet.setOwner(this);
   }
 }
 
