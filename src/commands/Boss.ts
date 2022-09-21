@@ -151,6 +151,10 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
 
+          const { drop, xpDrop } = selectedBoss;
+          const sharedDrop = Math.ceil(drop / players.length);
+          const sharedXpDrop = Math.ceil(xpDrop / playsers.length);
+
           for (const player of players) {
 
             const currLevel = player.level;
