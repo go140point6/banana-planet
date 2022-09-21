@@ -149,15 +149,13 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
 
-        console.log("Number of players: " + players.length);
-        players.forEach(console.log(player));
-          
           const { drop, xpDrop } = selectedBoss;
           const sharedDrop = Math.ceil(drop / players.length);
           const sharedXpDrop = Math.ceil(xpDrop / players.length);
 
           for (const player of players) {
 
+            console.log(player.level);
             const currLevel = player.level;
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
