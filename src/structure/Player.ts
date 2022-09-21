@@ -23,7 +23,6 @@ export class Player extends PlayerRPG {
   name: string;
   _coins = 0;
   level = 1;
-  hp = 10000; //debug
   xp = 0;
   win = 0;
   hunt = 0;
@@ -64,7 +63,7 @@ export class Player extends PlayerRPG {
     Object.assign(player, data);
 
     const offset = player.level - 1;
-    player.hp += offset * 10
+    player.hp += offset * 1000 //debug
     player.attack += offset * 2
     player.critDamage += offset * 0.01;
 
