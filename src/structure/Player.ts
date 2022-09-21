@@ -23,6 +23,7 @@ export class Player extends PlayerRPG {
   name: string;
   _coins = 0;
   level = 1;
+  hp = 10000; //debug
   xp = 0;
   win = 0;
   hunt = 0;
