@@ -152,20 +152,10 @@ export default class extends Command {
         if (winner.id !== selectedBoss.id) {
 
           for (const player of players) {
-            if (player.hp <= 0) {
-              console.log("Dead player: " + player.name);
-              player.save();
-            } else {
-              alive.push(player);
-              console.log("Alive player: " + player.name);
+            console.log(player.name + "has hp = " + player.hp)
             }
-          }
 
-          const { drop, xpDrop } = selectedBoss;
-          const sharedDrop = Math.ceil(drop / alive.length);
-          const sharedXpDrop = Math.ceil(xpDrop / alive.length);
-
-          for (const player of alive) {
+          for (const player of players) {
 
             const currLevel = player.level;
             player.addXP(sharedXpDrop);
@@ -183,7 +173,7 @@ export default class extends Command {
             player.save();
             }
           }
-        });
+        })
 
       menu.addCloseButton();
 
