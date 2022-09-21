@@ -157,7 +157,10 @@ export default class extends Command {
 
           for (const player of players) {
             console.log(party);
+            party = (party + player.level);
           }
+
+          console.log("Final Party Number: " + party);
 
           for (const player of players) {
 
