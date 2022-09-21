@@ -156,7 +156,7 @@ export default class extends Command {
               alive.push(player);
               console.log("Alive player: " + player);
             } else {
-              console.log("Dead player: " | player);
+              console.log("Dead player: " + player);
               player.save();
             }
           }
