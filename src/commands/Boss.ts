@@ -21,7 +21,9 @@ export default class extends Command {
   description = "fight boss";
   max = 5;
   //waitTime = 1000 * 60 * 60; //debug 1 hour?
-  waitTime = 250 * 60 * 60; //debug 15 minutes
+  //waitTime = 250 * 60 * 60; //debug 15 minutes
+  waitTime = 10 * 60 * 60; //debug
+
 
   async exec(msg: Message, args: string[]) {
 
