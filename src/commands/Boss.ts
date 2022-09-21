@@ -77,7 +77,7 @@ export default class extends Command {
               `${user.username} joined! (${players.length}/${this.max} players)`
             );
 
-            if (players.length == 6) {
+            if (players.length == 2) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
 
@@ -112,7 +112,7 @@ export default class extends Command {
               msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(Math.round(selectedBoss.critChance * 100))}%!`);
             }
 
-            if (players.length == 2) {
+            if (players.length == 5) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1);
               selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1);
               selectedBoss.armor = ((selectedBoss.armor * players.length)/1);
@@ -149,21 +149,20 @@ export default class extends Command {
 
         if (winner.id !== selectedBoss.id) {
 
-          alive.push(player);
-
-          const { drop, xpDrop } = selectedBoss;
-          const sharedDrop = Math.ceil(drop / players.length);
-          const sharedXpDrop = Math.ceil(xpDrop / players.length);
-
           for (const player of players) {
-
+            if (player.hp > 0) {
+              alive.push(player);
+            } else {
+              player.save();
+            }
           }
 
-          for (const player of players) {
+          const { drop, xpDrop } = selectedBoss;
+          const sharedDrop = Math.ceil(drop / alive.length);
+          const sharedXpDrop = Math.ceil(xpDrop / alive.length);
 
-            if (player.hp <= 0) {
-              msg.channel.send(`Hey ${player.name}, you dead... no XP or ${currency} for you`);
-            } else {
+          for (const player of alive) {
+
             const currLevel = player.level;
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
@@ -180,9 +179,7 @@ export default class extends Command {
             player.save();
             }
           }
-
-        }
-      })
+        });
 
       menu.addCloseButton();
 
