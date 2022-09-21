@@ -154,7 +154,9 @@ export default class extends Command {
           for (const player of players) {
             if (player.hp > 0) {
               alive.push(player);
+              console.log("Alive player: " + player);
             } else {
+              console.log("Dead player: " | player);
               player.save();
             }
           }
