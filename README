@@ -31,6 +31,7 @@ Cosmetic:
 New Features:
 - When choosing a monster to fight, XP and Banana amounts are hidden.
 - Banana and XP earned from monsters are now tied to level, this number will need to be tweaks for play balance.
+- Banana and XP earned are also tied to how much stronger/weaker player is relative to monster, this number may need to be tweaked for play balance.
 - New skills: Ape Luck (critChance), Ape Critial Damage (critDamage).
 - Sidekicks expanded and separated into specific sidekicks for player, monster and boss.
 - Bosses are now more dynamic and XP/Bananas are shared based on player's level.  Bosses will get strong with increased stats, the more players, the more attributes get increased.
@@ -47,4 +48,3 @@ To Do:
 - Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
 - Find a way to make dead players not get xp or bananas.
 - Win/Hunt% should exclude boss fights so not to go over 100%
-- Harder the monster, more bananas and xp?

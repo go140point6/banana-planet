@@ -188,7 +188,7 @@ export class Fanatics extends BossSideKick {
   name = "Religious Fanatics";
   id = "fanatics";
   attack = 100;
-  interceptRate = 0.15;
+  interceptRate = 0.1;
   price = 1000000000;
 }
 
@@ -196,7 +196,7 @@ export class Eros extends BossSideKick {
   name = "Eros of Titan";
   id = "brother";
   attack = 200;
-  interceptRate = 0.25;
+  interceptRate = 0.2;
   price = 1000000000;
 }
 
@@ -204,7 +204,7 @@ export class SilverSurfer extends BossSideKick {
   name = "Silver Surfer";
   id = "herald";
   attack = 300;
-  interceptRate = 0.35;
+  interceptRate = 0.3;
   price = 1000000000;
 }
 
@@ -212,7 +212,7 @@ export class Darkseid extends BossSideKick {
   name = "Darkseid";
   id = "darkseid";
   attack = 400;
-  interceptRate = 0.45;
+  interceptRate = 0.4;
   price = 1000000000;
 }
 
@@ -220,6 +220,6 @@ export class Media extends BossSideKick {
   name = "The Media - A lie repeated...";
   id = "media";
   attack = 500;
-  interceptRate = 0.99;
+  interceptRate = 0.5;
   price = 1000000000;
 }
