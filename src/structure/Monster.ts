@@ -65,7 +65,7 @@ export class Monster extends Fighter {
 
     this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
     this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
-    this.diff = (this.playerDiff / this.monsterDiff);
+    this.diff = (this.playerDiff / this.monsterDiff).toFixed(2);
     console.log("Monster Attack: " + this.attack);
     console.log("Player Attack: " + player.attack);
     console.log("Monster HP: " + this.hp);
