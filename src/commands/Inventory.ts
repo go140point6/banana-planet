@@ -13,7 +13,7 @@ export default class extends Command {
   name = "inventory";
   description = "show player's inventory";
   aliases = ["i", "inv"];
-  maxArmor = 4; // max equipped armor
+  maxArmor = 9; // max equipped armor
   maxWeapon = 2; // max equipped weapon
 
   async exec(msg: Message, args: string[]) {

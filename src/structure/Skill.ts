@@ -14,6 +14,8 @@ export abstract class Skill extends BaseSkill {
       new Rage(),
       new Heal(),
       new Defense(),
+      new Luck(),
+      new Damage(),
     ];
   }
 
@@ -46,11 +48,13 @@ export class Rage extends Skill {
   name = "Ape Rage";
   id = "rage";
   description = "Does double damage when activated temporarily";
-  price = 45_000;
+  price = 50_000;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
-
+    //console.log("Before: " + p1.attack);
     p1.attack *= 2;
+    //console.log("After: " + p1.attack);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -68,20 +72,24 @@ export class Rage extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     p1.attack /= 2;
+    //console.log("Done: " + p1.attack);
   }
 }
 
 export class Heal extends Skill {
   name = "Ape Heal";
   id = "heal";
-  description = "Heals 20% of hp when activated";
-  price = 55_000;
-  interceptRate = 0.1;
+  description = "Heals 20% of hp when activated, to maxium hp";
+  price = 50_000;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
-
+    
+    //console.log("Before: " + p1.hp);
     const healAmount = Math.ceil(p1.hp * 0.2);
-    p1.hp += healAmount;
+  
+    p1.hp += Math.min(healAmount, p1.hp);
+    //console.log("After: " + p1.hp);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -94,24 +102,28 @@ export class Heal extends Skill {
     if (this.imageUrl)
       embed.setThumbnail(this.imageUrl);
 
-    return embed;
+    return embed; 
   }
 
-  close(_p1: Fighter, _p2: Fighter) {}
+  close(p1: Fighter, _p2: Fighter) {
+    p1.hp *= 0.8;
+    //console.log("Done: " + p1.hp);
+  }
 }
-
 
 export class Defense extends Skill {
   name = "Ape Defense";
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 50_000;
-  interceptRate = 0.25;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
+    //console.log("Before " + p1.armor);
     const armorAmount = p1.armor * 0.1;
     p1.armor += armorAmount;
+    //console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -129,3 +141,67 @@ export class Defense extends Skill {
 
   close(_p1: Fighter, _p2: Fighter) { }
 }
+
+export class Luck extends Skill {
+  name = "Ape Luck";
+  id = "luck";
+  description = "Increase critical chance by 5% when activated";
+  price = 50_000;
+  interceptRate = 0.2;
+
+  use(p1: Fighter, _p2: Fighter) {
+
+    //console.log("Before " + p1.critChance);
+    const critChanceAmount = p1.critChance * 0.5;
+    p1.critChance += critChanceAmount;
+    //console.log("After " + p1.critChance);
+
+    const embed = new MessageEmbed()
+      .setTitle("Skill interception")
+      .setColor("GREEN")
+      .setDescription(
+        oneLine`${p1.name} uses **${this.name} Skill** and increases their
+        chance of a critcal hit by ${code(formatPercent(critChanceAmount))} !`
+      )
+
+    if (this.imageUrl)
+      embed.setThumbnail(this.imageUrl);
+
+    return embed;
+  }
+
+  close(_p1: Fighter, _p2: Fighter) { }
+}
+
+export class Damage extends Skill {
+  name = "Ape Crtical Damage";
+  id = "damage";
+  description = "Triples critDamage when activated";
+  price = 50_000;
+  interceptRate = 0.2;
+
+  use(p1: Fighter, _p2: Fighter) {
+
+    //console.log("Before " + p1.critDamage);
+    p1.critDamage *= 3;
+    //console.log("After " + p1.critDamage);
+
+    const embed = new MessageEmbed()
+      .setTitle("Skill interception")
+      .setColor("GREEN")
+      .setDescription(
+        oneLine`${p1.name} uses **${this.name} Skill** and increases the damage
+        done by a crtical hit to ${code(p1.critDamage.toFixed(2))}!`
+      )
+
+    if (this.imageUrl)
+      embed.setThumbnail(this.imageUrl);
+
+    return embed;
+  }
+
+  close(p1: Fighter, _p2: Fighter) {
+    p1.critDamage /= 3;
+    //console.log("Done: " + p1.critDamage);
+    }
+  }

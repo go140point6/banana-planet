@@ -1,1 +1,53 @@
 Banana Planet
+
+INSTALL and SETUP:
+Install latest nvm -
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+Get latest node LTS -
+nvm install --lts
+
+git clone https://github.com/go140point6/banana-planet.git
+git checkout dev #only if needed
+cd banana-planet
+npm install tsc-init typescript nodemon
+npm audit fix
+npx tsc
+create a .env file with the token:  BOT_TOKEN=whateveryourdicordBOTtokenis
+npm run dev
+
+Create Discord Bot:
+- Intents: Presence(?), Server Memmbers and Message Content (not sure if all needed, check later)
+- Read Messages/View Channels
+- Send Messages
+
+https://discord.com/api/oauth2/authorize?client_id=[BOT-CLIENT-ID]&permissions=3072&scope=bot
+
+Fixes:
+- Easier abililty to win fights on levels 5 and under.
+- At level 6 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
+- At level 21 and up, things get a bit spicier.  Potentially even harder monsters but not always.
+
+Cosmetic:
+- Changed the monsters and bosses to Marvel Super Villians and included matching profile pictures.
+- Expanded weapons and armor.
+
+New Features:
+- When choosing a monster to fight, XP and Banana amounts are hidden.
+- Banana and XP earned from monsters are now tied to level, this number will need to be tweaks for play balance.
+- Banana and XP earned are also tied to how much stronger/weaker player is relative to monster, this number may need to be tweaked for play balance.
+- New skills: Ape Luck (critChance), Ape Critial Damage (critDamage).
+- Sidekicks expanded and separated into specific sidekicks for player, monster and boss.
+- Bosses are now more dynamic and XP/Bananas are shared based on player's level.  Bosses will get strong with increased stats, the more players, the more attributes get increased.
+- Try your luck at the slot machine!
+
+Bugs:
+- On compilation, the TypeScript object for monster images is wrong in some way and it throws an error on compliation however the resulting javascript seems to work as expected, so this can be ignored for now until I learn TS better.
+
+To Do:
+- BattleRoyale is currently disabled.
+- Improved and more descriptive help subsystem.
+- Create .env.sample in repo so there is an example of what to make the .env look like.
+- More shortcut keys.
+- Heal skill allows for hp more than maximum, find way to limit to maximum hp at any one time.
+- Find a way to make dead players not get xp or bananas.
+- Win/Hunt% should exclude boss fights so not to go over 100%

@@ -10,10 +10,15 @@ export abstract class Weapon extends BaseWeapon {
 
   static get all(): Weapon[] {
     return [
-      new Axe(),
-      new Sword(),
-      new Dagger(),
-      new Mace(),
+      new Stick(),
+      new Rocks(),
+      new Scissors(),
+      new LaserPointer(),
+      new Blaster(),
+      new Lightsaber(),
+      new AR(),
+      new Bomb(),
+      new Gauntlet(),
     ];
   }
 
@@ -42,38 +47,66 @@ export abstract class Weapon extends BaseWeapon {
   }
 }
 
-
-class Axe extends Weapon {
-  id = "axe";
-  name = "Lightsaber";
-  attack = 20;
-  price = 1000;
+exports.Weapon = Weapon;
+class Stick extends Weapon {
+  id = "stick";
+  name = "Stick";
+  attack = 1;
+  price = 0;
 }
 
-class Sword extends Weapon {
-  id = "sword";
-  name = "Ape's AR";
-  attack = 30;
-  price = 2000;
+class Rocks extends Weapon {
+  id = "rocks";
+  name = "Bag o' Rocks";
+  attack = 3;
+  price = 30;
 }
 
-class Dagger extends Weapon {
-  id = "dagger";
-  name = "Banana Bomb";
-  attack = 40;
-  price = 3000;
+class Scissors extends Weapon {
+  id = "scissors";
+  name = "Scissors";
+  attack = 5;
+  price = 100;
 }
 
-class Mace extends Weapon {
-  id = "mace";
-  name = "Infinity Gauntlet";
-  attack = 45;
-  price = 3500;
+class LaserPointer extends Weapon {
+  id = "laserpointer";
+  name = "Laser Pointer";
+  attack = 10;
+  price = 250;
 }
 
 class Blaster extends Weapon {
   id = "blaster";
   name = "Blaster";
-  attack = 50;
-  price = 4000;
+  attack = 15;
+  price = 500;
+}
+
+class Lightsaber extends Weapon {
+  id = "lightsaber";
+  name = "Lightsaber";
+  attack = 20;
+  price = 1000;
+}
+
+class AR extends Weapon {
+  id = "AR";
+  name = "Ape's AR";
+  attack = 30;
+  price = 2000;
+}
+
+class Bomb extends Weapon {
+  id = "bomb";
+  name = "Banana Bomb";
+  attack = 40;
+  price = 3000;
+}
+
+class Gauntlet extends Weapon {
+  id = "gauntlet";
+  name = "Infinity Gauntlet";
+  attack = 45;
+  price = 3500;
 }

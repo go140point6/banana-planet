@@ -26,7 +26,8 @@ export default class extends Command {
     msg.channel.send(
       `Use \`${prefix}profile\` to checkout your profile`
     )
-    msg.channel.send(`Use \`${prefix}oogi\` to start hunting humans!`);
+    msg.channel.send(`Use \`${prefix}oogi\` to start hunting monsters!`);
     msg.channel.send(`Use \`${prefix}help\` to check out other commands!`);
+    msg.channel.send(`WARNING! Banana Planet hasn't been play-balanced yet and should be considerd BETA.  Please use bp-feedback channel to give feedback and discuss!`);
   }
 }

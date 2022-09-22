@@ -6,14 +6,19 @@ import { Player } from "../structure/Player";
 export abstract class Armor extends BaseArmor {
   abstract price: number;
   description = oneLine`Armors is used to increase player’s armor stat. Max
-  armor can be equipped by a player is 4.`;
+  armor can be equipped by a player is 9.`;
 
   static get all(): Armor[] {
     return [
+      new EyePatch(),
+      new MouthGuard(),
+      new Cup(),
+      new Boots(),
+      new Gloves(),
+      new Leggings(),
+      new ArmCovers(),
       new Helmet(),
       new ChestPlate(),
-      new Leggings(),
-      new Boots(),
     ];
   }
 
@@ -42,31 +47,66 @@ export abstract class Armor extends BaseArmor {
   }
 }
 
-
-export class Helmet extends Armor {
-  id = "helmet";
-  name = "Phoenix Egg Shield";
-  price = 4000;
-  armor = 0.005
+exports.Armor = Armor;
+export class EyePatch extends Armor {
+  id = "patch";
+  name = "Eye Patch";
+  price = 10;
+  armor = 0.001
 }
 
-export class ChestPlate extends Armor {
-  id = "chest_plate";
-  name = "Ironman Suit";
-  price = 5000;
+export class MouthGuard extends Armor {
+  id = "guard";
+  name = "Mouth Guard";
+  price = 50;
+  armor = 0.002
+}
+
+export class Cup extends Armor {
+  id = "cup";
+  name = "Jock Strap and Cup";
+  price = 100;
+  armor = 0.003
+}
+
+export class Boots extends Armor {
+  id = "boots";
+  name = "Baby Ape Boots";
+  price = 250;
+  armor = 0.004
+}
+
+export class Gloves extends Armor {
+  id = "gloves";
+  name = "Diamond Gloves";
+  price = 500;
   armor = 0.006
 }
 
 export class Leggings extends Armor {
   id = "leggings";
-  name = "Brad's Knight Armor";
-  price = 6000;
+  name = "Rocket Pants";
+  price = 1000;
   armor = 0.008
 }
 
-export class Boots extends Armor {
-  id = "boots";
-  name = "Diamond Gloves";
+export class ArmCovers extends Armor {
+  id = "armcovers";
+  name = "Cactus Arm Covers";
+  price = 2500;
+  armor = 0.010
+}
+
+export class Helmet extends Armor {
+  id = "helmet";
+  name = "Cerebro Helmet";
+  price = 5000;
+  armor = 0.012
+}
+
+export class ChestPlate extends Armor {
+  id = "chestplate";
+  name = "Arc Reactor Plate";
   price = 10000;
-  armor = 0.011
+  armor = 0.015
 }

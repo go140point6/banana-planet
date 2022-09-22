@@ -20,7 +20,10 @@ export default class extends Command {
   name = "boss";
   description = "fight boss";
   max = 5;
-  waitTime = 1000 * 60 * 60;
+  //waitTime = 1000 * 60 * 60; //debug 1 hour?
+  waitTime = 250 * 60 * 60; //debug 15 minutes
+  //waitTime = 10 * 60 * 60; //debug 36 seconds
+
 
   async exec(msg: Message, args: string[]) {
 
@@ -37,7 +40,7 @@ export default class extends Command {
 
       const selectedBoss = boss[index];
       const menu = new ButtonHandler(msg, selectedBoss.show());
-      const players: Player[] = [];
+      const players: Player[] = [];      
 
       menu.addButton("battle", async () => {
 
@@ -75,6 +78,54 @@ export default class extends Command {
               `${user.username} joined! (${players.length}/${this.max} players)`
             );
 
+            if (players.length == 2) {
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
+
+              msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!` );
+              msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
+            }
+
+            if (players.length == 3) {
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.5);
+
+              msg.channel.send(`Really ${user.username}?  Whelp, ${selectedBoss.name} just got stronger!`);
+              msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
+            }
+
+            if (players.length == 4) {
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.25);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.25);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.25);
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1.25);
+            
+              msg.channel.send(`Damn ${user.username}, you not that bright... ${selectedBoss.name} just got stronger!`);
+              msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
+              msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(Math.round(selectedBoss.critChance * 100))}%!`);
+            }
+
+            if (players.length == 5) {
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1);
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1);
+              selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/1);
+            
+              msg.channel.send(`It's your funeral ${user.username}, ${selectedBoss.name} just got stronger!`);
+              msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
+              msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
+              msg.channel.send(`${selectedBoss.name}'s chance of Critical Hit increased to ${bold(Math.round(selectedBoss.critChance * 100))}%!`);
+              msg.channel.send(`${selectedBoss.name}'s Critical Hit Damage increased to x${bold(selectedBoss.critDamage.toFixed(1))}!`);
+            }
+
           } catch (err) {
             const errMsg = (err as Error).message;
             msg.channel.send(`${user} ${errMsg}`);
@@ -85,33 +136,41 @@ export default class extends Command {
         await joinMenu.run();
 
         const battle = new Battle(msg, random.shuffle([...players, selectedBoss]));
+
         battle.setBoss(selectedBoss);
 
         const winner = await battle.run();
 
         if (winner.id !== selectedBoss.id) {
 
+          var party = 0;
+
+          for (const player of players) {
+            party = (party + player.level);
+          }
+
           const { drop, xpDrop } = selectedBoss;
+          msg.channel.send(`${selectedBoss.name} dropped ${bold(drop)} ${currency} and provided ${bold(xpDrop)} xp total.`);
 
           for (const player of players) {
 
             const currLevel = player.level;
-            player.addXP(xpDrop);
-            player.coins += drop;
+            const sharedDrop = Math.ceil(drop * (player.level / party));
+            const sharedXpDrop = Math.ceil(xpDrop * (player.level / party));
+            player.addXP(sharedXpDrop);
+            player.coins += sharedDrop;
             player.win++;
 
-            msg.channel.send(`${player.name} has earned ${bold(drop)} ${currency}!`);
-            msg.channel.send(`${player.name} has earned ${bold(xpDrop)} xp!`);
+            msg.channel.send(`Since ${player.name} is level ${currLevel}, their share is ${bold(sharedDrop)} ${currency} and ${bold(sharedXpDrop)} xp!`);
 
             if (currLevel !== player.level) {
               msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
             }
 
             player.save();
+            }
           }
-
-        }
-      })
+        })
 
       menu.addCloseButton();
 
