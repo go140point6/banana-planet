@@ -46,7 +46,7 @@ export class Monster extends Fighter {
       this.hp = player.hp + this.randomAttribNoob();
       this.armor = player.armor + (this.randomAttribNoob() / 100);
       this.critChance = player.critChance + (this.randomAttribNoob() / 100);
-      this.critDamage = Math.max((player.critDamage + (this.randomAttribNoob() / 10)), 1);
+      this.critDamage = Math.max((player.critDamage + (this.randomAttribNoob() / 10)), 1.1);
     } 
     
     if (this.difficulty > 5) {
@@ -54,7 +54,7 @@ export class Monster extends Fighter {
       this.hp = player.hp + this.randomHP();
       this.armor = player.armor + (this.randomArmor() / 100);
       this.critChance = player.critChance + (this.randomCritChance() / 100);
-      this.critDamage = Math.max((player.critDamage + (this.randomCritDamage() / 10)), 1);
+      this.critDamage = Math.max((player.critDamage + (this.randomCritDamage() / 10)), 1.1);
     }
     
     if (player.skill && random.bool()) {
