@@ -11,6 +11,7 @@ export class Monster extends Fighter {
   xpDrop = 25;
   difficulty: number;
   monsterDiff: number;
+  playerDiff: number;
   jitter: number;
   playerAttack: number;
   playerHP: number;
@@ -23,6 +24,7 @@ export class Monster extends Fighter {
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
     this.monsterDiff = 0;
+    this.playerDiff = 0;
     this.playerAttack = player.attack;
     this.playerHP = player.hp;
     this.playerArmor = player.armor * 100;
@@ -62,7 +64,19 @@ export class Monster extends Fighter {
     }  
 
     this.monsterDiff = (this.attack + this.hp + (this.armor * 100) + (this.critChance * 100) + this.critDamage);
-    console.log(this.monsterDiff)
+    this.playerDiff = (player.attack + player.hp + (player.armor * 100) + (player.critChance * 100) + player.critDamage);
+    console.log("Monster Attack: " + this.attack);
+    console.log("Player Attack: " + player.attack);
+    console.log("Monster HP: " + this.hp);
+    console.log("Player HP: " + player.hp);
+    console.log("Monster Armor: " + this.armor * 100);
+    console.log("Player Armor: " + player.armor * 100);
+    console.log("Monster critChance: " + this.critChance * 100);
+    console.log("Player critChance: " + player.critChance * 100);
+    console.log("Monster critDamage: " + this.critDamage);
+    console.log("Player critDamage: " + player.critDamage);
+    console.log("Monster Total: " + this.monsterDiff);
+    console.log("Player Total: " + this.playerDiff);
   }
 
   private randomAttribNoob() {
