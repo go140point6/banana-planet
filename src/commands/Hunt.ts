@@ -55,11 +55,11 @@ export default class extends Command {
         player.coins += (levelDrop);
         console.log("Unmodified Banana: " + monster.drop);
         console.log("Player Level Mod Banana: " + (Math.ceil((currLevel * monster.drop)/2)));
-        console.log("No Diff Banana: " + parseFloat(Math.ceil((currLevel / monster.drop)/2).toFixed()));
+        console.log("No Diff Banana: " + Math.ceil((currLevel / monster.drop)/2));
         console.log("Final Banana: " + levelDrop);
         console.log("Unmodified XP: " + monster.xpDrop);
         console.log("Player Level Mod XP: " + (Math.ceil((currLevel * monster.xpDrop)/2)));
-        console.log("No Diff XP: " + parseFloat(Math.ceil((currLevel / monster.xpDrop)/2).toFixed()));
+        console.log("No Diff XP: " + Math.ceil((currLevel / monster.xpDrop)/2));
         console.log("XP " + levelXpDrop);
         player.win++;
 
