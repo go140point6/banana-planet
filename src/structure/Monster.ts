@@ -26,7 +26,7 @@ export class Monster extends Fighter {
     this.difficulty = player.level;
     this.monsterDiff = 0;
     this.playerDiff = 0;
-    this.diff = 0;
+    //this.diff = 0;
     this.finalDiff = 0;
     this.relative = 0;
     this.playerAttack = player.attack;
