@@ -63,8 +63,8 @@ export class Monster extends Fighter {
       pet.setOwner(this);
     }  
 
-    this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (this.critDamage * 100));
-    this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (player.critDamage * 100));
+    this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
+    this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
     console.log("Monster Attack: " + this.attack);
     console.log("Player Attack: " + player.attack);
     console.log("Monster HP: " + this.hp);
@@ -73,8 +73,8 @@ export class Monster extends Fighter {
     console.log("Player Armor: " + Math.round(player.armor * 1000));
     console.log("Monster critChance: " + Math.round(this.critChance * 100));
     console.log("Player critChance: " + Math.round(player.critChance * 100));
-    console.log("Monster critDamage: " + this.critDamage * 100);
-    console.log("Player critDamage: " + player.critDamage * 100);
+    console.log("Monster critDamage: " + Math.round(this.critDamage * 100));
+    console.log("Player critDamage: " + Math.round(player.critDamage * 100));
     console.log("Monster Total: " + this.monsterDiff);
     console.log("Player Total: " + this.playerDiff);
     console.log("Diff: " + (this.playerDiff - this.monsterDiff));
