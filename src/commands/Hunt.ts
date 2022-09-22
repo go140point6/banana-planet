@@ -49,8 +49,8 @@ export default class extends Command {
       if (winner.id === player.id) {
 
         const currLevel = player.level;
-        const levelDrop = parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed());
-        const levelXpDrop = parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed());
+        const levelDrop = Math.min(parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed()),5);
+        const levelXpDrop = Math.min(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);
         if (currLevel < 6) {
           player.addXP(levelXpDrop*3);
           player.coins += (levelDrop*3);
