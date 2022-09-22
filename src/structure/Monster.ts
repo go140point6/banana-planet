@@ -5,8 +5,8 @@ import { Skill } from "./Skill";
 import { MonsterSideKick } from "./Pet";
 
 export class Monster extends Fighter {
-  drop = random.integer(10, 100);
-  xpDrop = random.integer(10, 35);
+  drop = random.integer(5, 25);
+  xpDrop = random.integer(3, 5);
   difficulty: number;
   monsterDiff: number;
   playerDiff: number;
@@ -65,7 +65,7 @@ export class Monster extends Fighter {
 
     this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
     this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
-    this.diff = (1 + ((this.playerDiff - this.monsterDiff)/100));
+    this.diff = (this.playerDiff / this.monsterDiff);
     console.log("Monster Attack: " + this.attack);
     console.log("Player Attack: " + player.attack);
     console.log("Monster HP: " + this.hp);
