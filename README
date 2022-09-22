@@ -20,9 +20,12 @@ Create Discord Bot:
 - Read Messages/View Channels
 - Send Messages
 
+https://discord.com/api/oauth2/authorize?client_id=[BOT-CLIENT-ID]&permissions=3072&scope=bot
+
 Fixes:
-- Easier abililty to win fights on levels under 10.
-- At level 10 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
+- Easier abililty to win fights on levels 5 and under.
+- At level 6 and up, monster attributes are better randomized and can potentially be a value a little less than the player.  Fights are still hard to win but it's possible now.
+- At level 21 and up, things get a bit spicier.  Potentially even harder monsters but not always.
 
 Cosmetic:
 - Changed the monsters and bosses to Marvel Super Villians and included matching profile pictures.

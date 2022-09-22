@@ -48,7 +48,8 @@ export class Rage extends Skill {
   name = "Ape Rage";
   id = "rage";
   description = "Does double damage when activated temporarily";
-  price = 45_000;
+  price = 50_000;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
     //console.log("Before: " + p1.attack);
@@ -79,8 +80,8 @@ export class Heal extends Skill {
   name = "Ape Heal";
   id = "heal";
   description = "Heals 20% of hp when activated, to maxium hp";
-  price = 55_000;
-  interceptRate = 0.1;
+  price = 50_000;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
     
@@ -115,7 +116,7 @@ export class Defense extends Skill {
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 50_000;
-  interceptRate = 0.25;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
@@ -146,7 +147,7 @@ export class Luck extends Skill {
   id = "luck";
   description = "Increase critical chance by 5% when activated";
   price = 50_000;
-  interceptRate = 0.35;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
@@ -177,7 +178,7 @@ export class Damage extends Skill {
   id = "damage";
   description = "Triples critDamage when activated";
   price = 50_000;
-  interceptRate = 0.15;
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
