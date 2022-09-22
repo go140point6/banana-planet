@@ -49,8 +49,8 @@ export default class extends Command {
       if (winner.id === player.id) {
 
         const currLevel = player.level;
-        const levelDrop = Math.ceil((currLevel * monster.drop)/2);
-        const levelXpDrop = Math.ceil((currLevel * monster.xpDrop)/2);
+        const levelDrop = (Math.ceil((currLevel * monster.drop)/2)) * monster.diff;
+        const levelXpDrop = (Math.ceil((currLevel * monster.xpDrop)/2)) * monster.diff;
         player.addXP(levelXpDrop);
         player.coins += (levelDrop);
         //console.log("Banana: " + levelDrop);
