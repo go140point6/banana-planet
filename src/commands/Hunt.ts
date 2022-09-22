@@ -53,8 +53,8 @@ export default class extends Command {
         const levelXpDrop = (Math.ceil((currLevel * monster.xpDrop)/2)) * monster.diff;
         player.addXP(levelXpDrop);
         player.coins += (levelDrop);
-        //console.log("Banana: " + levelDrop);
-        //console.log("XP " + levelXpDrop);
+        console.log("Banana: " + levelDrop);
+        console.log("XP " + levelXpDrop);
         player.win++;
 
         msg.channel.send(`${player.name} has earned ${bold(levelDrop)} ${currency}!`);
