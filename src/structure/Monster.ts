@@ -63,20 +63,21 @@ export class Monster extends Fighter {
       pet.setOwner(this);
     }  
 
-    this.monsterDiff = (this.attack + this.hp + (this.armor * 100) + (this.critChance * 100) + this.critDamage);
-    this.playerDiff = (player.attack + player.hp + (player.armor * 100) + (player.critChance * 100) + player.critDamage);
+    this.monsterDiff = (this.attack + this.hp + (this.armor * 1000) + (this.critChance * 100) + (this.critDamage * 100));
+    this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (player.critDamage * 100));
     console.log("Monster Attack: " + this.attack);
     console.log("Player Attack: " + player.attack);
     console.log("Monster HP: " + this.hp);
     console.log("Player HP: " + player.hp);
-    console.log("Monster Armor: " + this.armor * 100);
-    console.log("Player Armor: " + player.armor * 100);
+    console.log("Monster Armor: " + this.armor * 1000);
+    console.log("Player Armor: " + player.armor * 1000);
     console.log("Monster critChance: " + this.critChance * 100);
     console.log("Player critChance: " + player.critChance * 100);
     console.log("Monster critDamage: " + this.critDamage);
     console.log("Player critDamage: " + player.critDamage);
     console.log("Monster Total: " + this.monsterDiff);
     console.log("Player Total: " + this.playerDiff);
+    console.log("Diff: " + (this.playerDiff - this.monsterDiff));
   }
 
   private randomAttribNoob() {
