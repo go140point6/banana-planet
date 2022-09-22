@@ -5,9 +5,12 @@ import { Skill } from "./Skill";
 import { MonsterSideKick } from "./Pet";
 
 export class Monster extends Fighter {
-  drop = random.integer(10, 100);
-  xpDrop = random.integer(10, 35);
+  //drop = random.integer(10, 100);
+  drop = 75;
+  //xpDrop = random.integer(10, 35);
+  xpDrop = 25;
   difficulty: number;
+  monsterDiff: number;
   jitter: number;
   playerAttack: number;
   playerHP: number;
@@ -19,6 +22,7 @@ export class Monster extends Fighter {
     super(random.pick(names));
     this.imageUrl = images[this.id];
     this.difficulty = player.level;
+    this.monsterDiff = 0;
     this.playerAttack = player.attack;
     this.playerHP = player.hp;
     this.playerArmor = player.armor * 100;
@@ -56,6 +60,9 @@ export class Monster extends Fighter {
       const pet = random.pick(MonsterSideKick.all);
       pet.setOwner(this);
     }  
+
+    this.monsterDiff = (this.attack + this.hp + (this.armor * 100) + (this.critChance * 100) + this.critDamage);
+    console.log(this.monsterDiff)
   }
 
   private randomAttribNoob() {
