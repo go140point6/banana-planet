@@ -53,27 +53,27 @@ export default class extends Command {
         const levelXpDrop = parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed());
         player.addXP(levelXpDrop);
         player.coins += (levelDrop);
-        console.log("Unmodified Banana: " + monster.drop);
-        console.log("Player Level Mod Banana: " + (Math.ceil((currLevel * monster.drop)/ monster.relative)));
-        console.log("Final Banana: " + levelDrop);
-        console.log("Unmodified XP: " + monster.xpDrop);
-        console.log("Player Level Mod XP: " + (Math.ceil((currLevel * monster.xpDrop)/ monster.relative)));
-        console.log("XP " + levelXpDrop);
+        //console.log("Unmodified Banana: " + monster.drop);
+        //console.log("Player Level Mod Banana: " + (Math.ceil((currLevel * monster.drop)/ monster.relative)));
+        //console.log("Final Banana: " + levelDrop);
+        //console.log("Unmodified XP: " + monster.xpDrop);
+        //console.log("Player Level Mod XP: " + (Math.ceil((currLevel * monster.xpDrop)/ monster.relative)));
+        //console.log("XP " + levelXpDrop);
         player.win++;
 
-        if (monster.relative = 5) {
+        if (monster.relative == 5) {
           msg.channel.send(`${player.name} was much stronger than ${monster.name}, so earned significantly less ${currency} and xp!`);
         }
-        if (monster.relative = 4) {
+        if (monster.relative == 4) {
           msg.channel.send(`${player.name} was a little stronger than ${monster.name}, so earned a little less ${currency} and xp!`);
         }
-        if (monster.relative = 3) {
+        if (monster.relative == 3) {
           msg.channel.send(`${player.name} was evenly matched with ${monster.name}, so earned unmodified ${currency} and xp!`);
         }
-        if (monster.relative = 2) {
+        if (monster.relative == 2) {
           msg.channel.send(`${player.name} was a little weaker than ${monster.name}, so earned a little more ${currency} and xp!`);
         }
-        if (monster.relative = 1) {
+        if (monster.relative == 1) {
           msg.channel.send(`${player.name} was much weaker than ${monster.name}, so earned significantly more ${currency} and xp!`);
         }
         msg.channel.send(`${player.name} has earned ${bold(levelDrop)} ${currency}!`);
