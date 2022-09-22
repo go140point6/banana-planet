@@ -61,6 +61,21 @@ export default class extends Command {
         console.log("XP " + levelXpDrop);
         player.win++;
 
+        if (monster.relative = 5) {
+          msg.channel.send(`${player.name} was much stronger than ${monster.name}, so earned significantly less ${currency} and xp!`);
+        }
+        if (monster.relative = 4) {
+          msg.channel.send(`${player.name} was a little stronger than ${monster.name}, so earned a little less ${currency} and xp!`);
+        }
+        if (monster.relative = 3) {
+          msg.channel.send(`${player.name} was evenly matched with ${monster.name}, so earned unmodified ${currency} and xp!`);
+        }
+        if (monster.relative = 2) {
+          msg.channel.send(`${player.name} was a little weaker than ${monster.name}, so earned a little more ${currency} and xp!`);
+        }
+        if (monster.relative = 1) {
+          msg.channel.send(`${player.name} was much weaker than ${monster.name}, so earned significantly more ${currency} and xp!`);
+        }
         msg.channel.send(`${player.name} has earned ${bold(levelDrop)} ${currency}!`);
         msg.channel.send(`${player.name} has earned ${bold(levelXpDrop)} xp!`);
 
