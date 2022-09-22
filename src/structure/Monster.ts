@@ -46,7 +46,7 @@ export class Monster extends Fighter {
       this.hp = player.hp + this.randomAttribNoob();
       this.armor = player.armor + (this.randomAttribNoob() / 100);
       this.critChance = player.critChance + (this.randomAttribNoob() / 100);
-      this.critDamage = player.critDamage + (this.randomAttribNoob());
+      this.critDamage = player.critDamage + (this.randomAttribNoob() / 10);
     } 
     
     if (this.difficulty > 5) {
