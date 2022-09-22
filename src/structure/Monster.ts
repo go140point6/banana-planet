@@ -11,6 +11,8 @@ export class Monster extends Fighter {
   monsterDiff: number;
   playerDiff: number;
   diff: number;
+  finalDiff: number;
+  relative: number;
   jitter: number;
   playerAttack: number;
   playerHP: number;
@@ -25,6 +27,8 @@ export class Monster extends Fighter {
     this.monsterDiff = 0;
     this.playerDiff = 0;
     this.diff = 0;
+    this.finalDiff = 0;
+    this.relative = 0;
     this.playerAttack = player.attack;
     this.playerHP = player.hp;
     this.playerArmor = player.armor * 100;
@@ -66,6 +70,17 @@ export class Monster extends Fighter {
     this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
     this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
     this.diff = parseFloat((this.playerDiff / this.monsterDiff).toFixed(2));
+    if (Math.sign(positive)) {
+      console.log("Player is stronger!");
+      if (this.diff <= 1.03) {
+        this.relative = 4;
+      } else {
+        this.relative = 3;
+      }
+    } else {
+      console.log("Monster is stronger!");
+      this.relative = 2;
+    }
     console.log("Monster Attack: " + this.attack);
     console.log("Player Attack: " + player.attack);
     console.log("Monster HP: " + this.hp);
@@ -79,6 +94,7 @@ export class Monster extends Fighter {
     console.log("Monster Total: " + this.monsterDiff);
     console.log("Player Total: " + this.playerDiff);
     console.log("Diff: " + this.diff);
+    console.log("Relative: " + this.relative);
   }
 
   private randomAttribNoob() {
