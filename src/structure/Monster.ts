@@ -70,9 +70,9 @@ export class Monster extends Fighter {
     this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
     this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
     this.diff = parseFloat((this.playerDiff / this.monsterDiff).toFixed(2));
-    if (Math.sign(positive)) {
+    if (this.diff >= 0) {
       console.log("Player is stronger!");
-      if (this.diff <= 1.03) {
+      if (this.diff >= 1.03) {
         this.relative = 4;
       } else {
         this.relative = 3;
