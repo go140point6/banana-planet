@@ -51,9 +51,9 @@ export default class extends Command {
         const currLevel = player.level;
 
         console.log("Relative: " + monster.relative);
-        if (monster.diff === 0) {
-          monster.diff = 1 // keep from dividing by zero
-        }
+        //if (monster.diff === 0) {
+        //  monster.diff = 1 // keep from dividing by zero
+        //}
         const levelDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed()),5);
         const levelDropNoob = levelDrop * 3;
         const levelXpDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);

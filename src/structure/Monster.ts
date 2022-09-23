@@ -67,9 +67,16 @@ export class Monster extends Fighter {
       pet.setOwner(this);
     }  
 
-    this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
+    //this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
+    this.monsterDiff = 0;
     this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
-    //this.diff = parseFloat((this.playerDiff / this.monsterDiff).toFixed(2)); //debug
+    if (this.monsterDiff !== 0 ) {
+      this.diff = parseFloat((this.playerDiff / this.monsterDiff).toFixed(2));
+    } else {
+      console.log("Player and Monster are evenly matched");
+      this.diff = 1;
+      this.relative = 3;
+    }
     if (this.diff > 1) {
       //console.log("Player is stronger!");
       if (this.diff >= 1.03) {
@@ -86,11 +93,6 @@ export class Monster extends Fighter {
         this.relative = 1;
       }
     }
-    if (this.diff == 0) {
-      console.log("Player and Monster are evenly matched");
-      this.relative = 3;
-    }
-    
     //console.log("Monster Attack: " + this.attack);
     //console.log("Player Attack: " + player.attack);
     //console.log("Monster HP: " + this.hp);
