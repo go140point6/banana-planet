@@ -49,11 +49,18 @@ export default class extends Command {
       if (winner.id === player.id) {
 
         const currLevel = player.level;
+        console.log("Relative: " + monster.relative);
         const levelDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed()),5);
+        const levelDropNoob = levelDrop * 3;
         const levelXpDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);
+        const levelXpDropNoob = levelDrop * 3;
         if (currLevel < 6) {
-          player.addXP(levelXpDrop*3);
-          player.coins += (levelDrop*3);
+          console.log("XP: " + levelXpDrop);
+          console.log("XP Noob: " + levelXpDropNoob);
+          player.addXP(levelXpDropNoob);
+          player.coins += (levelDropNoob);
+          console.log("Banana: " + levelDrop);
+          console.log("Banana Noob: " + levelDropNoob);
         } else {
           player.addXP(levelXpDrop);
           player.coins += (levelDrop);
@@ -81,8 +88,13 @@ export default class extends Command {
         if (monster.relative == 1) {
           msg.channel.send(`${player.name} was much weaker than ${monster.name}, so earned significantly more ${currency} and xp!`);
         }
+        if (currLevel < 6) {
+          msg.channel.send(`${player.name} has earned ${bold(levelDropNoob)} ${currency}!`);
+          msg.channel.send(`${player.name} has earned ${bold(levelXpDropNoob)} xp!`);
+        } else {
         msg.channel.send(`${player.name} has earned ${bold(levelDrop)} ${currency}!`);
         msg.channel.send(`${player.name} has earned ${bold(levelXpDrop)} xp!`);
+        }
 
         if (currLevel !== player.level) {
           msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
