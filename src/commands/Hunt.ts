@@ -55,12 +55,12 @@ export default class extends Command {
         const levelXpDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);
         const levelXpDropNoob = levelXpDrop * 2;
         if (currLevel < 6) {
-          console.log("XP: " + levelXpDrop);
-          console.log("XP Noob: " + levelXpDropNoob);
+          //console.log("XP: " + levelXpDrop); //debug
+          //console.log("XP Noob: " + levelXpDropNoob); //debug
           player.addXP(levelXpDropNoob);
           player.coins += (levelDropNoob);
-          console.log("Banana: " + levelDrop);
-          console.log("Banana Noob: " + levelDropNoob);
+          //console.log("Banana: " + levelDrop); //debug
+          //console.log("Banana Noob: " + levelDropNoob); //debug
         } else {
           player.addXP(levelXpDrop);
           player.coins += (levelDrop);
