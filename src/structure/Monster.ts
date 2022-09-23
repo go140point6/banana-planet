@@ -86,7 +86,7 @@ export class Monster extends Fighter {
         this.relative = 1;
       }
     }
-    if (this.diff = 0) {
+    if (this.diff == 0) {
       console.log("Player and Monster are evenly matched");
       this.relative = 3;
     }
