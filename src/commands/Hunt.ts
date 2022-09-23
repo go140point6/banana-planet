@@ -50,10 +50,17 @@ export default class extends Command {
 
         const currLevel = player.level;
         console.log("Relative: " + monster.relative);
+        if (monster.diff == 0) {
+          const levelDrop = Math.max(parseFloat(Math.ceil((currLevel * monster.drop)/monster.relative).toFixed()),5);
+          const levelDropNoob = levelDrop * 3;
+          const levelXpDrop = Math.max(parseFloat(Math.ceil((currLevel * monster.xpDrop)/monster.relative).toFixed()),2);
+          const levelXpDropNoob = levelDrop * 3;  
+        } else {
         const levelDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed()),5);
         const levelDropNoob = levelDrop * 3;
         const levelXpDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);
         const levelXpDropNoob = levelDrop * 3;
+        }
         if (currLevel < 6) {
           console.log("XP: " + levelXpDrop);
           console.log("XP Noob: " + levelXpDropNoob);
