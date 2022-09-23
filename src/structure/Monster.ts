@@ -73,7 +73,7 @@ export class Monster extends Fighter {
     console.log("PlayerDiff " + this.playerDiff);
     if (this.monsterDiff !== 0 ) {
       this.diff = parseFloat((this.playerDiff / this.monsterDiff).toFixed(2));
-      console.log("monsterDiff=0, so diff: " + this.diff);
+      console.log("monsterDiff != 0, so diff: " + this.diff);
     } else {
       console.log("Player and Monster are evenly matched");
       this.diff = 1;
