@@ -53,7 +53,7 @@ export default class extends Command {
         const levelDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed()),5);
         const levelDropNoob = levelDrop * 2;
         const levelXpDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);
-        const levelXpDropNoob = levelDrop * 2;
+        const levelXpDropNoob = levelXpDrop * 2;
         if (currLevel < 6) {
           console.log("XP: " + levelXpDrop);
           console.log("XP Noob: " + levelXpDropNoob);
