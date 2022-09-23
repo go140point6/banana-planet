@@ -185,9 +185,9 @@ export class EvilBearableBull extends MonsterSideKick {
 }
 
 export class Fanatics extends BossSideKick {
-  name = "Religious Fanatics";
+  name = "Civil Servants";
   id = "fanatics";
-  attack = 100;
+  attack = 50;
   interceptRate = 0.1;
   price = 1000000000;
 }

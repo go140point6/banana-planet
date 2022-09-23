@@ -9,7 +9,7 @@ export abstract class Boss extends Fighter {
 
   static get all(): Boss[] {
     return [
-      new Apocalypse("Apocalypse"),
+      new Gensler("Gensler Overlord"),
       new Thanos("Thanos"),
       new Galactus("Galactus"),
       new DarkPhoenix("Dark Phoenix"),
@@ -27,15 +27,15 @@ export abstract class Boss extends Fighter {
   }
 }
 
-export class Apocalypse extends Boss {
+export class Gensler extends Boss {
   drop = random.integer(300, 900);
   xpDrop = random.integer(300, 700);
-  attack = 500;
-  hp = 500;
-  armor = 0.25;
+  attack = 300;
+  hp = 300;
+  armor = 0.1;
   critChance = 0.1;
-  critDamage = 3;
-  imageUrl = "https://www.listchallenges.com/f/items/aa29bbdf-ddd9-4544-b895-1aa5f77b2cd4.jpg";
+  critDamage = 2.0;
+  imageUrl = "https://preview.redd.it/21ni6dgcskb91.jpg?width=960&crop=smart&auto=webp&s=9b27176951b05f0badada5aced398c8739e0a07f";
   
   constructor(name: string) {
     super(name);
