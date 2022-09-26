@@ -30,8 +30,8 @@ export abstract class Boss extends Fighter {
 export class Gensler extends Boss {
   drop = random.integer(300, 900);
   xpDrop = random.integer(300, 700);
-  attack = 300;
-  hp = 300;
+  attack = 10; //debug
+  hp = 100;
   armor = 0.1;
   critChance = 0.1;
   critDamage = 2.0;
@@ -41,10 +41,10 @@ export class Gensler extends Boss {
     super(name);
 
     const skill = new Rage();
-    skill.setOwner(this);
+    //skill.setOwner(this);
 
     const pet = new Fanatics();
-    pet.setOwner(this);
+    //pet.setOwner(this);
   }
 }
 

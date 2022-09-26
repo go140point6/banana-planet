@@ -59,7 +59,7 @@ export default class extends Command {
         const bossEmbed = selectedBoss.show();
         bossEmbed.setDescription(
           oneLine`${player.name} wants to battle ${selectedBoss.name}. Click
-          join to participate max ${this.max} players`
+          join to participate max ${this.max} players. NOTE: Fight starts 15 minutes from first join.`
         );
 
         const joinMenu = new ButtonHandler(msg, bossEmbed)
@@ -88,9 +88,9 @@ export default class extends Command {
             }
 
             if (players.length == 3) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
-              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.5);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.75);
 
               msg.channel.send(`Really ${user.username}?  Whelp, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -99,12 +99,12 @@ export default class extends Command {
             }
 
             if (players.length == 4) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.25);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.25);
-              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.25);
-              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1.25);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.75);
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1.75);
             
-              msg.channel.send(`Damn ${user.username}, you not that bright... ${selectedBoss.name} just got stronger!`);
+              msg.channel.send(`Damn ${user.username}, you're not that bright... ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
               msg.channel.send(`${selectedBoss.name}'s Attack increased to ${bold(selectedBoss.attack)}!`);
               msg.channel.send(`${selectedBoss.name}'s Defense increased to ${bold(Math.round(selectedBoss.armor * 100))}%!`);
@@ -112,11 +112,11 @@ export default class extends Command {
             }
 
             if (players.length == 5) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1);
-              selectedBoss.armor = ((selectedBoss.armor * players.length)/1);
-              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1);
-              selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/1);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.5);
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.5);
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/1.5);
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/1.5);
+              selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/1.5);
             
               msg.channel.send(`It's your funeral ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
