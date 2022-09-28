@@ -140,6 +140,7 @@ export class Defense extends Skill {
   }
 
   close(_p1: Fighter, _p2: Fighter) {
+    console.log("Done: " + _p1.armor)
     //_p1.armor -= _p1.armor ;
    }
 }
