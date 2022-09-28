@@ -24,11 +24,11 @@ export default class extends Command {
   //waitTime = 250 * 60 * 60; //debug 15 minutes
   waitTime = 10 * 60 * 60; //debug 36 seconds
 
-
   async exec(msg: Message, args: string[]) {
 
     const player = Player.fromUser(msg.author);
     const boss = Boss.all;
+    const normalizer = 0.75;
     
     const [arg1] = args;
     
@@ -71,7 +71,6 @@ export default class extends Command {
           try {
 
             const player = Player.fromUser(user);
-            
 
             players.push(player);
 
@@ -80,8 +79,8 @@ export default class extends Command {
             );
 
             if (players.length == 2) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/1.75);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/1.75);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/(normalizer+(players.length - 1)));
 
               msg.channel.send(`Maybe you shouldn't have done that ${user.username}, ${selectedBoss.name} just got stronger!` );
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -89,9 +88,9 @@ export default class extends Command {
             }
 
             if (players.length == 3) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/2.75);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/2.75);
-              selectedBoss.armor = ((selectedBoss.armor * players.length)/2.75);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/(normalizer+(players.length - 1)));
 
               msg.channel.send(`Really ${user.username}?  Whelp, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -100,10 +99,10 @@ export default class extends Command {
             }
 
             if (players.length == 4) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/3.75);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/3.75);
-              selectedBoss.armor = ((selectedBoss.armor * players.length)/3.75);
-              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/3.75);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/(normalizer+(players.length - 1)));
             
               msg.channel.send(`Damn ${user.username}, you're not that bright... ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -113,11 +112,11 @@ export default class extends Command {
             }
 
             if (players.length == 5) {
-              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/4.75);
-              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/4.75);
-              selectedBoss.armor = ((selectedBoss.armor * players.length)/4.75);
-              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/4.75);
-              selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/4.75);
+              selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.attack = Math.ceil((selectedBoss.attack * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.armor = ((selectedBoss.armor * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.critChance = ((selectedBoss.critChance * players.length)/(normalizer+(players.length - 1)));
+              selectedBoss.critDamage = ((selectedBoss.critDamage * players.length)/(normalizer+(players.length - 1)));
             
               msg.channel.send(`It's your funeral ${user.username}, ${selectedBoss.name} just got stronger!`);
               msg.channel.send(`${selectedBoss.name}'s HP increased to ${bold(selectedBoss.hp)}!`);
@@ -151,13 +150,19 @@ export default class extends Command {
           }
 
           const { drop, xpDrop } = selectedBoss;
-          msg.channel.send(`${selectedBoss.name} dropped ${bold(drop)} ${currency} and provided ${bold(xpDrop)} xp total.`);
+          console.log("Unmod banana: " + drop);
+          console.log("Unmod xp: " + xpDrop);
+          const modDrop = (drop / (normalizer+(players.length - 1)));
+          const modXP = (xpDrop / (normalizer+(players.length - 1)));
+          console.log("Mod banana: " + modDrop);
+          console.log("Mod xp: " + modXP);
+          msg.channel.send(`${selectedBoss.name} dropped ${bold(modDrop)} ${currency} and provided ${bold(modxXP)} xp total.`);
 
           for (const player of players) {
 
             const currLevel = player.level;
-            const sharedDrop = Math.ceil(drop * (player.level / party));
-            const sharedXpDrop = Math.ceil(xpDrop * (player.level / party));
+            const sharedDrop = Math.ceil(modDrop * (player.level / party));
+            const sharedXpDrop = Math.ceil(modXP * (player.level / party));
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
             player.win++;
