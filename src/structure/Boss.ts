@@ -30,9 +30,9 @@ export abstract class Boss extends Fighter {
 export class Grewal extends Boss {
   drop = random.integer(300, 700);
   xpDrop = random.integer(150, 300);
-  attack = 83;
-  hp = 340;
-  armor = 0.18;
+  attack = 69;
+  hp = 270;
+  armor = 0.15;
   critChance = 0.1;
   critDamage = 1.5;
   imageUrl = "https://images2.imgbox.com/b7/4a/KoDR0kki_o.jpg";

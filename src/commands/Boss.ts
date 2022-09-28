@@ -165,7 +165,7 @@ export default class extends Command {
             const sharedXpDrop = Math.ceil(modXP * (player.level / party));
             player.addXP(sharedXpDrop);
             player.coins += sharedDrop;
-            player.win++;
+            //player.win++; //turn off Win/Hunt% for Boss battles
 
             msg.channel.send(`Since ${player.name} is level ${currLevel}, their share is ${bold(sharedDrop)} ${currency} and ${bold(sharedXpDrop)} xp!`);
 
