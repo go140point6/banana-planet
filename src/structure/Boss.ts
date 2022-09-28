@@ -64,7 +64,7 @@ export class Berkovitz extends Boss {
     const skill = new Defense(); 
     skill.setOwner(this);
 
-    const pet = new Eros()
+    const pet = new Lawyers()
     pet.setOwner(this);
   }
 }
