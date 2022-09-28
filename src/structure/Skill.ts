@@ -139,9 +139,9 @@ export class Defense extends Skill {
     return embed;
   }
 
-  close(_p1: Fighter, _p2: Fighter) {
-    _p1.armor -= (_p1.armor / 0.1);
-    console.log("Done: " + _p1.armor);
+  close(p1: Fighter, _p2: Fighter) {
+    p1.armor -= (p1.armor / 0.1);
+    console.log("Done: " + p1.armor);
    }
 }
 
