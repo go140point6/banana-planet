@@ -52,9 +52,9 @@ export class Rage extends Skill {
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
-    console.log("Before: " + p1.attack);
+    //console.log("Before: " + p1.attack);
     p1.attack *= 2;
-    console.log("After: " + p1.attack);
+    //console.log("After: " + p1.attack);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -116,7 +116,7 @@ export class Defense extends Skill {
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 15_000;
-  interceptRate = 0.2;
+  interceptRate = 1.0; //debug 0.2
 
   use(p1: Fighter, _p2: Fighter) {
 
@@ -129,8 +129,8 @@ export class Defense extends Skill {
       .setTitle("Skill interception")
       .setColor("GREEN")
       .setDescription(
-        oneLine`${p1.name} uses **${this.name} Skill** and increases
-        ${code(formatPercent(armorAmount))}armor !`
+        oneLine`${p1.name} uses **${this.name} Skill** and increases armor to
+        ${code(formatPercent(p1.armor))}!`
       )
 
     if (this.imageUrl)
@@ -139,7 +139,9 @@ export class Defense extends Skill {
     return embed;
   }
 
-  close(_p1: Fighter, _p2: Fighter) { }
+  close(_p1: Fighter, _p2: Fighter) {
+    //_p1.armor -= _p1.armor ;
+   }
 }
 
 export class Luck extends Skill {
