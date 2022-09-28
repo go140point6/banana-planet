@@ -66,7 +66,7 @@ export abstract class BossSideKick extends BasePet {
   static get all(): BossSideKick[] {
     return [
       new Fanatics(),
-      new Eros(),
+      new Lawyers(),
       new SilverSurfer(),
       new Darkseid(),
       new Media(),
