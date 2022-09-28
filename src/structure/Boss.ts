@@ -51,9 +51,9 @@ export class Grewal extends Boss {
 export class Berkovitz extends Boss {
   drop = random.integer(500, 900);
   xpDrop = random.integer(250, 500);
-  attack = 80;
+  attack = 79;
   hp = 270;
-  armor = 0.15;
+  armor = 0.12;
   critChance = 0.12;
   critDamage = 1.3;
   imageUrl = "https://images2.imgbox.com/b0/64/HjlHRGac_o.jpg"
@@ -74,7 +74,7 @@ export class Clayton extends Boss {
   xpDrop = random.integer(350, 750);
   attack = 102;
   hp = 310;
-  armor = 0.42;
+  armor = 0.142;
   critChance = 0.2;
   critDamage = 1.5;
   imageUrl = "https://images2.imgbox.com/4a/2e/tGWo43NR_o.jpg";
@@ -96,7 +96,7 @@ export class Hinman extends Boss {
   xpDrop = random.integer(450, 900);
   attack = 130;
   hp = 350;
-  armor = 0.075;
+  armor = 0.175;
   critChance = 0.3;
   critDamage = 1.8;
   imageUrl = "https://images2.imgbox.com/68/b0/yU7sgdol_o.jpg";
@@ -118,7 +118,7 @@ export class Gensler extends Boss {
   xpDrop = random.integer(550, 1100);
   attack = 153;
   hp = 390;
-  armor = 0.1;
+  armor = 0.2;
   critChance = 0.35;
   critDamage = 2.0;
   imageUrl = "https://images2.imgbox.com/26/27/m8m6uJC4_o.jpg";
