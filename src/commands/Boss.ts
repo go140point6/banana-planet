@@ -156,7 +156,7 @@ export default class extends Command {
           const modXP = (xpDrop / (normalizer+(players.length - 1)));
           console.log("Mod banana: " + modDrop);
           console.log("Mod xp: " + modXP);
-          msg.channel.send(`${selectedBoss.name} dropped ${bold(modDrop)} ${currency} and provided ${bold(modxXP)} xp total.`);
+          msg.channel.send(`${selectedBoss.name} dropped ${bold(modDrop)} ${currency} and provided ${bold(modXP)} xp total.`);
 
           for (const player of players) {
 
