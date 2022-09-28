@@ -9,11 +9,11 @@ export abstract class Boss extends Fighter {
 
   static get all(): Boss[] {
     return [
-      new Gensler("Gensler Overlord"),
-      new Thanos("Thanos"),
-      new Galactus("Galactus"),
-      new DarkPhoenix("Dark Phoenix"),
-      new JJonahJameson("J. Jonah Jameson"),
+      new Grewal("Grewal Demon Lord"),
+      new Berkovitz("Berkovitz Zombie Prime"),
+      new Clayton("Clayton Lich King"),
+      new Hinman("Undead Commander Hinman"),
+      new Gensler("Gensler Overlord")
     ];
   }
 
@@ -27,36 +27,36 @@ export abstract class Boss extends Fighter {
   }
 }
 
-export class Gensler extends Boss {
-  drop = random.integer(300, 900);
-  xpDrop = random.integer(300, 700);
-  attack = 10; //debug 300
-  hp = 100; //debug 300
-  armor = 0.1;
+export class Grewal extends Boss {
+  drop = random.integer(300, 700);
+  xpDrop = random.integer(150, 300);
+  attack = 61; //debug 
+  hp = 230; //debug 300
+  armor = 0.112;
   critChance = 0.1;
-  critDamage = 2.0;
-  imageUrl = "https://preview.redd.it/21ni6dgcskb91.jpg?width=960&crop=smart&auto=webp&s=9b27176951b05f0badada5aced398c8739e0a07f";
+  critDamage = 1.1;
+  imageUrl = "https://images2.imgbox.com/b7/4a/KoDR0kki_o.jpg";
   
   constructor(name: string) {
     super(name);
 
     const skill = new Rage();
-    //skill.setOwner(this); //debug
+    skill.setOwner(this); //debug
 
     const pet = new Fanatics();
-    //pet.setOwner(this); //debug
+    pet.setOwner(this); //debug
   }
 }
 
-export class Thanos extends Boss {
-  drop = random.integer(900, 1500);
-  xpDrop = random.integer(600, 1000);
-  attack = 1200;
-  hp = 1420;
-  armor = 0.30;
-  critChance = 0.2;
-  critDamage = 3.4;
-  imageUrl = "https://www.listchallenges.com/f/items/ce8cf83b-8bfe-448e-a4a7-b54153ea2aa2.jpg"
+export class Berkovitz extends Boss {
+  drop = random.integer(500, 900);
+  xpDrop = random.integer(250, 500);
+  attack = 80;
+  hp = 270;
+  armor = 0.15;
+  critChance = 0.12;
+  critDamage = 1.3;
+  imageUrl = "https://images2.imgbox.com/b0/64/HjlHRGac_o.jpg"
 
   constructor(name: string) {
     super(name);
@@ -69,15 +69,15 @@ export class Thanos extends Boss {
   }
 }
 
-export class Galactus extends Boss {
-  drop = random.integer(1500, 2000);
-  xpDrop = random.integer(800, 1200);
-  attack = 2350;
-  hp = 2570;
-  armor = 0.35;
-  critChance = 0.3;
-  critDamage = 3.8;
-  imageUrl = "https://www.listchallenges.com/f/items/676ad1ae-3ad3-4225-9526-f5e8c2fd9515.jpg";
+export class Clayton extends Boss {
+  drop = random.integer(700, 1100);
+  xpDrop = random.integer(350, 750);
+  attack = 102;
+  hp = 310;
+  armor = 0.42;
+  critChance = 0.2;
+  critDamage = 1.5;
+  imageUrl = "https://images2.imgbox.com/4a/2e/tGWo43NR_o.jpg";
 
   
   constructor(name: string) {
@@ -91,15 +91,15 @@ export class Galactus extends Boss {
   }
 }
 
-export class DarkPhoenix extends Boss {
-  drop = random.integer(2000, 2500);
-  xpDrop = random.integer(1000, 1500);
-  attack = 2750;
-  hp = 3000;
-  armor = 0.40;
-  critChance = 0.4;
-  critDamage = 4.5;
-  imageUrl = "https://www.listchallenges.com/f/items/27bc26e6-fca9-4252-bfd1-6abf33c8f3e5.jpg";
+export class Hinman extends Boss {
+  drop = random.integer(900, 1300);
+  xpDrop = random.integer(450, 900);
+  attack = 130;
+  hp = 350;
+  armor = 0.075;
+  critChance = 0.3;
+  critDamage = 1.8;
+  imageUrl = "https://images2.imgbox.com/68/b0/yU7sgdol_o.jpg";
 
   
   constructor(name: string) {
@@ -113,15 +113,15 @@ export class DarkPhoenix extends Boss {
   }
 }
 
-export class JJonahJameson extends Boss {
-  drop = random.integer(2500, 3500);
-  xpDrop = random.integer(1750, 2250);
-  attack = 3500;
-  hp = 5000;
-  armor = 0.45;
-  critChance = 0.5;
-  critDamage = 5.5;
-  imageUrl = "https://www.listchallenges.com/f/items/9bf800b2-de67-4560-b8dd-8bf33ce71968.jpg";
+export class Gensler extends Boss {
+  drop = random.integer(1100, 1500);
+  xpDrop = random.integer(550, 1100);
+  attack = 153;
+  hp = 390;
+  armor = 0.1;
+  critChance = 0.35;
+  critDamage = 2.0;
+  imageUrl = "https://images2.imgbox.com/26/27/m8m6uJC4_o.jpg";
 
   
   constructor(name: string) {

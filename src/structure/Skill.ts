@@ -48,13 +48,13 @@ export class Rage extends Skill {
   name = "Ape Rage";
   id = "rage";
   description = "Does double damage when activated temporarily";
-  price = 50_000;
+  price = 15_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
-    //console.log("Before: " + p1.attack);
+    console.log("Before: " + p1.attack);
     p1.attack *= 2;
-    //console.log("After: " + p1.attack);
+    console.log("After: " + p1.attack);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -80,16 +80,16 @@ export class Heal extends Skill {
   name = "Ape Heal";
   id = "heal";
   description = "Heals 20% of hp when activated, to maxium hp";
-  price = 50_000;
+  price = 15_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
     
-    //console.log("Before: " + p1.hp);
+    console.log("Before: " + p1.hp);
     const healAmount = Math.ceil(p1.hp * 0.2);
   
     p1.hp += Math.min(healAmount, p1.hp);
-    //console.log("After: " + p1.hp);
+    console.log("After: " + p1.hp);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -120,10 +120,10 @@ export class Defense extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
-    //console.log("Before " + p1.armor);
+    console.log("Before " + p1.armor);
     const armorAmount = p1.armor * 0.1;
     p1.armor += armorAmount;
-    //console.log("After " + p1.armor);
+    console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -151,10 +151,10 @@ export class Luck extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
-    //console.log("Before " + p1.critChance);
-    const critChanceAmount = p1.critChance * 0.5;
+    console.log("Before " + p1.critChance);
+    const critChanceAmount = p1.critChance + 0.05;
     p1.critChance += critChanceAmount;
-    //console.log("After " + p1.critChance);
+    console.log("After " + p1.critChance);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -176,15 +176,15 @@ export class Luck extends Skill {
 export class Damage extends Skill {
   name = "Ape Crtical Damage";
   id = "damage";
-  description = "Triples critDamage when activated";
+  description = "Increases critDamage by x1.5 when activated";
   price = 50_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
-    //console.log("Before " + p1.critDamage);
-    p1.critDamage *= 3;
-    //console.log("After " + p1.critDamage);
+    console.log("Before " + p1.critDamage);
+    p1.critDamage *= 1.5;
+    console.log("After " + p1.critDamage);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
