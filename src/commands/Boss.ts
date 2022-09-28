@@ -152,8 +152,8 @@ export default class extends Command {
           const { drop, xpDrop } = selectedBoss;
           console.log("Unmod banana: " + drop);
           console.log("Unmod xp: " + xpDrop);
-          const modDrop = (drop / (normalizer+(players.length - 1)));
-          const modXP = (xpDrop / (normalizer+(players.length - 1)));
+          const modDrop = Math.ceil(drop * ((players.length - 1)/normalizer));
+          const modXP = Math.ceil(xpDrop * ((players.length - 1)/normalizer));
           console.log("Mod banana: " + modDrop);
           console.log("Mod xp: " + modXP);
           msg.channel.send(`${selectedBoss.name} dropped ${bold(modDrop)} ${currency} and provided ${bold(modXP)} xp total.`);

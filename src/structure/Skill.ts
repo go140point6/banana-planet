@@ -115,7 +115,7 @@ export class Defense extends Skill {
   name = "Ape Defense";
   id = "defense";
   description = "Increase armor for 10% when activated";
-  price = 50_000;
+  price = 15_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
@@ -146,7 +146,7 @@ export class Luck extends Skill {
   name = "Ape Luck";
   id = "luck";
   description = "Increase critical chance by 5% when activated";
-  price = 50_000;
+  price = 15_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
@@ -177,7 +177,7 @@ export class Damage extends Skill {
   name = "Ape Crtical Damage";
   id = "damage";
   description = "Increases critDamage by x1.5 when activated";
-  price = 50_000;
+  price = 15_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
