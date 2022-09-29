@@ -63,7 +63,7 @@ export default class extends Command {
           join to participate max ${this.max} players. NOTE: Fight starts in 5 minutes (TESTING)!`
         );
 
-          console.log(selectedBoss);
+          console.log(selectedBoss.id);
 
         const joinMenu = new ButtonHandler(msg, bossEmbed)
           .setTimeout(this.waitTime)
