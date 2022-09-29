@@ -30,6 +30,7 @@ export default class extends Command {
     const player = Player.fromUser(msg.author);
     const boss = Boss.all;
     const normalizer = 0.75;
+    const minLevel = 18;
     
     const [arg1] = args;
     
@@ -63,7 +64,7 @@ export default class extends Command {
           join to participate max ${this.max} players. NOTE: Fight starts in 5 minutes (TESTING)!`
         );
 
-          console.log(player);
+          //console.log(player);
 
         const joinMenu = new ButtonHandler(msg, bossEmbed)
           .setTimeout(this.waitTime)
@@ -73,15 +74,17 @@ export default class extends Command {
 
           try {
 
-            //if (selectedBoss.id = "boss1") {
-            //  console.log("Attack " + selectedBoss.attack);
-            //  console.log("Player Attack " + player.attack);
-            //}
-            players.push(player);
+            if ((player.level - minLevel) >= 2) {
+              msg.channel.send(
+                `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
+              );
+            } else {
+              players.push(player);
 
-            msg.channel.send(
-              `${user.username} joined! (${players.length}/${this.max} players)`
-            );
+              msg.channel.send(
+                `${user.username} joined! (${players.length}/${this.max} players)`
+              );
+            }
 
             if (players.length == 2) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));
