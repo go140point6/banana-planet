@@ -100,8 +100,8 @@ export class Monster extends Fighter {
     //console.log("Player Armor: " + Math.round(player.armor * 1000));
     //console.log("Monster critChance: " + Math.round(this.critChance * 100));
     //console.log("Player critChance: " + Math.round(player.critChance * 100));
-    //console.log("Monster critDamage: " + Math.round(this.critDamage * 100));
-    //console.log("Player critDamage: " + Math.round(player.critDamage * 100));
+    console.log("Monster critDamage: " + Math.round(this.critDamage * 100));
+    console.log("Player critDamage: " + Math.round(player.critDamage * 100));
     //console.log("Monster Total: " + this.monsterDiff);
     //console.log("Player Total: " + this.playerDiff);
     //console.log(player.name + " :diff: " + this.diff);
