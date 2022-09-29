@@ -83,20 +83,20 @@ export default class extends Command {
 
             const player = Player.fromUser(user);
 
-            //let bully = (player.level - minLevel);
-            //console.log(bully);
-            //console.log(typeof bully);
-            //if (bully >= Number(2)) {
-            //  msg.channel.send(
-            //    `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
-            //  );
-            //} else {
+            let bully = (player.level - minLevel);
+            console.log(bully);
+            console.log(typeof bully);
+            if (bully >= Number(2)) {
+              msg.channel.send(
+                `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
+              );
+            } else {
               players.push(player);
 
               msg.channel.send(
                 `${user.username} joined! (${players.length}/${this.max} players)`
               );
-            //}
+            }
 
             if (players.length == 2) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));
