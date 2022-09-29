@@ -6,7 +6,6 @@ import { Fanatics, Lawyers, Lawsuit, PaperShredder, Vitalik } from "./Pet";
 export abstract class Boss extends Fighter {
   abstract drop: number;
   abstract xpDrop: number;
-  abstract id: string;
 
   static get all(): Boss[] {
     return [

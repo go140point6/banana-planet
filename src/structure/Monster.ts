@@ -36,9 +36,9 @@ export class Monster extends Fighter {
     this.playerCritDamage = player.critDamage * 100;
 
     if (this.difficulty > 21) {
-      this.jitter = 0.1 // 10%
-    } else {
       this.jitter = 0.05 // 5%
+    } else {
+      this.jitter = 0.025 // 2.5%
     }
 
     if (this.difficulty < 6) {
