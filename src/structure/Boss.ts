@@ -6,6 +6,7 @@ import { Fanatics, Lawyers, SilverSurfer, Darkseid, Media } from "./Pet";
 export abstract class Boss extends Fighter {
   abstract drop: number;
   abstract xpDrop: number;
+  abstract id: string;
 
   static get all(): Boss[] {
     return [
@@ -28,7 +29,7 @@ export abstract class Boss extends Fighter {
 }
 
 export class Grewal extends Boss {
-  id = boss1;
+  id = "boss1";
   drop = random.integer(300, 700);
   xpDrop = random.integer(150, 300);
   attack = 176;
@@ -50,7 +51,7 @@ export class Grewal extends Boss {
 }
 
 export class Berkovitz extends Boss {
-  id = boss2;
+  id = "boss2";
   drop = random.integer(500, 900);
   xpDrop = random.integer(250, 500);
   attack = 248;
@@ -72,7 +73,7 @@ export class Berkovitz extends Boss {
 }
 
 export class Clayton extends Boss {
-  id = boss3;
+  id = "boss3";
   drop = random.integer(700, 1100);
   xpDrop = random.integer(350, 750);
   attack = 355;
@@ -95,7 +96,7 @@ export class Clayton extends Boss {
 }
 
 export class Hinman extends Boss {
-  id = boss4;
+  id = "boss4";
   drop = random.integer(900, 1300);
   xpDrop = random.integer(450, 900);
   attack = 506;
@@ -118,7 +119,7 @@ export class Hinman extends Boss {
 }
 
 export class Gensler extends Boss {
-  id = boss5;
+  id = "boss5";
   drop = random.integer(1100, 1500);
   xpDrop = random.integer(550, 1100);
   attack = 693;
