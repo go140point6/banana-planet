@@ -88,13 +88,13 @@ export default class extends Command {
         if (monster.relative == 1) {
           msg.channel.send(`${player.name} was much weaker than ${monster.name}, so earned significantly more ${currency} and xp!`);
         }
-        if (currLevel < 6) {
-          msg.channel.send(`${player.name} has earned ${bold(levelDropNoob)} ${currency}!`);
-          msg.channel.send(`${player.name} has earned ${bold(levelXpDropNoob)} xp!`);
-        } else {
+        //if (currLevel < 6) {
+        //msg.channel.send(`${player.name} has earned ${bold(levelDropNoob)} ${currency}!`);
+        //msg.channel.send(`${player.name} has earned ${bold(levelXpDropNoob)} xp!`);
+        //} else {
         msg.channel.send(`${player.name} has earned ${bold(levelDrop)} ${currency}!`);
         msg.channel.send(`${player.name} has earned ${bold(levelXpDrop)} xp!`);
-        }
+        //}
 
         if (currLevel !== player.level) {
           msg.channel.send(`${player.name} is now on level ${bold(player.level)}!`);
