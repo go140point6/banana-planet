@@ -85,11 +85,11 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    console.log("Before: " + p1.hp);
+    //console.log("Before: " + p1.hp);
     const healAmount = Math.ceil(p1.hp * 0.2);
   
     p1.hp += Math.min(healAmount, p1.hp);
-    console.log("After: " + p1.hp);
+    //console.log("After: " + p1.hp);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -156,10 +156,10 @@ export class Luck extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
-    console.log("Before " + p1.critChance);
+    //console.log("Before " + p1.critChance);
     const critChanceAmount = p1.critChance + 0.05;
     p1.critChance += critChanceAmount;
-    console.log("After " + p1.critChance);
+    //console.log("After " + p1.critChance);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -187,9 +187,9 @@ export class Damage extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
 
-    console.log("Before " + p1.critDamage);
+    //console.log("Before " + p1.critDamage);
     p1.critDamage *= 1.5;
-    console.log("After " + p1.critDamage);
+    //console.log("After " + p1.critDamage);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")

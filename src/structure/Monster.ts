@@ -104,8 +104,8 @@ export class Monster extends Fighter {
     //console.log("Player critDamage: " + Math.round(player.critDamage * 100));
     //console.log("Monster Total: " + this.monsterDiff);
     //console.log("Player Total: " + this.playerDiff);
-    console.log(player.name + " :diff: " + this.diff);
-    console.log(player.name + " :relative: " + this.relative);
+    //console.log(player.name + " :diff: " + this.diff);
+    //console.log(player.name + " :relative: " + this.relative);
   }
 
   private randomAttribNoob() {
