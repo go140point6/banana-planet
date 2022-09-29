@@ -100,8 +100,8 @@ export class Monster extends Fighter {
     //console.log("Player Armor: " + Math.round(player.armor * 1000));
     //console.log("Monster critChance: " + Math.round(this.critChance * 100));
     //console.log("Player critChance: " + Math.round(player.critChance * 100));
-    console.log("Monster critDamage: " + Math.round(this.critDamage * 100));
-    console.log("Player critDamage: " + Math.round(player.critDamage * 100));
+    //console.log("Monster critDamage: " + Math.round(this.critDamage * 100));
+    //console.log("Player critDamage: " + Math.round(player.critDamage * 100));
     //console.log("Monster Total: " + this.monsterDiff);
     //console.log("Player Total: " + this.playerDiff);
     //console.log(player.name + " :diff: " + this.diff);
@@ -142,11 +142,11 @@ export class Monster extends Fighter {
 
   private randomCritDamage() {
     const jitterMin = (-Math.abs(this.playerCritDamage * this.jitter));
-    const jitterMax = Math.min((Math.abs(this.playerCritDamage * this.jitter)), 5);
+    const jitterMax = Math.min((Math.abs(this.playerCritDamage * this.jitter)), 4);
     const finalRandom = (random.integer(jitterMin, jitterMax));
-    console.log("Min " + jitterMin);
-    console.log("Max " + jitterMax);
-    console.log("Fin " + finalRandom);
+    //console.log("Min " + jitterMin);
+    //console.log("Max " + jitterMax);
+    //console.log("Fin " + finalRandom);
     return finalRandom;
   }
 
