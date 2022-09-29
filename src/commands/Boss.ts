@@ -49,7 +49,12 @@ export default class extends Command {
         const duration = client.lastBossKilled.diffNow(["minutes"]);
         const minutes = Math.abs(duration.minutes);
         const timeLeft = client.lastBossKilled.plus({ minutes: 0.25 }).toRelative(); //debug 10 or 6
+        let bully = (player.level - minLevel);
 
+        console.log(player.level);
+        console.log(minLevel);
+        console.log(bully);
+        
         // if less than 10 mins
         if (minutes < 0.25 ) { //debug 10 or 6
           msg.channel.send(`You can run the boss command again ${timeLeft}`);
