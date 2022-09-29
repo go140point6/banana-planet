@@ -51,20 +51,20 @@ export default class extends Command {
         const currLevel = player.level;
 
         const levelDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.drop)/monster.relative) / monster.diff).toFixed()),5);
-        const levelDropNoob = levelDrop * 2;
+        //const levelDropNoob = levelDrop * 2;
         const levelXpDrop = Math.max(parseFloat((Math.ceil((currLevel * monster.xpDrop)/monster.relative) / monster.diff).toFixed()),2);
-        const levelXpDropNoob = levelXpDrop * 2;
-        if (currLevel < 6) {
+        //const levelXpDropNoob = levelXpDrop * 2;
+        //if (currLevel < 6) {
           //console.log("XP: " + levelXpDrop);
           //console.log("XP Noob: " + levelXpDropNoob);
-          player.addXP(levelXpDropNoob);
-          player.coins += (levelDropNoob);
+        player.addXP(levelXpDrop);
+        player.coins += (levelDrop);
           //console.log("Banana: " + levelDrop);
           //console.log("Banana Noob: " + levelDropNoob);
-        } else {
-          player.addXP(levelXpDrop);
-          player.coins += (levelDrop);
-          }
+        //} else {
+          //player.addXP(levelXpDrop);
+          //player.coins += (levelDrop);
+          //}
         //console.log("Unmodified Banana: " + monster.drop);
         //console.log("Player Level Mod Banana: " + (Math.ceil((currLevel * monster.drop)/ monster.relative)));
         //console.log("Final Banana: " + levelDrop);

@@ -85,7 +85,7 @@ export class BearableGuy extends SideKick {
   name = "Bearable Guy";
   id = "guy";
   attack = 30;
-  interceptRate = 0.2;
+  interceptRate = 0.12;
   price = 15000;
 }
 
@@ -93,7 +93,7 @@ export class RichDuck extends SideKick {
   name = "Rich Duck";
   id = "duck";
   attack = 40;
-  interceptRate = 0.25;
+  interceptRate = 0.13;
   price = 20000;
 }
 
@@ -101,7 +101,7 @@ export class Bae extends SideKick {
   name = "Bae";
   id = "bae";
   attack = 50;
-  interceptRate = 0.3;
+  interceptRate = 0.14;
   price = 30000;
 }
 
@@ -109,7 +109,7 @@ export class PunkWorldsArt extends SideKick {
   name = "Sentient Punk Worlds Art";
   id = "punkworld";
   attack = 60;
-  interceptRate = 0.35;
+  interceptRate = 0.15;
   price = 70000;
 }
 
@@ -117,7 +117,7 @@ export class PhoenixEgg extends SideKick {
   name = "Phoenix Egg";
   id = "egg";
   attack = 70;
-  interceptRate = 0.4;
+  interceptRate = 0.17;
   price = 100000;
 }
 
@@ -125,7 +125,7 @@ export class BearableBull extends SideKick {
   name = "Bearable Bull";
   id = "bull";
   attack = 80;
-  interceptRate = 0.45;
+  interceptRate = 0.2;
   price = 160000;
 }
 
@@ -140,7 +140,7 @@ export class EvilBearableGuy extends MonsterSideKick {
   name = "Evil Bearable Guy";
   id = "eguy";
   attack = 30;
-  interceptRate = 0.2;
+  interceptRate = 0.12;
   price = 15000;
 }
 
@@ -148,7 +148,7 @@ export class EvilRichDuck extends MonsterSideKick {
   name = "Evil Rich Duck";
   id = "educk";
   attack = 40;
-  interceptRate = 0.25;
+  interceptRate = 0.13;
   price = 20000;
 }
 
@@ -156,7 +156,7 @@ export class EvilBae extends MonsterSideKick {
   name = "Evil Bae";
   id = "ebae";
   attack = 50;
-  interceptRate = 0.3;
+  interceptRate = 0.14;
   price = 30000;
 }
 
@@ -164,7 +164,7 @@ export class EvilPunkWorldsArt extends MonsterSideKick {
   name = "Evil Sentient Punk Worlds Art";
   id = "epunkworld";
   attack = 60;
-  interceptRate = 0.35;
+  interceptRate = 0.15;
   price = 70000;
 }
 
@@ -172,7 +172,7 @@ export class EvilPhoenixEgg extends MonsterSideKick {
   name = "Evil Phoenix Egg";
   id = "eegg";
   attack = 70;
-  interceptRate = 0.4;
+  interceptRate = 0.17;
   price = 100000;
 }
 
@@ -180,7 +180,7 @@ export class EvilBearableBull extends MonsterSideKick {
   name = "Evil Bearable Bull";
   id = "ebull";
   attack = 80;
-  interceptRate = 0.45;
+  interceptRate = 0.2;
   price = 160000;
 }
 
