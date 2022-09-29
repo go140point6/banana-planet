@@ -67,9 +67,9 @@ export abstract class BossSideKick extends BasePet {
     return [
       new Fanatics(),
       new Lawyers(),
-      new SilverSurfer(),
-      new Darkseid(),
-      new Media(),
+      new Lawsuit(),
+      new PaperShredder(),
+      new Vitalik(),
     ];
   }
 }
@@ -187,7 +187,7 @@ export class EvilBearableBull extends MonsterSideKick {
 export class Fanatics extends BossSideKick {
   name = "Civil Servants";
   id = "fanatics";
-  attack = 30;
+  attack = 88;
   interceptRate = 0.1;
   price = 1000000000;
 }
@@ -195,31 +195,31 @@ export class Fanatics extends BossSideKick {
 export class Lawyers extends BossSideKick {
   name = "Government Attorneys";
   id = "lawyers";
-  attack = 39;
+  attack = 123;
   interceptRate = 0.12;
   price = 1000000000;
 }
 
-export class SilverSurfer extends BossSideKick {
-  name = "Silver Surfer";
-  id = "herald";
-  attack = 51;
+export class Lawsuit extends BossSideKick {
+  name = "A Lawsuit on the way out the door";
+  id = "lawsuit";
+  attack = 177;
   interceptRate = 0.15;
   price = 1000000000;
 }
 
-export class Darkseid extends BossSideKick {
-  name = "Darkseid";
-  id = "darkseid";
-  attack = 65;
+export class PaperShredder extends BossSideKick {
+  name = "Sentient Document Shredder";
+  id = "memos";
+  attack = 253;
   interceptRate = 0.18;
   price = 1000000000;
 }
 
-export class Media extends BossSideKick {
-  name = "The Media - A lie repeated...";
-  id = "media";
-  attack = 500;
+export class Vitalik extends BossSideKick {
+  name = "A lap dog named Vitalik";
+  id = "vitalik";
+  attack = 346;
   interceptRate = 0.2;
   price = 1000000000;
 }

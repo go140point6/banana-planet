@@ -30,7 +30,7 @@ export default class extends Command {
     const player = Player.fromUser(msg.author);
     const boss = Boss.all;
     const normalizer = 0.75;
-    const minLevel = Number(18);
+    const minLevel = 18;
     
     const [arg1] = args;
     
@@ -49,13 +49,6 @@ export default class extends Command {
         const duration = client.lastBossKilled.diffNow(["minutes"]);
         const minutes = Math.abs(duration.minutes);
         const timeLeft = client.lastBossKilled.plus({ minutes: 0.25 }).toRelative(); //debug 10 or 6
-        //let bully = (player.level - minLevel);
-
-        //console.log(player.level);
-        //console.log(minLevel);
-        //console.log(bully);
-        
-        //if (bully >= 2)
 
         // if less than 10 mins
         if (minutes < 0.25 ) { //debug 10 or 6
@@ -71,8 +64,6 @@ export default class extends Command {
           join to participate max ${this.max} players. NOTE: Fight starts in 5 minutes (TESTING)!`
         );
 
-          //console.log(player);
-
         const joinMenu = new ButtonHandler(msg, bossEmbed)
           .setTimeout(this.waitTime)
           .setMultiUser(this.max);
@@ -83,20 +74,19 @@ export default class extends Command {
 
             const player = Player.fromUser(user);
 
-            let bully = (player.level - minLevel);
-            console.log(bully);
-            console.log(typeof bully);
-            if (bully >= Number(2)) {
-              msg.channel.send(
-                `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
-              );
-            } else {
+            // limit boss fights
+            //let bully = (player.level - minLevel);
+            //if (bully > 5) {
+            //  msg.channel.send(
+            //    `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
+            //  );
+            //} else {
               players.push(player);
 
               msg.channel.send(
                 `${user.username} joined! (${players.length}/${this.max} players)`
               );
-            }
+            //}
 
             if (players.length == 2) {
               selectedBoss.hp = Math.ceil((selectedBoss.hp * players.length)/(normalizer+(players.length - 1)));

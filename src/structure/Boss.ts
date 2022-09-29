@@ -1,7 +1,7 @@
 import { Fighter } from "discordjs-rpg";
 import { currency, random } from "../utils";
 import { Defense, Heal, Rage, Luck, Damage } from "../structure/Skill";
-import { Fanatics, Lawyers, SilverSurfer, Darkseid, Media } from "./Pet";
+import { Fanatics, Lawyers, Lawsuit, PaperShredder, Vitalik } from "./Pet";
 
 export abstract class Boss extends Fighter {
   abstract drop: number;
@@ -29,7 +29,6 @@ export abstract class Boss extends Fighter {
 }
 
 export class Grewal extends Boss {
-  id = "boss1";
   drop = random.integer(300, 700);
   xpDrop = random.integer(150, 300);
   attack = 176;
@@ -51,7 +50,6 @@ export class Grewal extends Boss {
 }
 
 export class Berkovitz extends Boss {
-  id = "boss2";
   drop = random.integer(500, 900);
   xpDrop = random.integer(250, 500);
   attack = 248;
@@ -73,7 +71,7 @@ export class Berkovitz extends Boss {
 }
 
 export class Clayton extends Boss {
-  id = "boss3";
+
   drop = random.integer(700, 1100);
   xpDrop = random.integer(350, 750);
   attack = 355;
@@ -90,13 +88,12 @@ export class Clayton extends Boss {
     const skill = new Heal(); 
     skill.setOwner(this);
 
-    const pet = new SilverSurfer()
+    const pet = new Lawsuit()
     pet.setOwner(this);
   }
 }
 
 export class Hinman extends Boss {
-  id = "boss4";
   drop = random.integer(900, 1300);
   xpDrop = random.integer(450, 900);
   attack = 506;
@@ -113,13 +110,12 @@ export class Hinman extends Boss {
     const skill = new Damage(); 
     skill.setOwner(this);
 
-    const pet = new Darkseid()
+    const pet = new PaperShredder()
     pet.setOwner(this);
   }
 }
 
 export class Gensler extends Boss {
-  id = "boss5";
   drop = random.integer(1100, 1500);
   xpDrop = random.integer(550, 1100);
   attack = 693;
@@ -136,7 +132,7 @@ export class Gensler extends Boss {
     const skill = new Luck(); 
     skill.setOwner(this);
 
-    const pet = new Media()
+    const pet = new Vitalik()
     pet.setOwner(this);
   }
 }
