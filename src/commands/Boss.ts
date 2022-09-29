@@ -60,7 +60,7 @@ export default class extends Command {
         const bossEmbed = selectedBoss.show();
         bossEmbed.setDescription(
           oneLine`${player.name} wants to battle ${selectedBoss.name}. Click
-          join to participate max ${this.max} players. NOTE: Fight starts 15 minutes from first join.`
+          join to participate max ${this.max} players. NOTE: Fight starts in 5 minutes (TESTING)!`
         );
 
         const joinMenu = new ButtonHandler(msg, bossEmbed)
