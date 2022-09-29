@@ -121,8 +121,8 @@ export class Defense extends Skill {
   use(p1: Fighter, _p2: Fighter) {
 
     console.log("Before " + p1.armor);
-    const armorAmount = parseFloat((p1.armor * 2).toFixed(2));
-    p1.armor += armorAmount;
+    //const armorAmount = parseFloat((p1.armor * 2).toFixed(2));
+    p1.armor *= 2;
     console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
@@ -141,8 +141,8 @@ export class Defense extends Skill {
 
   close(_p1: Fighter, _p2: Fighter) {
     console.log("Almost Done " + _p1.armor);
-    const armorDecrease = parseFloat((_p1.armor / 2).toFixed(2));
-    _p1.armor -= armorDecrease;
+    //const armorDecrease = parseFloat((_p1.armor / 2).toFixed(2));
+    _p1.armor /= 2;
     console.log("Done: " + _p1.armor);
    }
 }
