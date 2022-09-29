@@ -47,7 +47,7 @@ export default class extends Command {
 
         const duration = client.lastBossKilled.diffNow(["minutes"]);
         const minutes = Math.abs(duration.minutes);
-        const timeLeft = client.lastBossKilled.plus({ minutes: 0.25 }).toRelative(); //debug 10
+        const timeLeft = client.lastBossKilled.plus({ minutes: 6 }).toRelative(); //debug 10
 
         // if less than 10 mins
         if (minutes < 6 ) { //debug 10
