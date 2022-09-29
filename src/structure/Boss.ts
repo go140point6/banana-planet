@@ -41,10 +41,10 @@ export class Grewal extends Boss {
     super(name);
 
     const skill = new Rage();
-    skill.setOwner(this); //debug
+    skill.setOwner(this);
 
     const pet = new Fanatics();
-    pet.setOwner(this); //debug
+    pet.setOwner(this);
   }
 }
 

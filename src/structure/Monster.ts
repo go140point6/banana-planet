@@ -68,12 +68,12 @@ export class Monster extends Fighter {
     }  
 
     this.monsterDiff = (this.attack + this.hp + (Math.round(this.armor * 1000)) + (Math.round(this.critChance * 100)) + (Math.round(this.critDamage * 100)));
-    //console.log("MonsterDiff: " + this.monsterDiff); //debug
+    //console.log("MonsterDiff: " + this.monsterDiff);
     this.playerDiff = (player.attack + player.hp + (player.armor * 1000) + (player.critChance * 100) + (Math.round(player.critDamage * 100)));
-    //console.log("PlayerDiff " + this.playerDiff); //debug
+    //console.log("PlayerDiff " + this.playerDiff);
     this.diff = parseFloat((this.playerDiff / this.monsterDiff).toFixed(2));
     if (this.diff > 1) {
-      //console.log("Player is stronger!"); //debug
+      //console.log("Player is stronger!");
       if (this.diff >= 1.03) {
         this.relative = 5;
       } else {
@@ -81,7 +81,7 @@ export class Monster extends Fighter {
       }
     }
     if (this.diff < 1) {
-      //console.log("Player is weaker!"); //debug
+      //console.log("Player is weaker!");
       if (this.diff >= 0.97) {
         this.relative = 2;
       } else {
@@ -89,7 +89,7 @@ export class Monster extends Fighter {
       }
     }
     if (this.diff == 1) {
-      //console.log("Player and Monster are evenly matched"); //debug
+      //console.log("Player and Monster are evenly matched");
       this.relative = 3;
     }
     //console.log("Monster Attack: " + this.attack);

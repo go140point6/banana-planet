@@ -116,14 +116,14 @@ export class Defense extends Skill {
   id = "defense";
   description = "Increase armor for 10% when activated";
   price = 15_000;
-  interceptRate = 1.0; //debug 0.2
+  interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
-    console.log("Before " + p1.armor);
+    //console.log("Before " + p1.armor);
     const armorAmount = parseFloat((p1.armor * 0.1).toFixed(2));
     p1.armor += armorAmount;
-    console.log("After " + p1.armor);
+    //console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -140,10 +140,10 @@ export class Defense extends Skill {
   }
 
   close(_p1: Fighter, _p2: Fighter) {
-    console.log("Almost Done " + _p1.armor);
+    //console.log("Almost Done " + _p1.armor);
     const armorDecrease = parseFloat((_p1.armor * 0.1).toFixed(2));
     _p1.armor -= armorDecrease;
-    console.log("Done: " + _p1.armor);
+    //console.log("Done: " + _p1.armor);
    }
 }
 
