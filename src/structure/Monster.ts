@@ -55,7 +55,8 @@ export class Monster extends Fighter {
       this.armor = player.armor + (this.randomArmor() / 100);
       this.critChance = player.critChance + (this.randomCritChance() / 100);
       //this.critDamage = (Math.min(Math.max((player.critDamage + (this.randomCritDamage() / 10))), 1.1), 1.8);
-      this.critDamage = Math.max((player.critDamage + (this.randomCritDamage() / 10)), 1.1);
+      this.critDamageMax = Math.max((player.critDamage + (this.randomCritDamage() / 10)), 1.1);
+      this.critDamage = (Math.min(this.critDamageMax), 1.8);
     }
     
     if (player.skill && random.bool()) {
