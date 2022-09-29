@@ -139,11 +139,11 @@ export class Defense extends Skill {
     return embed;
   }
 
-  close(p1: Fighter, _p2: Fighter) {
-    console.log("Almost Done " + p1.armor);
-    const armorDecrease = Math.ceil(p1.armor / 0.1);
-    p1.armor -= armorDecrease;
-    console.log("Done: " + p1.armor);
+  close(_p1: Fighter, _p2: Fighter) {
+    console.log("Almost Done " + _p1.armor);
+    const armorDecrease = Math.ceil(_p1.armor / 0.1);
+    _p1.armor -= armorDecrease;
+    console.log("Done: " + _p1.armor);
    }
 }
 
