@@ -30,7 +30,7 @@ export default class extends Command {
     const player = Player.fromUser(msg.author);
     const boss = Boss.all;
     const normalizer = 0.75;
-    const minLevel = 18;
+    const minLevel = Number(18);
     
     const [arg1] = args;
     
@@ -74,9 +74,9 @@ export default class extends Command {
 
           try {
 
-            console.log(player.level);
-            console.log(minLevel);
-            console.log(player.level - minLevel);
+            console.log(typeof player.level);
+            console.log(typeof minLevel);
+            console.log(typeof(player.level - minLevel));
             if ((player.level - minLevel) >= 2) {
               msg.channel.send(
                 `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
