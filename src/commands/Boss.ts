@@ -77,7 +77,7 @@ export default class extends Command {
             let bully = (player.level - minLevel);
             console.log(bully);
             console.log(typeof bully);
-            if (bully >= 2) {
+            if (bully >= Number(2)) {
               msg.channel.send(
                 `Hey ${user.username} don't be a bully!  Go pick on some boss your own size!`
               );
