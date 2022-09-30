@@ -89,13 +89,13 @@ export class Heal extends Skill {
     var b = a;
     a = p1.hp;
     console.log("a: " + a);
-    console.log("b: " + b);
+    console.log(JSON.stringify(b));
     const healAmount = Math.ceil(p1.hp * 0.2);
     console.log("healAmount: " + healAmount);
     p1.hp += Math.max(healAmount, p1.hp);
     console.log("After: " + p1.hp);
     console.log("After a: " + a);
-    console.log("After b: " + b);
+    console.log(JSON.stringify(b));
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
