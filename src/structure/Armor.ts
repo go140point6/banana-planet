@@ -1,6 +1,6 @@
 import { oneLine } from "common-tags";
 import { Message } from "discord.js";
-import { Armor as BaseArmor, Weapon as BaseWeapon } from "discordjs-rpg";
+import { Armor as BaseArmor } from "discordjs-rpg";
 import { Player } from "../structure/Player";
 
 export abstract class Armor extends BaseArmor {
@@ -115,7 +115,6 @@ export class ChestPlate extends Armor {
 export class ForceField extends Armor {
   id = "field";
   name = "Force Field Bracelets";
-  attack =  25;
   price = 20000;
   armor = 0.1
 }
