@@ -48,7 +48,7 @@ export class Rage extends Skill {
   name = "Ape Rage";
   id = "rage";
   description = "Does double damage when activated temporarily";
-  price = 15_000;
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
@@ -79,16 +79,16 @@ export class Rage extends Skill {
 export class Heal extends Skill {
   name = "Ape Heal";
   id = "heal";
-  description = "Heals 20% of hp when activated, to maxium HP";
-  price = 15_000;
+  description = "Heals 10% of hp when activated";
+  price = 10_000;
   interceptRate = 0.2; //debug 0.2
 
   use(p1: Fighter, _p2: Fighter) {
     
-    const healAmount = Math.ceil(p1.hp * 0.2);
+    const healAmount = Math.ceil(p1.hp * 0.1);
     //console.log("p1.hp " + p1.hp);
     //console.log("healAmount: " + healAmount);
-    p1.hp += Math.max(healAmount, p1.hp);
+    p1.hp += healAmount;
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -114,7 +114,7 @@ export class Defense extends Skill {
   name = "Ape Defense";
   id = "defense";
   description = "Double armor when activated";
-  price = 15_000;
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
@@ -148,7 +148,7 @@ export class Luck extends Skill {
   name = "Ape Luck";
   id = "luck";
   description = "Increase critical chance by 5% when activated";
-  price = 15_000;
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
@@ -179,7 +179,7 @@ export class Damage extends Skill {
   name = "Ape Crtical Damage";
   id = "damage";
   description = "Increases critDamage by x1.5 when activated";
-  price = 15_000;
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
