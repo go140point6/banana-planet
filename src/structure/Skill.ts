@@ -85,15 +85,17 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    const origHPTemp = p1.hp;
-    const origHP = origHPTemp;
-    console.log("OrigHPTemp: " + origHPTemp);
-    console.log("OrigHP " + origHP)
-    console.log("Before: " + p1.hp);
+    var a = {};
+    var b = a;
+    a = p1.hp;
+    console.log("a: " + a);
+    console.log("b: " + b);
     const healAmount = Math.ceil(p1.hp * 0.2);
     console.log("healAmount: " + healAmount);
     p1.hp += Math.max(healAmount, p1.hp);
     console.log("After: " + p1.hp);
+    console.log("After a: " + a);
+    console.log("After b: " + b);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
