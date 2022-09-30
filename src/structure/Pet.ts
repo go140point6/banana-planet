@@ -78,7 +78,7 @@ export class BabyApe extends SideKick {
   name = "Baby Ape";
   id = "bape";
   attack = 20;
-  price = 13000;
+  price = 2000;
 }
 
 export class BearableGuy extends SideKick {
@@ -86,7 +86,7 @@ export class BearableGuy extends SideKick {
   id = "guy";
   attack = 30;
   interceptRate = 0.12;
-  price = 15000;
+  price = 3000;
 }
 
 export class RichDuck extends SideKick {
@@ -94,7 +94,7 @@ export class RichDuck extends SideKick {
   id = "duck";
   attack = 40;
   interceptRate = 0.13;
-  price = 20000;
+  price = 4000;
 }
 
 export class Bae extends SideKick {
@@ -102,7 +102,7 @@ export class Bae extends SideKick {
   id = "bae";
   attack = 50;
   interceptRate = 0.14;
-  price = 30000;
+  price = 5000;
 }
 
 export class PunkWorldsArt extends SideKick {
@@ -110,7 +110,7 @@ export class PunkWorldsArt extends SideKick {
   id = "punkworld";
   attack = 60;
   interceptRate = 0.15;
-  price = 70000;
+  price = 6000;
 }
 
 export class PhoenixEgg extends SideKick {
@@ -118,7 +118,7 @@ export class PhoenixEgg extends SideKick {
   id = "egg";
   attack = 70;
   interceptRate = 0.17;
-  price = 100000;
+  price = 7000;
 }
 
 export class BearableBull extends SideKick {
@@ -126,7 +126,7 @@ export class BearableBull extends SideKick {
   id = "bull";
   attack = 80;
   interceptRate = 0.2;
-  price = 160000;
+  price = 8000;
 }
 
 export class EvilBabyApe extends MonsterSideKick {

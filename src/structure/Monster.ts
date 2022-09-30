@@ -5,8 +5,8 @@ import { Skill } from "./Skill";
 import { MonsterSideKick } from "./Pet";
 
 export class Monster extends Fighter {
-  drop = random.integer(5, 25);
-  xpDrop = random.integer(3, 5);
+  drop = random.integer(45, 65);
+  xpDrop = random.integer(4, 6);
   difficulty: number;
   monsterDiff: number;
   playerDiff: number;
