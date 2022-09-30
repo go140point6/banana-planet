@@ -1,4 +1,4 @@
-import { BaseBattle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
+import { Battle as BaseBattle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
 import { Message, MessageEmbed } from "discord.js";
 import { oneLine } from "common-tags";
 import { formatPercent, code } from "../utils";
@@ -83,7 +83,7 @@ export class Heal extends Skill {
   price = 15_000;
   interceptRate = 1.0; //debug 0.2
 
-  use(p1: Fighter, _p2: Fighter) {
+  use(p1: Fighter, _p2: Fighter, round: BaseBattle) {
     
     console.log("Start " + BaseBattle.round);
     console.log("Start " + BaseBattle.this.round);
