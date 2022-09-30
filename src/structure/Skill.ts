@@ -1,4 +1,4 @@
-import { Fighter, Skill as BaseSkill } from "discordjs-rpg";
+import { Battle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
 import { Message, MessageEmbed } from "discord.js";
 import { oneLine } from "common-tags";
 import { formatPercent, code } from "../utils";
@@ -85,21 +85,11 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    var a = {origHP: p1.hp}; 
-    var b = a;
-    console.log("a " + a.origHP);
-    console.log("b " + b.origHP);
-    //a.origHP = p1.hp;
-    //console.log("a.origHP: " + a.origHP);
-    //console.log(JSON.stringify(b));
-    //console.log("b origHP: " + b.origHP);
+    console.log("Start " + Battle.round);
     const healAmount = Math.ceil(p1.hp * 0.2);
+    console.log("p1.hp " + p1.hp);
     console.log("healAmount: " + healAmount);
     p1.hp += Math.max(healAmount, p1.hp);
-    console.log("After: " + p1.hp);
-    console.log("After a: " + a.origHP);
-    //console.log(JSON.stringify(b));
-    console.log("After b: " + b.origHP)
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -117,6 +107,7 @@ export class Heal extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     //p1.hp *= 0.8;
+    console.log("End " + Battle.round);
     console.log("Done: " + p1.hp);
   }
 }
