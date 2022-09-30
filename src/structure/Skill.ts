@@ -85,18 +85,20 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    var a = {};
-    var b = a;
-    a.origHP = p1.hp;
-    console.log("a.origHP: " + a.origHP);
-    console.log(JSON.stringify(b));
-    console.log("b origHP: " + b.origHP);
+    var a = {origHP: p1.hp}; 
+    var b = Object.assign({}, a);
+    console.log("a " + a.origHP);
+    console.log("b " + b.origHP);
+    //a.origHP = p1.hp;
+    //console.log("a.origHP: " + a.origHP);
+    //console.log(JSON.stringify(b));
+    //console.log("b origHP: " + b.origHP);
     const healAmount = Math.ceil(p1.hp * 0.2);
     console.log("healAmount: " + healAmount);
     p1.hp += Math.max(healAmount, p1.hp);
     console.log("After: " + p1.hp);
     console.log("After a: " + a.origHP);
-    console.log(JSON.stringify(b));
+    //console.log(JSON.stringify(b));
     console.log("After b: " + b.origHP)
 
     const embed = new MessageEmbed()
