@@ -1,4 +1,4 @@
-import { Battle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
+import { Battle as BaseBattle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
 import { Message, MessageEmbed } from "discord.js";
 import { oneLine } from "common-tags";
 import { formatPercent, code } from "../utils";
@@ -85,7 +85,7 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    console.log("Start " + Fighter);
+    console.log("Start " + BaseBattle);
     const healAmount = Math.ceil(p1.hp * 0.2);
     console.log("p1.hp " + p1.hp);
     console.log("healAmount: " + healAmount);
@@ -107,7 +107,7 @@ export class Heal extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     //p1.hp *= 0.8;
-    console.log("End " + Fighter);
+    console.log("End " + BaseBattle);
     console.log("Done: " + p1.hp);
   }
 }
