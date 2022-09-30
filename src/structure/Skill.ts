@@ -1,4 +1,4 @@
-import { Battle as BaseBattle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
+import { BaseBattle, Fighter, Skill as BaseSkill } from "discordjs-rpg";
 import { Message, MessageEmbed } from "discord.js";
 import { oneLine } from "common-tags";
 import { formatPercent, code } from "../utils";
