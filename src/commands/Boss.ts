@@ -173,8 +173,8 @@ export default class extends Command {
             const currLevel = player.level;
             const sharedDrop = Math.ceil(modDrop * (player.level / party));
             const sharedXpDrop = Math.ceil(modXP * (player.level / party));
-            //player.addXP(sharedXpDrop);
-            player.addXP(8000);
+            player.addXP(sharedXpDrop);
+            //player.addXP(8000); //debug
             player.coins += sharedDrop;
             //player.coins += 200000; //debug
             //player.win++; //turn off Win/Hunt% for Boss battles
