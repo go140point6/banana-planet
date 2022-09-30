@@ -86,7 +86,7 @@ export class Heal extends Skill {
   use(p1: Fighter, _p2: Fighter) {
     
     var a = {origHP: p1.hp}; 
-    var b = Object.assign({}, a);
+    var b = a;
     console.log("a " + a.origHP);
     console.log("b " + b.origHP);
     //a.origHP = p1.hp;
