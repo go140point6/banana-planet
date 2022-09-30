@@ -85,7 +85,8 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    console.log("Start " + BaseBattle);
+    console.log("Start " + BaseBattle.round);
+    console.log("Start " + BaseBattle.this.round);
     const healAmount = Math.ceil(p1.hp * 0.2);
     console.log("p1.hp " + p1.hp);
     console.log("healAmount: " + healAmount);
@@ -107,7 +108,8 @@ export class Heal extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     //p1.hp *= 0.8;
-    console.log("End " + BaseBattle);
+    console.log("End " + BaseBattle.round);
+    console.log("End " + BaseBattle.this.round);
     console.log("Done: " + p1.hp);
   }
 }
