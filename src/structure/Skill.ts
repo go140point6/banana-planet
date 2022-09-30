@@ -85,16 +85,19 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    var a = {p1.hp};
+    var a = {};
     var b = a;
-    console.log("a: " + a);
+    a.origHP = p1.hp;
+    console.log("a.origHP: " + a.origHP);
     console.log(JSON.stringify(b));
+    console.log("b origHP: " + b.origHP);
     const healAmount = Math.ceil(p1.hp * 0.2);
     console.log("healAmount: " + healAmount);
     p1.hp += Math.max(healAmount, p1.hp);
     console.log("After: " + p1.hp);
-    console.log("After a: " + a);
+    console.log("After a: " + a.origHP);
     console.log(JSON.stringify(b));
+    console.log("After b: " + b.origHP)
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -111,7 +114,7 @@ export class Heal extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    p1.hp *= 0.8;
+    //p1.hp *= 0.8;
     console.log("Done: " + p1.hp);
   }
 }
