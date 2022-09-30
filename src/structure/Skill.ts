@@ -87,7 +87,7 @@ export class Heal extends Skill {
     
     console.log("Before: " + p1.hp);
     const healAmount = Math.ceil(p1.hp * 0.2);
-    console.log("healAmount " + healAmount);
+    console.log("healAmount: " + healAmount);
     p1.hp += Math.min(healAmount, p1.hp);
     console.log("After: " + p1.hp);
 
