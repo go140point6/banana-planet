@@ -81,13 +81,13 @@ export class Heal extends Skill {
   id = "heal";
   description = "Heals 20% of hp when activated, to maxium HP";
   price = 15_000;
-  interceptRate = 1.0; //debug 0.2
+  interceptRate = 0.2; //debug 0.2
 
   use(p1: Fighter, _p2: Fighter) {
     
     const healAmount = Math.ceil(p1.hp * 0.2);
-    console.log("p1.hp " + p1.hp);
-    console.log("healAmount: " + healAmount);
+    //console.log("p1.hp " + p1.hp);
+    //console.log("healAmount: " + healAmount);
     p1.hp += Math.max(healAmount, p1.hp);
 
     const embed = new MessageEmbed()
@@ -106,7 +106,7 @@ export class Heal extends Skill {
 
   close(p1: Fighter, _p2: Fighter) {
     //p1.hp *= 0.8;
-    console.log("Done: " + p1.hp);
+    //console.log("Done: " + p1.hp);
   }
 }
 
