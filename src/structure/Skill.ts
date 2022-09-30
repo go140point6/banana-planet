@@ -81,7 +81,7 @@ export class Heal extends Skill {
   id = "heal";
   description = "Heals 20% of hp when activated, to maxium HP";
   price = 15_000;
-  interceptRate = 0.2;
+  interceptRate = 1.0;
 
   use(p1: Fighter, _p2: Fighter) {
     
