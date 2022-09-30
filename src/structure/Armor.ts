@@ -6,7 +6,7 @@ import { Player } from "../structure/Player";
 export abstract class Armor extends BaseArmor {
   abstract price: number;
   description = oneLine`Armors is used to increase player’s armor stat. Max
-  armor can be equipped by a player is 9.`;
+  armor can be equipped by a player is 10.`;
 
   static get all(): Armor[] {
     return [
@@ -19,6 +19,7 @@ export abstract class Armor extends BaseArmor {
       new ArmCovers(),
       new Helmet(),
       new ChestPlate(),
+      new ForceField(),
     ];
   }
 
@@ -109,4 +110,11 @@ export class ChestPlate extends Armor {
   name = "Arc Reactor Plate";
   price = 10000;
   armor = 0.025
+}
+
+export class ForceField extends Armor {
+  id = "field";
+  name = "Force Field Bracelets";
+  price = 20000;
+  armor = 0.1
 }
