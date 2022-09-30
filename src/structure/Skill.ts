@@ -85,9 +85,8 @@ export class Heal extends Skill {
 
   use(p1: Fighter, _p2: Fighter) {
     
-    var a = {};
+    var a = {p1.hp};
     var b = a;
-    a = p1.hp;
     console.log("a: " + a);
     console.log(JSON.stringify(b));
     const healAmount = Math.ceil(p1.hp * 0.2);
