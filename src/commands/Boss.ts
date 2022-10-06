@@ -21,8 +21,8 @@ export default class extends Command {
   description = "fight boss";
   max = 5;
   //waitTime = 1000 * 60 * 60; //debug 1 hour?
-  //waitTime = 250 * 60 * 60; //debug 15 minutes
-  waitTime = 83 * 60 * 60; //debug 5 minutes
+  waitTime = 250 * 60 * 60; //debug 15 minutes
+  //waitTime = 83 * 60 * 60; //debug 5 minutes
   //waitTime = 10 * 60 * 60; //debug 36 seconds
 
   async exec(msg: Message, args: string[]) {
@@ -48,10 +48,10 @@ export default class extends Command {
 
         const duration = client.lastBossKilled.diffNow(["minutes"]);
         const minutes = Math.abs(duration.minutes);
-        const timeLeft = client.lastBossKilled.plus({ minutes: 6 }).toRelative(); //debug 10 or 6
+        const timeLeft = client.lastBossKilled.plus({ minutes: 10 }).toRelative(); //debug 10 or 6
 
         // if less than 10 mins
-        if (minutes < 6 ) { //debug 10 or 6
+        if (minutes < 10 ) { //debug 10 or 6
           msg.channel.send(`You can run the boss command again ${timeLeft}`);
           return;
         } else {
