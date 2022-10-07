@@ -12,7 +12,7 @@ export abstract class Armor extends BaseArmor {
     return [
       new EyePatch(),
       new MouthGuard(),
-      new Cup(),
+      new Belt(),
       new Boots(),
       new Gloves(),
       new Leggings(),
@@ -63,9 +63,9 @@ export class MouthGuard extends Armor {
   armor = 0.004
 }
 
-export class Cup extends Armor {
-  id = "cup";
-  name = "Jock Strap and Cup";
+export class Belt extends Armor {
+  id = "belt";
+  name = "Belt";
   price = 100;
   armor = 0.006
 }
