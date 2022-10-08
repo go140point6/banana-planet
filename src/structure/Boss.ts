@@ -1,7 +1,7 @@
 import { Fighter } from "discordjs-rpg";
 import { currency, random } from "../utils";
 import { Defense, Heal, Rage, Luck, Damage } from "../structure/Skill";
-import { Fanatics, Eros, SilverSurfer, Darkseid, Media } from "./Pet";
+import { Fanatics, Lawyers, Lawsuit, PaperShredder, Vitalik } from "./Pet";
 
 export abstract class Boss extends Fighter {
   abstract drop: number;
@@ -9,11 +9,11 @@ export abstract class Boss extends Fighter {
 
   static get all(): Boss[] {
     return [
-      new Apocalypse("Apocalypse"),
-      new Thanos("Thanos"),
-      new Galactus("Galactus"),
-      new DarkPhoenix("Dark Phoenix"),
-      new JJonahJameson("J. Jonah Jameson"),
+      new Grewal("Grewal Demon Lord"),
+      new Berkovitz("Berkovitz Zombie Prime"),
+      new Clayton("Clayton Lich King"),
+      new Hinman("Undead Commander Hinman"),
+      new Gensler("Gensler Overlord")
     ];
   }
 
@@ -27,15 +27,15 @@ export abstract class Boss extends Fighter {
   }
 }
 
-export class Apocalypse extends Boss {
-  drop = random.integer(300, 900);
-  xpDrop = random.integer(300, 700);
-  attack = 500;
-  hp = 500;
-  armor = 0.25;
+export class Grewal extends Boss {
+  drop = random.integer(750, 1000);
+  xpDrop = random.integer(250, 500);
+  attack = 176;
+  hp = 540;
+  armor = 0.15;
   critChance = 0.1;
-  critDamage = 3;
-  imageUrl = "https://www.listchallenges.com/f/items/aa29bbdf-ddd9-4544-b895-1aa5f77b2cd4.jpg";
+  critDamage = 1.5;
+  imageUrl = "https://images2.imgbox.com/b7/4a/KoDR0kki_o.jpg";
   
   constructor(name: string) {
     super(name);
@@ -48,15 +48,15 @@ export class Apocalypse extends Boss {
   }
 }
 
-export class Thanos extends Boss {
-  drop = random.integer(900, 1500);
-  xpDrop = random.integer(600, 1000);
-  attack = 1200;
-  hp = 1420;
-  armor = 0.30;
-  critChance = 0.2;
-  critDamage = 3.4;
-  imageUrl = "https://www.listchallenges.com/f/items/ce8cf83b-8bfe-448e-a4a7-b54153ea2aa2.jpg"
+export class Berkovitz extends Boss {
+  drop = random.integer(1500, 2000);
+  xpDrop = random.integer(500, 750);
+  attack = 248;
+  hp = 630;
+  armor = 0.18;
+  critChance = 0.12;
+  critDamage = 1.8;
+  imageUrl = "https://images2.imgbox.com/b0/64/HjlHRGac_o.jpg"
 
   constructor(name: string) {
     super(name);
@@ -64,20 +64,21 @@ export class Thanos extends Boss {
     const skill = new Defense(); 
     skill.setOwner(this);
 
-    const pet = new Eros()
+    const pet = new Lawyers()
     pet.setOwner(this);
   }
 }
 
-export class Galactus extends Boss {
-  drop = random.integer(1500, 2000);
-  xpDrop = random.integer(800, 1200);
-  attack = 2350;
-  hp = 2570;
-  armor = 0.35;
-  critChance = 0.3;
-  critDamage = 3.8;
-  imageUrl = "https://www.listchallenges.com/f/items/676ad1ae-3ad3-4225-9526-f5e8c2fd9515.jpg";
+export class Clayton extends Boss {
+
+  drop = random.integer(2000, 3000);
+  xpDrop = random.integer(750, 1000);
+  attack = 355;
+  hp = 725;
+  armor = 0.21;
+  critChance = 0.2;
+  critDamage = 2.1;
+  imageUrl = "https://images2.imgbox.com/4a/2e/tGWo43NR_o.jpg";
 
   
   constructor(name: string) {
@@ -86,20 +87,20 @@ export class Galactus extends Boss {
     const skill = new Heal(); 
     skill.setOwner(this);
 
-    const pet = new SilverSurfer()
+    const pet = new Lawsuit()
     pet.setOwner(this);
   }
 }
 
-export class DarkPhoenix extends Boss {
-  drop = random.integer(2000, 2500);
+export class Hinman extends Boss {
+  drop = random.integer(3000, 4000);
   xpDrop = random.integer(1000, 1500);
-  attack = 2750;
-  hp = 3000;
-  armor = 0.40;
-  critChance = 0.4;
-  critDamage = 4.5;
-  imageUrl = "https://www.listchallenges.com/f/items/27bc26e6-fca9-4252-bfd1-6abf33c8f3e5.jpg";
+  attack = 506;
+  hp = 825;
+  armor = 0.24;
+  critChance = 0.3;
+  critDamage = 2.4;
+  imageUrl = "https://images2.imgbox.com/68/b0/yU7sgdol_o.jpg";
 
   
   constructor(name: string) {
@@ -108,20 +109,20 @@ export class DarkPhoenix extends Boss {
     const skill = new Damage(); 
     skill.setOwner(this);
 
-    const pet = new Darkseid()
+    const pet = new PaperShredder()
     pet.setOwner(this);
   }
 }
 
-export class JJonahJameson extends Boss {
-  drop = random.integer(2500, 3500);
-  xpDrop = random.integer(1750, 2250);
-  attack = 3500;
-  hp = 5000;
-  armor = 0.45;
-  critChance = 0.5;
-  critDamage = 5.5;
-  imageUrl = "https://www.listchallenges.com/f/items/9bf800b2-de67-4560-b8dd-8bf33ce71968.jpg";
+export class Gensler extends Boss {
+  drop = random.integer(4000, 5000);
+  xpDrop = random.integer(1500, 2000);
+  attack = 693;
+  hp = 930;
+  armor = 0.3;
+  critChance = 0.35;
+  critDamage = 3.0;
+  imageUrl = "https://images2.imgbox.com/26/27/m8m6uJC4_o.jpg";
 
   
   constructor(name: string) {
@@ -130,7 +131,7 @@ export class JJonahJameson extends Boss {
     const skill = new Luck(); 
     skill.setOwner(this);
 
-    const pet = new Media()
+    const pet = new Vitalik()
     pet.setOwner(this);
   }
 }

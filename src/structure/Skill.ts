@@ -48,7 +48,7 @@ export class Rage extends Skill {
   name = "Ape Rage";
   id = "rage";
   description = "Does double damage when activated temporarily";
-  price = 50_000;
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
@@ -79,17 +79,16 @@ export class Rage extends Skill {
 export class Heal extends Skill {
   name = "Ape Heal";
   id = "heal";
-  description = "Heals 20% of hp when activated, to maxium hp";
-  price = 50_000;
-  interceptRate = 0.2;
+  description = "Heals 10% of hp when activated";
+  price = 10_000;
+  interceptRate = 0.2; //debug 0.2
 
   use(p1: Fighter, _p2: Fighter) {
     
-    //console.log("Before: " + p1.hp);
-    const healAmount = Math.ceil(p1.hp * 0.2);
-  
-    p1.hp += Math.min(healAmount, p1.hp);
-    //console.log("After: " + p1.hp);
+    const healAmount = Math.ceil(p1.hp * 0.1);
+    //console.log("p1.hp " + p1.hp);
+    //console.log("healAmount: " + healAmount);
+    p1.hp += healAmount;
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
@@ -106,7 +105,7 @@ export class Heal extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    p1.hp *= 0.8;
+    //p1.hp *= 0.8;
     //console.log("Done: " + p1.hp);
   }
 }
@@ -114,23 +113,22 @@ export class Heal extends Skill {
 export class Defense extends Skill {
   name = "Ape Defense";
   id = "defense";
-  description = "Increase armor for 10% when activated";
-  price = 50_000;
+  description = "Double armor when activated";
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
     //console.log("Before " + p1.armor);
-    const armorAmount = p1.armor * 0.1;
-    p1.armor += armorAmount;
+    p1.armor *= 2;
     //console.log("After " + p1.armor);
 
     const embed = new MessageEmbed()
       .setTitle("Skill interception")
       .setColor("GREEN")
       .setDescription(
-        oneLine`${p1.name} uses **${this.name} Skill** and increases
-        ${code(formatPercent(armorAmount))}armor !`
+        oneLine`${p1.name} uses **${this.name} Skill** and increases armor to
+        ${code(formatPercent(p1.armor))}!`
       )
 
     if (this.imageUrl)
@@ -139,20 +137,24 @@ export class Defense extends Skill {
     return embed;
   }
 
-  close(_p1: Fighter, _p2: Fighter) { }
+  close(_p1: Fighter, _p2: Fighter) {
+    //console.log("Almost Done " + _p1.armor);
+    _p1.armor /= 2;
+    //console.log("Done: " + _p1.armor);
+   }
 }
 
 export class Luck extends Skill {
   name = "Ape Luck";
   id = "luck";
   description = "Increase critical chance by 5% when activated";
-  price = 50_000;
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
     //console.log("Before " + p1.critChance);
-    const critChanceAmount = p1.critChance * 0.5;
+    const critChanceAmount = p1.critChance + 0.05;
     p1.critChance += critChanceAmount;
     //console.log("After " + p1.critChance);
 
@@ -176,14 +178,14 @@ export class Luck extends Skill {
 export class Damage extends Skill {
   name = "Ape Crtical Damage";
   id = "damage";
-  description = "Triples critDamage when activated";
-  price = 50_000;
+  description = "Increases critDamage by x1.5 when activated";
+  price = 10_000;
   interceptRate = 0.2;
 
   use(p1: Fighter, _p2: Fighter) {
 
     //console.log("Before " + p1.critDamage);
-    p1.critDamage *= 3;
+    p1.critDamage *= 1.5;
     //console.log("After " + p1.critDamage);
 
     const embed = new MessageEmbed()
@@ -201,7 +203,7 @@ export class Damage extends Skill {
   }
 
   close(p1: Fighter, _p2: Fighter) {
-    p1.critDamage /= 3;
+    p1.critDamage /= 1.5;
     //console.log("Done: " + p1.critDamage);
     }
   }

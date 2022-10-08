@@ -1,14 +1,14 @@
 import { Command } from "@jiman24/commandment";
 import { Message } from "discord.js";
 import { Player } from "../structure/Player";
-import { random, validateAmount, validateNumber } from "../utils";
+import { random, validateAmount, validateNumber, currency } from "../utils";
 
 export default class extends Command {
   name = "gamble";
   description = "slot machine game";
   symbols = ["🔵", "🔴", "⚪"];
   throttle = 60 * 1000;
-  disable = false;
+  disable = true;
 
   private allEqual(arr: string[]) {
     return arr.every(x => x === arr[0]);
@@ -76,12 +76,12 @@ export default class extends Command {
     player.coins -= amount;
 
     if (multiplier === 1) {
-      msg.channel.send(`You lost **${amount}** coins!`);
+      msg.channel.send(`You lost **${amount}** ${currency}!`);
 
     } else {
       const winAmount = multiplier * amount;
       player.coins += winAmount;
-      msg.channel.send(`You won **(x${multiplier}) ${winAmount}** coins!`);
+      msg.channel.send(`You won **(x${multiplier}) ${winAmount}** ${currency}!`);
 
     }
 
